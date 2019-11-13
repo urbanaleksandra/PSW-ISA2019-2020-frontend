@@ -1,8 +1,11 @@
 #adminLinks{
     margin-top: 30px;
-
+    
 }
 a:hover {
     text-decoration: none;
+}
+footer{
+    margin-top: 200px;
 }
 

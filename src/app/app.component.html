@@ -1,5 +1,5 @@
 
- <a class='nav-link' routerLinkActive='active' [routerLink]="['/profileClinicCenterAdmin']">Profile of clinic center administrator </a>
+ <a class='nav-link' id="profileClinicCenterAdmin" *ngIf="this.isButtonVisible" (click)="this.isButtonVisible = false" routerLinkActive='active' [routerLink]="['/profileClinicCenterAdmin']">Profile of clinic center administrator </a>
 
 
 
