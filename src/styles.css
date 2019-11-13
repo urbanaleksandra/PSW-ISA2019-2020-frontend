@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    font-size: 14px;
+    line-height: 1.8;
+    color: rgb(55, 49, 105);
+    font-weight: 400;
+    background-image: url("./app/images/slika.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    -ms-background-size: cover;
+    background-position: center center;
+    padding: 20px 0; }
