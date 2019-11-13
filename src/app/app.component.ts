@@ -8,4 +8,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'my-app';
   private isButtonVisible = true;
+  
+  change(isButtonVisible:boolean){
+    this.isButtonVisible = isButtonVisible;
+  }
 }

@@ -7,7 +7,5 @@ import { Component } from "@angular/core";
 
 export class ClinicCenterAdministrator{
     icon = "Clinic centar";
-    imageWidth = 50;
-    imageMargin = 2;
 
 }
