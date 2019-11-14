@@ -7,6 +7,7 @@ import { ClinicCenterAdministrator } from './profiles/clinic-center-administrato
 import { RouterModule } from '@angular/router';
 import { Requests } from './requests/requests.component';
 import { Clinic } from './clinic/new-clinic.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { Clinic } from './clinic/new-clinic.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     RouterModule.forRoot([
       { path: 'profileClinicCenterAdmin', component: ClinicCenterAdministrator },
       { path: 'requests', component:  Requests},

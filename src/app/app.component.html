@@ -1,4 +1,3 @@
-
 <div class="main" *ngIf="this.isButtonVisible">
     <a class='nav-link' id="profileClinicCenterAdmin" (click)="change(false)" routerLinkActive='active' [routerLink]="['/profileClinicCenterAdmin']">Profile of clinic center administrator </a>
 
@@ -8,16 +7,40 @@
                 <form method="POST" id="signup-form" class="signup-form">
                     <h2 class="form-title">Create account</h2>
                     <div class="form-group">
-                        <input type="text" class="form-input" name="name" id="name" placeholder="Your Name"/>
+                        <input required ngModel name="name1" #name1="ngModel" id="name1" type="text" class="form-input" placeholder="Your Name"/>
+                        <div class="alert alert-danger" *ngIf="name1.touched && !name1.valid">Name is required.</div>
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-input" name="email" id="email" placeholder="Your Email"/>
+                        <input required ngModel name="lastName" #lastName="ngModel" id="lastName" type="text" class="form-input" placeholder="Your Last Name"/>
+                        <div class="alert alert-danger" *ngIf="lastName.touched && !lastName.valid">Last name is required.</div>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-input" name="password" id="password" placeholder="Password"/>
+                        <input required ngModel name="email" id="email" #email="ngModel" type="email" class="form-input" placeholder="Your Email"/>
+                        <div class="alert alert-danger" *ngIf="email.touched && !email.valid">Email is required.</div>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-input" name="re_password" id="re_password" placeholder="Repeat your password"/>
+                        <input required ngModel name="password" id="password" #password="ngModel" type="text" class="form-input" placeholder="Password"/>
+                        <div class="alert alert-danger" *ngIf="password.touched && !password.valid">Password is required.</div>
+                    </div>
+                    <div class="form-group">
+                        <input required ngModel  name="re_password" id="re_password" #re_password="ngModel" type="password" class="form-input" placeholder="Repeat your password"/>
+                        <div class="alert alert-danger" *ngIf="re_password.touched && !re_password.valid">Re_password is required.</div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-input" name="address" id="address" placeholder="Address"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-input" name="city" id="city" placeholder="City"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-input" name="country" id="country" placeholder="Country"/>
+                    </div>
+                    <div class="form-group">
+                        <input required ngModel name="insuranceNumber" id="insuranceNumber" #insuranceNumber="ngModel" type="text" class="form-input" placeholder="Insurance Number"/>
+                        <div class="alert alert-danger" *ngIf="insuranceNumber.touched && !insuranceNumber.valid">Insurance number is required.</div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-input" name="phoneNumber" id="phoneNumer" placeholder="Phone Number"/>
                     </div>
                     <div class="form-group">
                         <input type="submit" name="submit" id="submit" class="form-submit" value="Sign up"/>
@@ -32,4 +55,5 @@
   
 </div>
 
- <router-outlet></router-outlet>
+
+<router-outlet></router-outlet>
