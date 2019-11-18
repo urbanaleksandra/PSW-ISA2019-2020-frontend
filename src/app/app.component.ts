@@ -23,9 +23,5 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 })
 export class AppComponent {
   title = 'my-app';
-  private isButtonVisible = true;
-
-  change(isButtonVisible:boolean){
-    this.isButtonVisible = isButtonVisible;
-  }
+  
 }
