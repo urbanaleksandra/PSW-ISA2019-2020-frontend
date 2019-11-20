@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { AuthService } from './auth.service';
+import { NgForm } from '@angular/forms';
+import { User } from '../model/User';
 
 @Component({
   selector: 'app-login',
@@ -7,12 +11,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  user : User = new User();
+  // username: string;
+  // password : string;
+  errorMessage = 'Invalid Credentials';
+  successMessage: string;
+  invalidLogin = false;
+  loginSuccess = false;
+  private isVisible = true;
+
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private authenticationService: AuthService) {   }
 
   ngOnInit() {
   }
 
-  private isVisible = true;
+  handleLogin() {
+    this.authenticationService.authenticationService(this.user.username, this.user.password).subscribe((result)=> {
+      this.invalidLogin = false;
+      this.loginSuccess = true;
+      console.log('radi7');
+      this.successMessage = 'Login Successful.';
+      this.router.navigate(['/profileClinicCenterAdmin']);
+    }, () => {
+      this.invalidLogin = true;
+      this.loginSuccess = false;
+      this.isVisible = false;
+    });      
+  }
 
   change(isVisible:boolean){
     this.isVisible = isVisible;

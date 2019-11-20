@@ -10,6 +10,8 @@ import { Clinic } from './clinic/new-clinic.component';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { HttpInterceptorService } from './login/HttpInterceptorService';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,14 +26,15 @@ import { RegistrationComponent } from './registration/registration.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    RouterModule.forRoot([
-      { path: 'profileClinicCenterAdmin', component: ClinicCenterAdministrator },
-      { path: 'requests', component:  Requests},
-      { path: 'new-clinic', component:  Clinic},
-      { path: 'registration', component:  RegistrationComponent}
-    ])
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
