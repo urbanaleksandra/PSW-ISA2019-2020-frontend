@@ -17,64 +17,26 @@
     </ul>
   </div>
 </nav>
-<div class="container">
+<div class="container" *ngFor='let request of requests' >
     <div class="card text-center">
         <div class="card-header">
           Request #1
         </div>
         <div class="card-body">
           <table class="table">
-            <tr><td><b>username:</b></td><td>user01</td><td><b>password:</b></td><td>123</td></tr>
-            <tr><td><b>email:</b></td><td>user01@gmail.com</td><td><b>county:</b></td><td>USA</td></tr>
-            <tr><td><b>first name:</b></td><td>John</td><td><b>last name:</b></td><td>John</td></tr>
+            <tr><td><b>username:</b></td><td>{{ request.username}}</td><td><b>password:</b></td><td>123</td></tr>
+            <tr><td><b>email:</b></td><td>{{ request.email }}</td><td><b>county:</b></td><td>{{ request.country}}</td></tr>
+            <tr><td><b>first name:</b></td><td>{{ request.firstName }}</td><td><b>last name:</b></td><td>{{ request.lastName }}</td></tr>
           </table>
         </div>
         <div class="card-footer text-muted">
-            <a href="#" class="btn btn-outline-success" style="margin-right: 15px;"><img src="https://www.freeiconspng.com/uploads/accept-tick-icon-12.png"
+            <a (click)="accept(request)" class="btn btn-outline-success" style="margin-right: 15px;"><img src="https://www.freeiconspng.com/uploads/accept-tick-icon-12.png"
                 >Accept</a>
-            <a href="#" class="btn btn-outline-danger"><img src="https://icon-library.net/images/cancel-icon-transparent/cancel-icon-transparent-28.jpg"
+            <a (click)="deleteRequests(request)" class="btn btn-outline-danger"><img src="https://icon-library.net/images/cancel-icon-transparent/cancel-icon-transparent-28.jpg"
                 >Deny</a>
         </div>
     </div>
 
-    <div class="card text-center">
-        <div class="card-header">
-          Request #2
-        </div>
-        <div class="card-body">
-          <table class="table">
-            <tr><td><b>username:</b></td><td>user02</td><td><b>password:</b></td><td>123</td></tr>
-            <tr><td><b>email:</b></td><td>user02@gmail.com</td><td><b>county:</b></td><td>USA</td></tr>
-            <tr><td><b>first name:</b></td><td>Tom</td><td><b>last name:</b></td><td>John</td></tr>
-          </table>
-          
-        </div>
-        <div class="card-footer text-muted">
-            <a href="#" class="btn btn-outline-success" style="margin-right: 15px;"><img src="https://www.freeiconspng.com/uploads/accept-tick-icon-12.png"
-               >Accept</a>
-            <a href="#" class="btn btn-outline-danger"><img src="https://icon-library.net/images/cancel-icon-transparent/cancel-icon-transparent-28.jpg"
-                >Deny</a>
-        </div>
-    </div>
-    <div class="card text-center">
-      <div class="card-header">
-        Request #3
-      </div>
-      <div class="card-body">
-        <table class="table">
-          <tr><td><b>username:</b></td><td>user03</td><td><b>password:</b></td><td>123</td></tr>
-          <tr><td><b>email:</b></td><td>user03@gmail.com</td><td><b>county:</b></td><td>USA</td></tr>
-          <tr><td><b>first name:</b></td><td>Julia</td><td><b>last name:</b></td><td>Roberts</td></tr>
-        </table>
-        
-      </div>
-      <div class="card-footer text-muted">
-          <a href="#" class="btn btn-outline-success" style="margin-right: 15px;"><img src="https://www.freeiconspng.com/uploads/accept-tick-icon-12.png"
-              >Accept</a>
-          <a href="#" class="btn btn-outline-danger"><img src="https://icon-library.net/images/cancel-icon-transparent/cancel-icon-transparent-28.jpg"
-              >Deny</a>
-      </div>
-  </div>
 
 </div>
  <!-- Footer -->

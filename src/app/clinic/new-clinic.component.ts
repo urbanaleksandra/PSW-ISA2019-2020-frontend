@@ -1,7 +1,8 @@
 import { Component, OnInit} from "@angular/core";
 import { Clinic } from './clinic';
 import { Router } from '@angular/router';
-import { ClinicService } from './clinic.service';
+import { ClinicService } from '../service/clinic.service';
+
 
 @Component({
     templateUrl: './new-clinic.component.html',

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { Requests } from './requests/requests.component';
+import { RequestComponent } from './requests/requests.component';
 import { NewClinic } from './clinic/new-clinic.component';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
@@ -11,7 +11,7 @@ import { DoctorComponent } from './profiles/doctor.component';
 
 const routes: Routes = [
       { path: 'profileClinicCenterAdmin', component: ClinicCenterAdministrator },
-      { path: 'requests', component:  Requests},
+      { path: 'requests', component:  RequestComponent},
       { path: 'new-clinic', component:  NewClinic},
       { path: 'registration', component:  RegistrationComponent},
       { path: 'login', component:  LoginComponent},

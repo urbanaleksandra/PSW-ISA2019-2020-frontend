@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ClinicCenterAdministrator } from './profiles/clinic-center-administrator.component';
 import { RouterModule } from '@angular/router';
-import { Requests } from './requests/requests.component';
+import { RequestComponent } from './requests/requests.component';
 import { NewClinic  } from './clinic/new-clinic.component';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
@@ -18,7 +18,7 @@ import { DoctorComponent } from './profiles/doctor.component';
   declarations: [
     AppComponent,
     ClinicCenterAdministrator,
-    Requests,
+    RequestComponent,
     NewClinic ,
     LoginComponent,
     RegistrationComponent,
