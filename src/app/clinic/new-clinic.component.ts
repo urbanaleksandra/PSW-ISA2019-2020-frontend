@@ -5,30 +5,41 @@ import { ClinicService } from './clinic.service';
 
 @Component({
     templateUrl: './new-clinic.component.html',
+    styleUrls: ['./clinic.component.css']
 })
 export class NewClinic implements OnInit{
 
     clinic: Clinic = new Clinic();
     submitted = false;
+    clinics: Clinic[] = [];
+    isButtonVisible = false;
 
     constructor(private clinicService: ClinicService,
         private router: Router) { }
     
     ngOnInit() {
+       this.getClinics();
+       
     }
 
-    newClinic(): void {
-        this.submitted = false;
-        this.clinic = new Clinic();
+    getClinics(){
+        this.clinicService.getClinics().subscribe(
+            data =>{
+                this.clinics=data;
+            },
+            error => {
+            console.log(error);
+            }
+           )
     }
+    
 
     save() {
         this.clinicService.createClinic(this.clinic)
-          .subscribe(data => { this.router.navigate(['/profileClinicCenterAdmin'])});
-          console.log(this.clinic.name)
-          console.log(this.clinic.description)
-        this.clinic = new Clinic();
-        
+          .subscribe((result)=> {
+            this.getClinics();
+          })
+          this.clinic = new Clinic();
     }
 
     onSubmit() {
@@ -36,4 +47,7 @@ export class NewClinic implements OnInit{
         this.submitted = true;
         this.save();    
     }
+    change(){
+        !this.isButtonVisible
+      }
 }
