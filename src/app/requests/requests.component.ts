@@ -10,9 +10,10 @@ import { Patient } from '../model/Patient';
 export class RequestComponent implements OnInit{
 
     requests: Patient[] = [];
-
+    message = "";
+    denyClicked = false;
     constructor(private service: RequestService){}
-
+    deletedUser = "";
     ngOnInit(): void {
         this.getRequest();
     }
@@ -28,9 +29,11 @@ export class RequestComponent implements OnInit{
     }
 
     deleteRequests(patient: Patient){
+        this.denyClicked = true;
         this.service.deleteRequest(patient).subscribe((result)=> {
-            this.getRequest();
+            //this.getRequest();
           })
+          this.deletedUser = patient.email;
     }
 
     accept(patient: Patient){
@@ -38,6 +41,13 @@ export class RequestComponent implements OnInit{
             this.getRequest();
           })
     }
-    
+    sendMessage(){
+        this.denyClicked = false;
+        console.log(this.message);
+        this.getRequest();
+        this.service.sendMessage(this.message, this.deletedUser).subscribe((result)=> {
+            this.getRequest();
+          })
+    }
     
 }

@@ -25,4 +25,8 @@ export class RequestService{
         return this.http.post('http://localhost:8080/api/accept-request', patient);
 
     }
+
+    sendMessage(message: String, email: string){
+        return this.http.post('http://localhost:8080/api/deny-request-message/'+ email, message);
+    }
 }

@@ -20,7 +20,7 @@
 <div class="container" *ngFor='let request of requests' >
     <div class="card text-center">
         <div class="card-header">
-          Request #1
+          Request #{{ request.id}}
         </div>
         <div class="card-body">
           <table class="table">
@@ -32,13 +32,25 @@
         <div class="card-footer text-muted">
             <a (click)="accept(request)" class="btn btn-outline-success" style="margin-right: 15px;"><img src="https://www.freeiconspng.com/uploads/accept-tick-icon-12.png"
                 >Accept</a>
-            <a (click)="deleteRequests(request)" class="btn btn-outline-danger"><img src="https://icon-library.net/images/cancel-icon-transparent/cancel-icon-transparent-28.jpg"
-                >Deny</a>
+            <button (click)="deleteRequests(request)" class="btn btn-outline-danger"><img src="https://icon-library.net/images/cancel-icon-transparent/cancel-icon-transparent-28.jpg"
+                >Deny</button>
+                <div class="container">
+                    <div *ngIf="this.denyClicked">
+                      <label>Message:</label>
+                      <textarea class="form-control" rows="5" placeholder="Description" [(ngModel)]="message" name="clinicDescription" id="description" required></textarea>
+                      <button class="btn btn-success" (click)="sendMessage()" >Send explanation</button>
+                    </div> 
+                  </div>
         </div>
+        
     </div>
-
+    
+    
 
 </div>
+  
+
+ 
  <!-- Footer -->
  <footer class="page-footer font-small special-color-dark pt-4">
 
