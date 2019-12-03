@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { ApiService } from '../service/api.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,34 +15,47 @@ export class AuthService {
   public username: String;
   public password: String;
   private url: string;
+  private access_token = null;
 
-  constructor(private http: HttpClient, private router : Router) {
+  constructor(private http: HttpClient, private router : Router, private apiService: ApiService) {
     this.url = `http://localhost:8080/findByUsernameAndPassword`;
   }
 
   authenticationService(username: String, password: String) {
     console.log(username);
-    return this.http.get<any>(this.url,
-      { headers: { Authorization: this.createBasicAuthToken(username, password),'Content-Type': 'application/json' } }).pipe(map((res) => {
-        this.username = username;
-        this.password = password;
-        this.registerSuccessfulLogin(username, password);
-      }));
+    const loginHeaders = new HttpHeaders({
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    });
+    const body = {
+      'username' : username,
+      'password' : password
+    };
+
+    return this.apiService.post(this.url, body, loginHeaders)
+    .pipe(map((res) => {
+      console.log('Login success');
+      this.username = username;
+      this.password = password;
+      this.access_token = res; //ako je na serveru u beku dobro return-ovan token, onda je on ovde
+      console.log(this.access_token);
+      this.registerSuccessfulLogin(username, password);
+    }));
   }
 
-  createBasicAuthToken(username: String, password: String) {
-    return 'Basic ' + window.btoa(username + ":" + password)
-  }
+  // createBasicAuthToken(username: String, password: String) {
+  //   return 'Basic ' + window.btoa(username + ":" + password)
+  // }
 
   registerSuccessfulLogin(username, password) {
     sessionStorage.setItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME, username)
   }
 
-  // logout() {
-  //   sessionStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME);
-  //   this.username = null;
-  //   this.password = null;
-  // }
+  logout() {
+    sessionStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME);
+    this.username = null;
+    this.password = null;
+  }
 
   isUserLoggedIn() {
     let user = sessionStorage.getItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME)

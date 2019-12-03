@@ -32,14 +32,10 @@ export class LoginComponent implements OnInit {
     this.authenticationService.authenticationService(this.user.username, this.user.password).subscribe((result)=> {
       this.invalidLogin = false;
       this.loginSuccess = true;
+      this.isVisible = false;
       console.log('radi');
       this.successMessage = 'Login Successful.';
       this.router.navigate(['/profileClinicCenterAdmin']);
-    }, () => {
-      console.log('ne radi');
-      this.invalidLogin = true;
-      this.loginSuccess = false;
-      this.isVisible = false;
     });      
   }
 
