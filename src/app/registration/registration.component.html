@@ -49,7 +49,7 @@
                         <input type="text" class="form-input" [(ngModel)]="patient.mobileNumber" name="phoneNumber" id="phoneNumer" placeholder="Phone Number"/>
                     </div>
                     <div class="form-group">
-                        <input type="submit" name="submit" id="submit" class="form-submit" (click)="registrationClick()" value="Sign up"/>
+                        <input type="submit" name="submit" id="submit" class="form-submit" (click)="registrationClick()" routerLinkActive='active' [routerLink]="['/profileClinicCenterAdmin']" value="Sign up"/>
                     </div>
                 </form>
             </div>

@@ -26,13 +26,34 @@
                 <ul class="list-group list-group-flush" id="options">
                     <li class="list-group-item"><a href="#" routerLinkActive='active' [routerLink]="['/requests']">Requests</a></li>
                     <li class="list-group-item"><a href="#" routerLinkActive='active' [routerLink]="['/new-clinic']">Add new clinic</a></li>
-                    <li class="list-group-item"><a href="#">Add new administrator</a></li>
+                    <li class="list-group-item"><a style="color:blue;" (click)="clickedNewAdmin()">Add new administrator</a></li>
                     <li class="list-group-item"><a href="#">Add diagnosis</a></li>
                 </ul>
             </div>
 
     </div>
-  
+    <div class="container" >
+        <form  id="newAdmin"  (ngSubmit)="clickedNewAdmin()" *ngIf="this.clicked" id="newForm">
+            <h6>Add new admin</h6>
+            <div class="form-row">
+              <div class="col-md-4 mb-3">
+                <label for="usernameCA">Username:</label>
+                <input type="text" class="form-control" id="usernameCA" name="username" placeholder="Username"  [(ngModel)]="ccadmin.username" required>
+              </div>
+              
+            </div>
+            <div class="form-row">
+              <div class="col-md-4 mb-3">
+                <label for="passwordCA">Password:</label>
+                <input type="text" class="form-control" id="passwordCA" placeholder="Password" [(ngModel)]="ccadmin.password" name="passwordCA"  required>
+              </div>
+            </div>
+            <button class="btn btn-success" type="submit" >Add admin</button>
+          </form>
+
+    </div>
+
+   
   <!-- Footer -->
 <footer class="page-footer font-small special-color-dark pt-4">
 

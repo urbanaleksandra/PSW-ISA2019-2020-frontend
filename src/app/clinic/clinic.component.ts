@@ -1,22 +1,30 @@
 import { Component, OnInit} from "@angular/core";
-import { Clinic } from './clinic';
+
 import { Router } from '@angular/router';
 import { ClinicService } from '../service/clinic.service';
+import { ClinicAdministrator } from '../model/ClinicAdministrator';
+import { Clinic } from '../model/clinic';
+import { ClinicAdministratorService } from '../service/clinicAdministrator.service';
 
 
 @Component({
-    templateUrl: './new-clinic.component.html',
+    templateUrl: './clinic.component.html',
     styleUrls: ['./clinic.component.css']
 })
-export class NewClinic implements OnInit{
+export class ClinicComponent implements OnInit{
 
     clinic: Clinic = new Clinic();
     submitted = false;
     clinics: Clinic[] = [];
     isButtonVisible = false;
+    clinicAdministrator: ClinicAdministrator = new ClinicAdministrator();
+    clickedClinic = "";
+    clinicToAddNewAdmin: Clinic = new Clinic();
+    addAdminClicked = false;
 
     constructor(private clinicService: ClinicService,
-        private router: Router) { }
+                private adminService: ClinicAdministratorService,
+                private router: Router) { }
     
     ngOnInit() {
        this.getClinics();
@@ -50,5 +58,19 @@ export class NewClinic implements OnInit{
     }
     change(){
         !this.isButtonVisible
-      }
+    }
+
+    addAdminForm(clinic: Clinic){
+        this.clinicToAddNewAdmin = clinic;
+        this.addAdminClicked = true;
+    }
+    onSubmitAdmin() {
+        console.log(this.clinicToAddNewAdmin);
+        this.addAdminClicked = false;
+        this.adminService.newAdmin(this.clinicAdministrator, this.clinicToAddNewAdmin.id)
+        .subscribe((result)=>{
+            console.log("proslo!!!");
+        })       
+    }
+
 }

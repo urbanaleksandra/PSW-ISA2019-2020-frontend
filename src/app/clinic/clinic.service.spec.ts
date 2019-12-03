@@ -1,8 +1,7 @@
 import { TestBed } from '@angular/core/testing';
+import { ClinicService } from '../service/clinic.service';
 
-import { ClinicService } from './clinic.service';
-
-describe('AvionService', () => {
+describe('ClinicService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
