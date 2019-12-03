@@ -1,0 +1,63 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light" *ngIf="this.isButtonVisible">
+  <a class="navbar-brand" href="#"><img src='https://powernetco.com/files/2018-04/icon-healthcare.png'
+      style="width:50px;height:50px;"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#" routerLinkActive='active' [routerLink]="['/profileClinicCenterAdmin']">Home <span
+            class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" routerLinkActive='active' [routerLink]="['/profileClinicCenterAdmin']">Profile<span
+            class="sr-only">(current)</span></a>
+      </li>
+
+    </ul>
+  </div>
+</nav>
+<div class="container">
+  <div class="card text-center">
+    <div class="card-body">
+      <table class="table" matSort (matSortChange)="sortData($event)">
+        <tr>
+          <th mat-sort-header="name">Username</th>
+          <th mat-sort-header="fname">First name</th>
+          <th mat-sort-header="lname">Last name</th>
+          <th mat-sort-header="email">Email</th>
+          <th mat-sort-header="address">Address</th>
+          <th mat-sort-header="city">City</th>
+          <th mat-sort-header="country">Country</th>
+          <th mat-sort-header="mnumber">Mobile number</th>
+          <th mat-sort-header="jmbg">JMBG</th>
+        </tr>
+        <tr *ngFor="let patient of patients">
+          <td>{{ patient.username}}</td>
+          <td>{{ patient.firstName}}</td>
+          <td>{{ patient.lastName}}</td>
+          <td>{{ patient.email}}</td>
+          <td>{{ patient.address}}</td>
+          <td>{{ patient.city}}</td>
+          <td>{{ patient.country}}</td>
+          <td>{{ patient.mobileNumber}}</td>
+          <td>{{ patient.jmbg}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<!-- Footer -->
+<footer class="page-footer font-small special-color-dark pt-4">
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2019 Copyright:
+    <b>Tim 52</b>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->

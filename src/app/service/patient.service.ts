@@ -15,4 +15,8 @@ export class PatientService {
     return this.http.post<Patient>('http://localhost:8080/register', patient)
   }
 
+  getAllPatients() {
+    return this.http.get<any>('http://localhost:8080/pacijenti');
+  }
+
 }

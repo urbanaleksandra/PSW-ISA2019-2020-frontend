@@ -12,6 +12,12 @@ import { RegistrationComponent } from './registration/registration.component';
 import { HttpInterceptorService } from './login/HttpInterceptorService';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DoctorComponent } from './profiles/doctor.component';
+import { DoktorHomePageComponent } from './profiles/doktor-home-page.component';
+import { PatientsListComponent } from './patients-list/patients-list.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularMaterialModule } from './angular-material.module';
+import { ClinicCenterAdministratorComponent } from './profiles/clinic-center-administrator.component';
+import { ClinicComponent } from './clinic/clinic.component';
 import { ClinicComponent } from './clinic/clinic.component';
 import { ClinicCenterAdministratorComponent } from './profiles/clinic-center-administrator.component';
 
@@ -24,13 +30,17 @@ import { ClinicCenterAdministratorComponent } from './profiles/clinic-center-adm
     ClinicComponent ,
     LoginComponent,
     RegistrationComponent,
-    DoctorComponent
+    DoctorComponent,
+    DoktorHomePageComponent,
+    PatientsListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    AngularMaterialModule
   ],
   providers: [
     {
