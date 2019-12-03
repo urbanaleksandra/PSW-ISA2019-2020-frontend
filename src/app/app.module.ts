@@ -18,6 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './angular-material.module';
 import { ClinicCenterAdministratorComponent } from './profiles/clinic-center-administrator.component';
 import { ClinicComponent } from './clinic/clinic.component';
+import { NewAppointmentComponent } from './new-appointment/new-appointment.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ClinicComponent } from './clinic/clinic.component';
     RegistrationComponent,
     DoctorComponent,
     DoktorHomePageComponent,
-    PatientsListComponent
+    PatientsListComponent,
+    NewAppointmentComponent
   ],
   imports: [
     BrowserModule,

@@ -9,6 +9,7 @@ import { DoktorHomePageComponent } from './profiles/doktor-home-page.component';
 import { PatientsListComponent } from './patients-list/patients-list.component';
 import { ClinicCenterAdministratorComponent } from './profiles/clinic-center-administrator.component';
 import { ClinicComponent } from './clinic/clinic.component';
+import { NewAppointmentComponent } from './new-appointment/new-appointment.component';
 
 
 
@@ -20,7 +21,8 @@ const routes: Routes = [
       { path: 'login', component:  LoginComponent},
       { path: 'doctor', component:  DoctorComponent},
       { path: 'doctorHomePage', component:  DoktorHomePageComponent},
-      { path: 'patients', component:  PatientsListComponent}
+      { path: 'patients', component:  PatientsListComponent},
+      { path: 'newAppointment', component:  NewAppointmentComponent},
 ];
 
 @NgModule({
