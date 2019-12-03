@@ -7,10 +7,9 @@ import { RegistrationComponent } from './registration/registration.component';
 import { DoctorComponent } from './profiles/doctor.component';
 import { DoktorHomePageComponent } from './profiles/doktor-home-page.component';
 import { PatientsListComponent } from './patients-list/patients-list.component';
-import { ClinicComponent } from './clinic/clinic.component';
 import { ClinicCenterAdministratorComponent } from './profiles/clinic-center-administrator.component';
 import { ClinicComponent } from './clinic/clinic.component';
-import { ClinicCenterAdministratorComponent } from './profiles/clinic-center-administrator.component';
+
 
 
 const routes: Routes = [

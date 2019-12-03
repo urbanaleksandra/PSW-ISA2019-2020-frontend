@@ -18,9 +18,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './angular-material.module';
 import { ClinicCenterAdministratorComponent } from './profiles/clinic-center-administrator.component';
 import { ClinicComponent } from './clinic/clinic.component';
-import { ClinicComponent } from './clinic/clinic.component';
-import { ClinicCenterAdministratorComponent } from './profiles/clinic-center-administrator.component';
-
 
 @NgModule({
   declarations: [
@@ -46,7 +43,7 @@ import { ClinicCenterAdministratorComponent } from './profiles/clinic-center-adm
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpInterceptorService,
-      multi: true
+      multi: true 
     }
   ],
   bootstrap: [AppComponent]
