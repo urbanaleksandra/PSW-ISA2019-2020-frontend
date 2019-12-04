@@ -37,7 +37,7 @@
             <label for="patient">Patient:</label>
             <form [formGroup]="patientsForm" (ngSubmit)="onSubmit()">
 
-                <select formControlName="name">
+                <select formControlName="name" (change)="selectChangeHandler($event)">
                     <option disabled>Select your patient here</option>
                     <option *ngFor="let patient of patients">{{patient.username}}</option>
                 </select>
