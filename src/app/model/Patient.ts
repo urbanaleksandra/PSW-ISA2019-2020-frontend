@@ -2,6 +2,8 @@ export class Patient{
             username : string = "";
 		
             password : string = "";
+
+            repassword : string = "";
 		
             firstName : string = "";
 		
@@ -15,7 +17,7 @@ export class Patient{
 		
             country : string = "";
 		
-            mobileNumber : number = 0;
+            mobileNumber : number;
 		
-            jmbg : number = 0;
+            jmbg : number;
 }
