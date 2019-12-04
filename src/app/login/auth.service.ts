@@ -1,8 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs/operators';
+import { map, catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { ApiService } from '../service/api.service';
+import { throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -33,7 +34,11 @@ export class AuthService {
     };
 
     return this.apiService.post(this.url, body, loginHeaders)
-    .pipe(map((res) => {
+    .pipe(
+      catchError(err => {
+        return throwError(err);
+      }),
+      map((res) => {
       console.log('Login success');
       this.username = username;
       this.password = password;
