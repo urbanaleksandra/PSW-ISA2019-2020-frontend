@@ -1,4 +1,4 @@
-<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#"><img src='https://powernetco.com/files/2018-04/icon-healthcare.png'
             style="width:50px;height:50px;"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -28,19 +28,34 @@
     <h4>Schedule new appointment:</h4>
     <form class="needs-validation" novalidate (ngSubmit)="onSubmit()">
         <div class="form-group">
-            <!-- <label for="date">Pick a date for appointment: </label> -->
-          <!--   <mat-form-field>
-                <input matInput [matDatepicker]="picker" placeholder="Choose a date">
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
+            <mat-form-field>
+                <input matInput type="datetime-local"  [(ngModel)]="appointment.date"  name="dateAppointment" placeholder="start date">
             </mat-form-field>
+        </div>
+
+        <div class="form-group">
+            <label for="patient">Patient:</label>
+            <form [formGroup]="patientsForm" (ngSubmit)="onSubmit()">
+
+                <select formControlName="name">
+                    <option disabled>Select your patient here</option>
+                    <option *ngFor="let patient of patients">{{patient.username}}</option>
+                </select>
+
+            </form>
+        </div>
+
+        <div class="form-group">
+            <label for="duration">Duration (hours):</label>
+            <textarea class="form-control" rows="1" placeholder="1" [(ngModel)]="appointment.duration"
+                name="clinicDescription" id="description"></textarea>
         </div>
         <div class="form-group">
             <label for="description">Description:</label>
             <textarea class="form-control" rows="5" placeholder="Description" [(ngModel)]="appointment.description"
                 name="clinicDescription" id="description"></textarea>
         </div>
-     
+
         <button class="btn btn-success" type="submit">Schedule</button>
     </form>
 </div>
@@ -54,4 +69,4 @@
     <!-- Copyright -->
 
 </footer>
-<!-- Footer --> --> -->
+<!-- Footer -->

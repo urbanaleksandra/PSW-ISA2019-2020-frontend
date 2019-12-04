@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { RequestComponent } from './requests/requests.component';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { HttpInterceptorService } from './login/HttpInterceptorService';
@@ -19,6 +19,7 @@ import { AngularMaterialModule } from './angular-material.module';
 import { ClinicCenterAdministratorComponent } from './profiles/clinic-center-administrator.component';
 import { ClinicComponent } from './clinic/clinic.component';
 import { NewAppointmentComponent } from './new-appointment/new-appointment.component';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,9 @@ import { NewAppointmentComponent } from './new-appointment/new-appointment.compo
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    NgxMaterialTimepickerModule,
+    ReactiveFormsModule
   ],
   providers: [
     {
