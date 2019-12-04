@@ -14,6 +14,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DoctorComponent } from './profiles/doctor.component';
 import { ClinicComponent } from './clinic/clinic.component';
 import { ClinicCenterAdministratorComponent } from './profiles/clinic-center-administrator.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { ClinicCenterAdministratorComponent } from './profiles/clinic-center-adm
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [
     {
