@@ -4,6 +4,8 @@
 }
 a:hover {
     text-decoration: none;
+    cursor:pointer;
+    color: rgb(86, 70, 187);
 }
 footer{
     margin-top: 200px;
@@ -14,8 +16,9 @@ footer{
     float: none; /* Added */
     margin-bottom: 10px; /* Added */
 }
-#newform, button, #newForm {
+#newform, button {
     margin: 0 auto; /* Added */
+    margin-top: 30px;
     float: none; /* Added */
     margin-bottom: 10px; /* Added */
 }

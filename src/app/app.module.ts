@@ -21,6 +21,7 @@ import { ClinicComponent } from './clinic/clinic.component';
 import { NewAppointmentComponent } from './new-appointment/new-appointment.component';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { PatientProfleComponent } from './profiles/patient-profile.component';
+import { NurseHomePageComponent } from './profiles/nurse-home-page/nurse-home-page.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { PatientProfleComponent } from './profiles/patient-profile.component';
     DoktorHomePageComponent,
     PatientsListComponent,
     NewAppointmentComponent,
-    PatientProfleComponent
+    PatientProfleComponent,
+    NurseHomePageComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +45,6 @@ import { PatientProfleComponent } from './profiles/patient-profile.component';
     HttpClientModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
-    NgxMaterialTimepickerModule,
     ReactiveFormsModule
   ],
   providers: [

@@ -11,10 +11,12 @@ import { ClinicCenterAdministratorComponent } from './profiles/clinic-center-adm
 import { ClinicComponent } from './clinic/clinic.component';
 import { NewAppointmentComponent } from './new-appointment/new-appointment.component';
 import { PatientProfleComponent } from './profiles/patient-profile.component';
+import { NurseHomePageComponent } from './profiles/nurse-home-page/nurse-home-page.component';
 
 
 
 const routes: Routes = [
+      { path: '', component: LoginComponent},
       { path: 'profileClinicCenterAdmin', component: ClinicCenterAdministratorComponent },
       { path: 'requests', component:  RequestComponent},
       { path: 'new-clinic', component:  ClinicComponent},
@@ -23,6 +25,7 @@ const routes: Routes = [
       { path: 'doctor', component:  DoctorComponent},
       { path: 'doctorHomePage', component:  DoktorHomePageComponent},
       { path: 'patients', component:  PatientsListComponent},
+      { path: 'nurse-home-page', component:  NurseHomePageComponent},
       { path: 'newAppointment', component:  NewAppointmentComponent},
       { path: 'patient-profile', component:  PatientProfleComponent}
 ];
