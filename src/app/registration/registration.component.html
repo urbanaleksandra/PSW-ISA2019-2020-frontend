@@ -1,9 +1,9 @@
 <div class="main" *ngIf="this.isButtonVisible">
-    <!-- <div>
+    <div>
         <a class='nav-link' id="profileClinicCenterAdmin" (click)="change(false)" routerLinkActive='active' [routerLink]="['/profileClinicCenterAdmin']">Profile of clinic center administrator </a>
         <a class='nav-link' id="profileClinicCenterAdmin" (click)="change(false)" routerLinkActive='active' [routerLink]="['/doctor']">Profile of medical staff </a>
         <a class='nav-link' id="profileClinicCenterAdmin" (click)="change(false)" routerLinkActive='active' [routerLink]="['/doctorHomePage']">Doctor's home page </a>
-    </div> -->
+    </div>
     <section class="signup" >
         <div class="container">
             <div class="signup-content">
@@ -16,7 +16,7 @@
                     <div class="form-group">
                         <input required [(ngModel)]="patient.firstName"  name="name1" #name1="ngModel"  id="name1" type="text" class="form-input" placeholder="Your Name" />
                         <div class="alert alert-danger" *ngIf="name1.touched && !name1.valid">Name is required.</div>
-                    </div>
+                     </div>
                     <div class="form-group">
                         <input required [(ngModel)]="patient.lastName"  name="lastName" #lastName="ngModel" id="lastName" type="text" class="form-input" placeholder="Your Last Name"/>
                         <div class="alert alert-danger" *ngIf="lastName.touched && !lastName.valid">Last name is required.</div>

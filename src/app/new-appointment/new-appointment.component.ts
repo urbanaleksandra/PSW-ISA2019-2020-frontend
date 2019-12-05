@@ -21,16 +21,21 @@ export class NewAppointmentComponent implements OnInit {
   patientsForm = this.fb.group({
     name: ['']
   })
+  patientSel: string = '';
 
+  //event handler for the select element's change event
+  selectChangeHandler (event: any) {
+    //update the ui
+    this.patientSel = event.target.value;
+  }
   onSubmit() {
 
-    alert(JSON.stringify(this.appointment.date))
-   // alert(this.appointment.patient)
+    alert(JSON.stringify(this.appointment.date));
+    
+    alert(this.patientSel)
     alert(this.appointment.description)
+    this.appointment.patient=this.patientSel;
     this.rAservice.addrequestAppointment(this.appointment).subscribe(
-      (result)=> {
-        console.log('radi ');
-      }
     );
   }
 
