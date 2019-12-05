@@ -17,6 +17,8 @@ import { PatientsListComponent } from './patients-list/patients-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './angular-material.module';
 import { ClinicCenterAdministratorComponent } from './profiles/clinic-center-administrator.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { ClinicComponent } from './clinic/clinic.component';
 import { NewAppointmentComponent } from './new-appointment/new-appointment.component';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
