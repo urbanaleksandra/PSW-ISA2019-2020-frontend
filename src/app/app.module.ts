@@ -19,6 +19,8 @@ import { AngularMaterialModule } from './angular-material.module';
 import { ClinicCenterAdministratorComponent } from './profiles/clinic-center-administrator.component';
 import { ClinicComponent } from './clinic/clinic.component';
 import { NewAppointmentComponent } from './new-appointment/new-appointment.component';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
+import { PatientProfleComponent } from './profiles/patient-profile.component';
 import { NurseHomePageComponent } from './profiles/nurse-home-page/nurse-home-page.component';
 
 @NgModule({
@@ -33,6 +35,7 @@ import { NurseHomePageComponent } from './profiles/nurse-home-page/nurse-home-pa
     DoktorHomePageComponent,
     PatientsListComponent,
     NewAppointmentComponent,
+    PatientProfleComponent,
     NurseHomePageComponent
   ],
   imports: [
