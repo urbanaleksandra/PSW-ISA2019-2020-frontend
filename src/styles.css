@@ -5,14 +5,8 @@ body {
     line-height: 1.8;
     color: rgb(55, 49, 105);
     font-weight: 400;
-    background-image: url("./app/images/slika.jpg");
-    background-repeat: no-repeat;
+    background: url("./app/images/slika.jpg") no-repeat center center fixed; ;
     background-size: cover;
-    -moz-background-size: cover;
-    -webkit-background-size: cover;
-    -o-background-size: cover;
-    -ms-background-size: cover;
-    background-position: center center;
     padding: 0px 0; }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

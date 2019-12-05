@@ -23,7 +23,8 @@
 <div class="container">
   <div class="card text-center">
     <div class="card-body">
-      <table class="table" matSort (matSortChange)="sortData($event)">
+      <table class="table table-hover" matSort (matSortChange)="sortData($event)">
+        <thead>
         <tr>
           <th mat-sort-header="name">Username</th>
           <th mat-sort-header="fname">First name</th>
@@ -34,7 +35,10 @@
           <th mat-sort-header="country">Country</th>
           <th mat-sort-header="mnumber">Mobile number</th>
           <th mat-sort-header="jmbg">JMBG</th>
+          <th></th>
         </tr>
+      </thead>
+      <tbody>
         <tr *ngFor="let patient of patients">
           <td>{{ patient.username}}</td>
           <td>{{ patient.firstName}}</td>
@@ -45,7 +49,9 @@
           <td>{{ patient.country}}</td>
           <td>{{ patient.mobileNumber}}</td>
           <td>{{ patient.jmbg}}</td>
+          <td><button class="btn btn-info" style="font-size: 13px;">View Profile</button></td>
         </tr>
+      </tbody>
       </table>
     </div>
   </div>

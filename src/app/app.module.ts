@@ -19,7 +19,7 @@ import { AngularMaterialModule } from './angular-material.module';
 import { ClinicCenterAdministratorComponent } from './profiles/clinic-center-administrator.component';
 import { ClinicComponent } from './clinic/clinic.component';
 import { NewAppointmentComponent } from './new-appointment/new-appointment.component';
-import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
+import { NurseHomePageComponent } from './profiles/nurse-home-page/nurse-home-page.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,8 @@ import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
     DoctorComponent,
     DoktorHomePageComponent,
     PatientsListComponent,
-    NewAppointmentComponent
+    NewAppointmentComponent,
+    NurseHomePageComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +42,6 @@ import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
     HttpClientModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
-    NgxMaterialTimepickerModule,
     ReactiveFormsModule
   ],
   providers: [

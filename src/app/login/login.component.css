@@ -126,13 +126,6 @@
   /*//////////////////////////////////////////////////////////////////
   [ login ]*/
   
-  .limiter {
-    width: 100%;
-    background-image: url("../images/slika.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin: 0 auto;
-  }
   
   .container-login100 {
     width: 100%;  
