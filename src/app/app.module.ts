@@ -20,6 +20,7 @@ import { ClinicCenterAdministratorComponent } from './profiles/clinic-center-adm
 import { ClinicComponent } from './clinic/clinic.component';
 import { NewAppointmentComponent } from './new-appointment/new-appointment.component';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
+import { PatientProfleComponent } from './profiles/patient-profile.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
     DoctorComponent,
     DoktorHomePageComponent,
     PatientsListComponent,
-    NewAppointmentComponent
+    NewAppointmentComponent,
+    PatientProfleComponent
   ],
   imports: [
     BrowserModule,
