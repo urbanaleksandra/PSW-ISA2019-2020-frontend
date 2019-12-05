@@ -14,7 +14,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DoctorComponent } from './profiles/doctor.component';
 import { DoktorHomePageComponent } from './profiles/doktor-home-page.component';
 import { PatientsListComponent } from './patients-list/patients-list.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './angular-material.module';
 import { ClinicCenterAdministratorComponent } from './profiles/clinic-center-administrator.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
