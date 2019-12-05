@@ -22,8 +22,11 @@ export class ClinicCenterAdministratorComponent implements OnInit{
        
     }
 
-    clickedNewAdmin(){
+    clickedNewAdminchange(){
         this.clicked = true;
+    }
+    clickedNewAdmin(){
+        this.clicked = false;
         console.log(this.ccadmin);
 
         this.service.newAdmin(this.ccadmin).subscribe((result)=>{

@@ -22,28 +22,28 @@
     </div>
   </nav>
     <div class="container">
-            <div class="card border-light mb-3" style="width: 18rem;" id="adminLinks">
+            <div class="card border-light mb-3" style="width: 20rem;" id="newform">
                 <ul class="list-group list-group-flush" id="options">
                     <li class="list-group-item"><a href="#" routerLinkActive='active' [routerLink]="['/requests']">Requests</a></li>
                     <li class="list-group-item"><a href="#" routerLinkActive='active' [routerLink]="['/new-clinic']">Add new clinic</a></li>
-                    <li class="list-group-item"><a style="color:blue;" (click)="clickedNewAdmin()">Add new administrator</a></li>
+                    <li class="list-group-item"><a style="color: dodgerblue;" (click)="clickedNewAdminchange()">Add new administrator</a></li>
                     <li class="list-group-item"><a href="#">Add diagnosis</a></li>
                 </ul>
             </div>
 
     </div>
     <div class="container" >
-        <form  id="newAdmin"  (ngSubmit)="clickedNewAdmin()" *ngIf="this.clicked" id="newForm">
+        <form id="newform" (ngSubmit)="clickedNewAdmin()" style="width: 20rem;" *ngIf="this.clicked" >
             <h6>Add new admin</h6>
             <div class="form-row">
-              <div class="col-md-4 mb-3">
+              <div  class="col-md-12">
                 <label for="usernameCA">Username:</label>
                 <input type="text" class="form-control" id="usernameCA" name="username" placeholder="Username"  [(ngModel)]="ccadmin.username" required>
               </div>
               
             </div>
             <div class="form-row">
-              <div class="col-md-4 mb-3">
+              <div class="col-md-12">
                 <label for="passwordCA">Password:</label>
                 <input type="text" class="form-control" id="passwordCA" placeholder="Password" [(ngModel)]="ccadmin.password" name="passwordCA"  required>
               </div>

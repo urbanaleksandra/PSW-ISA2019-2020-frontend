@@ -8,7 +8,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { 
    MatInputModule
 } from '@angular/material';
-import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+
 
 @NgModule({
     imports: [
@@ -18,8 +18,7 @@ import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
        MatDatepickerModule, 
        MatNativeDateModule,
        MatFormFieldModule,
-       MatInputModule,
-       NgxMaterialTimepickerModule
+       MatInputModule
     ],
     exports: [
        MatTableModule,
@@ -28,8 +27,7 @@ import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
        MatDatepickerModule, 
        MatNativeDateModule,
        MatFormFieldModule,
-       MatInputModule,
-       NgxMaterialTimepickerModule
+       MatInputModule
     ]
  })
 

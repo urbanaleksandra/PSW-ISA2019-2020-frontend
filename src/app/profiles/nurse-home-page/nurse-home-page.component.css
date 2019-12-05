@@ -1,0 +1,11 @@
+#form {
+    
+    margin: 0 auto; /* Added */
+    margin-top: 30px;
+    float: none; /* Added */
+    margin-bottom: 10px; /* Added */
+}
+a:hover {
+    text-decoration: none;
+    cursor:pointer;
+}
