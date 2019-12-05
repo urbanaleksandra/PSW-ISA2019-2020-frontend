@@ -6,16 +6,24 @@ import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { RequestComponent } from './requests/requests.component';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { HttpInterceptorService } from './login/HttpInterceptorService';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DoctorComponent } from './profiles/doctor.component';
-import { ClinicComponent } from './clinic/clinic.component';
+import { DoktorHomePageComponent } from './profiles/doktor-home-page.component';
+import { PatientsListComponent } from './patients-list/patients-list.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularMaterialModule } from './angular-material.module';
 import { ClinicCenterAdministratorComponent } from './profiles/clinic-center-administrator.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { ClinicComponent } from './clinic/clinic.component';
+import { NewAppointmentComponent } from './new-appointment/new-appointment.component';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
+import { PatientProfleComponent } from './profiles/patient-profile.component';
+import { NurseHomePageComponent } from './profiles/nurse-home-page/nurse-home-page.component';
 
 @NgModule({
   declarations: [
@@ -25,20 +33,27 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ClinicComponent ,
     LoginComponent,
     RegistrationComponent,
-    DoctorComponent
+    DoctorComponent,
+    DoktorHomePageComponent,
+    PatientsListComponent,
+    NewAppointmentComponent,
+    PatientProfleComponent,
+    NurseHomePageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AngularMaterialModule,
+    ReactiveFormsModule
   ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpInterceptorService,
-      multi: true
+      multi: true 
     }
   ],
   bootstrap: [AppComponent]

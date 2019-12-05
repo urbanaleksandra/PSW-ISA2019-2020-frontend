@@ -1,0 +1,88 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"><img src= 'https://powernetco.com/files/2018-04/icon-healthcare.png' 
+        style="width:50px;height:50px;"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#" routerLinkActive='active' [routerLink]="['/profileClinicCenterAdmin']">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#" routerLinkActive='active' [routerLink]="['/profileClinicCenterAdmin']">Profile<span class="sr-only">(current)</span></a>
+          </li>
+        
+      </ul>
+    </div>
+  </nav>
+
+    <h2 style="margin: 30px;" class="text-center">Your profile </h2>
+    <div class="container">
+        <div class="card" style="max-width: 540px;">
+            <div class="row no-gutters">
+              <div class="col-md-4">
+                <img  style="width:100px;height:100px;margin:30px;" src="https://www.shareicon.net/data/512x512/2016/08/18/813847_people_512x512.png" class="card-img" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">Information</h5>
+                  <p class="card-text">First name: {{ patient?.firstName }}</p>
+                  <p class="card-text">Last name: {{ patient?.lastName }}</p>
+                  <p class="card-text">Email: {{ patient?.email }}</p>
+                  <p class="card-text">Address: {{ patient?.address }}</p>
+                  <p class="card-text">City: {{ patient?.city }}</p>
+                  <p class="card-text">Country: {{ patient?.country }}</p>
+                  <p class="card-text">Mobile number: {{ patient?.mobileNumber }}</p>
+                  <p class="card-text">Insurance number: {{ patient?.jmbg }}</p>
+                </div>
+              </div>
+            </div>
+            <button type="button" class="btn btn-outline-info" (click)="change(true)">Change information</button>
+          </div>
+          
+    </div>
+
+    <div *ngIf="this.isButtonVisible">
+        <form id="newform"style="max-width: 540px;">
+            <div class="form-group">
+              <label for="name">First name</label>
+              <input type="text" class="form-control" [(ngModel)]="newPatient.firstName" name="firstNameToChange"  placeholder="Enter new first name">
+            </div>
+            <div class="form-group">
+              <label for="last">Last name</label>
+              <input type="text" class="form-control" [(ngModel)]="newPatient.lastName" name="lastNameToChange" placeholder="Enter new last name">
+            </div>
+            <div class="form-group">
+                <label for="last">City</label>
+                <input type="text" class="form-control" [(ngModel)]="newPatient.city" name="cityToChange" placeholder="Enter new city">
+            </div>
+            <div class="form-group">
+                <label for="last">Address</label>
+                <input type="text" class="form-control" [(ngModel)]="newPatient.address" name="addressToChange" placeholder="Enter new address">
+                </div>
+            <div class="form-group">
+                <label for="last">Country</label>
+                <input type="text" class="form-control" [(ngModel)]="newPatient.country" name="countryToChange" placeholder="Enter new country">
+            </div>
+            <div class="form-group">
+                <label for="last">Mobile number</label>
+                <input type="number" class="form-control" [(ngModel)]="newPatient.mobileNumber" name="mobileNumberToChange" placeholder="Enter new mobile number">
+            </div>
+            <button type="submit" (click)="change1(false)" class="btn btn-primary">Change information</button>
+          </form>
+    </div>
+    
+  
+    <!-- Footer -->
+    <footer class="page-footer font-small special-color-dark pt-4">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2019 Copyright:
+      <b>Tim 52</b>
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" *ngIf="this.isButtonVisible">
     <a class="navbar-brand" href="#"><img src= 'https://powernetco.com/files/2018-04/icon-healthcare.png' 
         style="width:50px;height:50px;"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,38 +22,15 @@
     </div>
   </nav>
     <div class="container">
-            <div class="card border-light mb-3" style="width: 20rem;" id="newform">
+            <div class="card border-light mb-3" style="width: 18rem;" id="adminLinks">
                 <ul class="list-group list-group-flush" id="options">
-                    <li class="list-group-item"><a href="#" routerLinkActive='active' [routerLink]="['/requests']">Requests</a></li>
-                    <li class="list-group-item"><a href="#" routerLinkActive='active' [routerLink]="['/new-clinic']">Add new clinic</a></li>
-                    <li class="list-group-item"><a style="color: dodgerblue;" (click)="clickedNewAdminchange()">Add new administrator</a></li>
-                    <li class="list-group-item"><a href="#">Add diagnosis</a></li>
+                    <li class="list-group-item"><a href="#" routerLinkActive='active' [routerLink]="['/patients']">Patients</a></li>
+                    <li class="list-group-item"><a href="#" routerLinkActive='active' [routerLink]="['/newAppointment']">Schedule an appointment</a></li>
                 </ul>
             </div>
 
     </div>
-    <div class="container" >
-        <form id="newform" (ngSubmit)="clickedNewAdmin()" style="width: 20rem;" *ngIf="this.clicked" >
-            <h6>Add new admin</h6>
-            <div class="form-row">
-              <div  class="col-md-12">
-                <label for="usernameCA">Username:</label>
-                <input type="text" class="form-control" id="usernameCA" name="username" placeholder="Username"  [(ngModel)]="ccadmin.username" required>
-              </div>
-              
-            </div>
-            <div class="form-row">
-              <div class="col-md-12">
-                <label for="passwordCA">Password:</label>
-                <input type="text" class="form-control" id="passwordCA" placeholder="Password" [(ngModel)]="ccadmin.password" name="passwordCA"  required>
-              </div>
-            </div>
-            <button class="btn btn-success" type="submit" >Add admin</button>
-          </form>
-
-    </div>
-
-   
+  
   <!-- Footer -->
 <footer class="page-footer font-small special-color-dark pt-4">
 
