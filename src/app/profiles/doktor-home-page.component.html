@@ -26,9 +26,29 @@
                 <ul class="list-group list-group-flush" id="options">
                     <li class="list-group-item"><a href="#" routerLinkActive='active' [routerLink]="['/patients']">Patients</a></li>
                     <li class="list-group-item"><a href="#" routerLinkActive='active' [routerLink]="['/newAppointment']">Schedule an appointment</a></li>
-                </ul>
+                    <li class="list-group-item"><a href="#" routerLinkActive='active' [routerLink]="['/']">Start an appointment</a></li>
+                    <li class="list-group-item"><a href="#" routerLinkActive='active' [routerLink]="['/']">Work calendar</a></li>
+                    <li class="list-group-item"><a style="color: dodgerblue;" (click)="change()" routerLinkActive='active'>Request Holiday</a></li>
+                    <li class="list-group-item"><a href="#" routerLinkActive='active' [routerLink]="['/']">Go to my profile</a></li>
+                  </ul>
             </div>
-
+           
+            <div *ngIf="this.isButtonVisible">
+              <form id="form" style="width: 18rem;">
+                <h6>Holiday Request</h6>
+                <div class="form-group">
+                  <mat-form-field>
+                      <input matInput type="datetime-local"  [(ngModel)]="holidayRequest.dateStart"  name="dateStart" placeholder="start date">
+                  </mat-form-field>
+                </div>
+                <div class="form-group">
+                  <mat-form-field>
+                      <input matInput type="datetime-local"  [(ngModel)]="holidayRequest.dateEnd"  name="dateEnd" placeholder="end date">
+                  </mat-form-field>
+                </div>
+                  <button type="submit" (click)="sendHolidayRequest()" class="btn btn-primary">Send Request</button>
+                </form>
+            </div>
     </div>
   
   <!-- Footer -->
