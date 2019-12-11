@@ -11,6 +11,7 @@ import { PatientService } from '../service/patient.service';
 export class DoctorComponent{
     user:User=new User() ;
     doctor: Doctor=new Doctor();
+    newDoctor: Doctor= new Doctor();
     constructor(private patientService : PatientService) { }
 
     ngOnInit() {
@@ -36,11 +37,15 @@ export class DoctorComponent{
     }
 
     change(isButtonVisible:boolean){
-        this.isButtonVisible = isButtonVisible;
+      if(this.isButtonVisible==false)
+      this.isButtonVisible=true;
+      else this.isButtonVisible=false;
       }
 
       change2(isButtonVisible2:boolean){
-        this.isButtonVisible2 = isButtonVisible2;
+        if(this.isButtonVisible2==false)
+        this.isButtonVisible2=true;
+        else this.isButtonVisible2=false;
       }
 }
 
