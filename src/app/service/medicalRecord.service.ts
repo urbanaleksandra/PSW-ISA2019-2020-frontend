@@ -8,7 +8,10 @@ export class MedicalRecordService {
 
     constructor(private http: HttpClient) { }
 
-    
+    getAppointments(username : String){
+   
+        return this.http.get('http://localhost:8080/getAppointments/' + username);
+    }
   
 
 }
