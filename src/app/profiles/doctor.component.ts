@@ -1,5 +1,7 @@
 import { Component } from "@angular/core";
 import { User } from '../model/User';
+import { Doctor } from '../model/Doctor';
+import { PatientService } from '../service/patient.service';
 
 @Component({
     templateUrl: './doctor.component.html',
@@ -8,17 +10,30 @@ import { User } from '../model/User';
 
 export class DoctorComponent{
     user:User=new User() ;
- 
-    constructor() { }
+    doctor: Doctor=new Doctor();
+    constructor(private patientService : PatientService) { }
 
     ngOnInit() {
-      this.user.username = sessionStorage.getItem("authenticatedUser");
+     this.getDoctor();
       
     }
   
     private isButtonVisible = false;
 
     private isButtonVisible2 = false;
+
+    getDoctor(){
+      this.user.username = sessionStorage.getItem("authenticatedUser");
+      this.patientService.getDoctor(this.user.username).subscribe(
+        data =>{
+          this.doctor=data;
+          console.log(this.doctor);
+      },
+      error => {
+      console.log(error);
+      }
+    )
+    }
 
     change(isButtonVisible:boolean){
         this.isButtonVisible = isButtonVisible;
