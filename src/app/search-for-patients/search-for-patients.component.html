@@ -15,13 +15,41 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let patient of patients | filter:searchText">
-           <td>{{patient.jmbg}}</td>
+        <tr *ngFor="let patient of patients | filter:searchText" (click)="change(patient)">
+          <td>{{patient.jmbg}}</td>
           <td>{{patient.username}}</td>
           <td>{{patient.country}}</td>
         </tr>
         </tbody>
       </table>
     </div>
+
+    <div *ngIf="this.isButtonVisible">
+      <div class="container">
+        <div class="card" style="max-width: 540px;">
+            <div class="row no-gutters">
+              <div class="col-md-4">
+                <img  style="width:100px;height:100px;margin:30px;" src="https://www.shareicon.net/data/512x512/2016/08/18/814028_people_512x512.png" class="card-img" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">Information</h5>
+                  <p class="card-text">First name: {{ selectedPatient.firstName }}</p>
+                  <p class="card-text">Last name: {{ selectedPatient.lastName }}</p>
+                  <p class="card-text">Email: {{ selectedPatient.email }}</p>
+                  <p class="card-text">Address: {{ selectedPatient.address }}</p>
+                  <p class="card-text">City: {{ selectedPatient.city }}</p>
+                  <p class="card-text">Country: {{ selectedPatient.country }}</p>
+                  <p class="card-text">Mobile number: {{ selectedPatient.mobileNumber }}</p>
+                  <p class="card-text">Insurance number: {{ selectedPatient.jmbg }}</p>
+                </div>
+              </div>
+            </div>
+            <button type="button" class="btn btn-outline-info" >View medical record</button>
+          </div>
+          
+    </div>
+    </div>
+
   </div>
   
