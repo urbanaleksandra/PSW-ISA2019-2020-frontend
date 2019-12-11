@@ -10,7 +10,7 @@ export class MedicalRecordService {
 
     getAppointments(username : String){
    
-        return this.http.get('http://localhost:8080/getAppointments/' + username);
+        return this.http.get<any>('http://localhost:8080/getAppointments/' + username);
     }
   
 
