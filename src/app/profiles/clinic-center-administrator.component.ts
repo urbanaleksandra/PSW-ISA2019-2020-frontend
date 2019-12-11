@@ -48,9 +48,13 @@ export class ClinicCenterAdministratorComponent implements OnInit{
     }
     newDrug(){
         this.clickedDrugs = false;
+        this.service.newDrug(this.drug).subscribe((result)=>{console.log("dodao se novi lek")});
+        this.drug = new Drug();
     }
 
     newDiagnosis(){
         this.clickedDiagnoisis = false;
+        this.service.newDiagnosis(this.diagnosis);
+        this.diagnosis = new Diagnosis();
     }
 }

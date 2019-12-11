@@ -60,14 +60,14 @@
           <div class="form-row">
             <div  class="col-md-12">
               <label for="diagnosisName">Name:</label>
-              <input type="text" class="form-control" id="diagnosisName" name="diagnosisName" placeholder="Name of diagnosis"  [(ngModel)]="ccadmin.username" required>
+              <input type="text" class="form-control" id="diagnosisName" name="diagnosisName" placeholder="Name of diagnosis"  [(ngModel)]="diagnosis.name" required>
             </div>
             
           </div>
           <div class="form-row">
             <div class="col-md-12">
               <label for="description">Description:</label>
-              <textarea rows="3" class="form-control" id="description" placeholder="Description" [(ngModel)]="ccadmin.password" name="description"  required></textarea>
+              <textarea rows="3" class="form-control" id="description" placeholder="Description" [(ngModel)]="diagnosis.description" name="description"  required></textarea>
             </div>
           </div>
           <button class="btn btn-success" type="submit" >Add diagnosis</button>
@@ -80,20 +80,20 @@
         <div class="form-row">
           <div  class="col-md-12">
             <label for="drugName">Name:</label>
-            <input type="text" class="form-control" id="drugName" name="drugName" placeholder="Name of drug"  [(ngModel)]="ccadmin.username" required>
+            <input type="text" class="form-control" id="drugName" name="drugName" placeholder="Name of drug"  [(ngModel)]="drug.name" required>
           </div>
           
         </div>
         <div class="form-row">
           <div class="col-md-12">
             <label for="quantity">Quantity:</label>
-            <input type="number" class="form-control" id="quantity" placeholder="Quantity" [(ngModel)]="ccadmin.password" name="description"  required>
+            <input type="number" class="form-control" id="quantity" placeholder="Quantity" [(ngModel)]="drug.quantity" name="quantity"  required>
           </div>
         </div>
         <div class="form-row">
           <div class="col-md-12">
             <label for="price">Price: ($)</label>
-            <input type="number" class="form-control" id="price" placeholder="Price" [(ngModel)]="ccadmin.password" name="price"  required>
+            <input type="number" class="form-control" id="price" placeholder="Price" [(ngModel)]="drug.price" name="price"  required>
           </div>
         </div>
         <button class="btn btn-success" type="submit" >Add drug</button>
