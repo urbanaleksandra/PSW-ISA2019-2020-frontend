@@ -25,6 +25,7 @@ import { PatientProfleComponent } from './profiles/patient-profile.component';
 import { NurseHomePageComponent } from './profiles/nurse-home-page/nurse-home-page.component';
 import { PatientHomePageComponent } from './profiles/patient-home-page/patient-home-page.component';
 import { ClinicsListComponent } from './clinics-list/clinics-list.component';
+import { MedicalRecordComponent } from './medical-record/medical-record.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { ClinicsListComponent } from './clinics-list/clinics-list.component';
     PatientProfleComponent,
     NurseHomePageComponent,
     PatientHomePageComponent,
-    ClinicsListComponent
+    ClinicsListComponent,
+    MedicalRecordComponent
   ],
   imports: [
     BrowserModule,
