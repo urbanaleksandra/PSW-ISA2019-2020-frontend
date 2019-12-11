@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { Clinic } from '../model/clinic';
 import { ClinicCenterAdministrator } from '../model/ClinicCenterAdministrator';
 import { ClinicCenterAdministratorService } from '../service/clinicalCenterAdmin.service';
+import { Drug } from '../model/Drug';
+import { Diagnosis } from '../model/Diagnosis';
 
 @Component({
     templateUrl: './clinic-center-administrator.component.html',
@@ -15,6 +17,10 @@ export class ClinicCenterAdministratorComponent implements OnInit{
    
     ccadmin: ClinicCenterAdministrator = new ClinicCenterAdministrator();
     clicked = false;
+    drug: Drug = new Drug();
+    diagnosis: Diagnosis = new Diagnosis();
+    clickedDiagnoisis = false;
+    clickedDrugs = false;
     constructor(private service: ClinicCenterAdministratorService,
                 private router: Router) { }
 
@@ -33,5 +39,18 @@ export class ClinicCenterAdministratorComponent implements OnInit{
             console.log("proslo!!!");
         }) 
         this.ccadmin = new ClinicCenterAdministrator();
+    }
+    clickednewDrug(){
+        this.clickedDrugs = true;
+    }
+    clickednewDiagnosis(){
+        this.clickedDiagnoisis = true;
+    }
+    newDrug(){
+        this.clickedDrugs = false;
+    }
+
+    newDiagnosis(){
+        this.clickedDiagnoisis = false;
     }
 }

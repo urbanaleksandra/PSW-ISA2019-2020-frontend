@@ -27,8 +27,8 @@
                     <li class="list-group-item"><a href="#" routerLinkActive='active' [routerLink]="['/requests']">Requests</a></li>
                     <li class="list-group-item"><a href="#" routerLinkActive='active' [routerLink]="['/new-clinic']">Add new clinic</a></li>
                     <li class="list-group-item"><a style="color: dodgerblue;" (click)="clickedNewAdminchange()">Add new administrator</a></li>
-                    <li class="list-group-item"><a href="#">Add diagnosis</a></li>
-                    <li class="list-group-item"><a href="#">Add drug</a></li>
+                    <li class="list-group-item"><a style="color: dodgerblue;" (click)="clickednewDiagnosis()">Add diagnosis</a></li>
+                    <li class="list-group-item"><a style="color: dodgerblue;" (click)="clickednewDrug()">Add drug</a></li>
                 </ul>
             </div>
 
@@ -55,7 +55,7 @@
     </div>
 
     <div class="container" >
-      <form id="newform" (ngSubmit)="clickedNewAdmin()" style="width: 20rem;" >
+      <form id="newform" (ngSubmit)="newDiagnosis()" style="width: 20rem;"  *ngIf="this.clickedDiagnoisis">
           <h6>Add new diagnosis</h6>
           <div class="form-row">
             <div  class="col-md-12">
@@ -75,7 +75,7 @@
 
   </div>
   <div class="container" >
-    <form id="newform" (ngSubmit)="clickedNewAdmin()" style="width: 20rem;"  >
+    <form id="newform" (ngSubmit)="newDrug()" style="width: 20rem;"  *ngIf="this.clickedDrugs">
         <h6>Add new drug</h6>
         <div class="form-row">
           <div  class="col-md-12">
