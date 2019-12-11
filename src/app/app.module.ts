@@ -29,6 +29,8 @@ import { ClinicsListComponent } from './clinics-list/clinics-list.component';
 import { MedicalRecordComponent } from './medical-record/medical-record.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { HolidayRequestComponent } from './holiday-request/holiday-request.component';
+import { CalendarComponent } from './calendar/calendar.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
 
 
 @NgModule({
@@ -49,7 +51,8 @@ import { HolidayRequestComponent } from './holiday-request/holiday-request.compo
     PatientHomePageComponent,
     ClinicsListComponent,
     MedicalRecordComponent,
-    HolidayRequestComponent
+    HolidayRequestComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +64,8 @@ import { HolidayRequestComponent } from './holiday-request/holiday-request.compo
     ReactiveFormsModule,
     Ng2SearchPipeModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FullCalendarModule
   ],
   providers: [
     {
