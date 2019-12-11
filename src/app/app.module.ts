@@ -22,8 +22,12 @@ import { ClinicComponent } from './clinic/clinic.component';
 import { NewAppointmentComponent } from './new-appointment/new-appointment.component';
 import { PatientProfleComponent } from './profiles/patient-profile.component';
 import { NurseHomePageComponent } from './profiles/nurse-home-page/nurse-home-page.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { SearchForPatientsComponent } from './search-for-patients/search-for-patients.component';
+import { PatientHomePageComponent } from './profiles/patient-home-page/patient-home-page.component';
+import { ClinicsListComponent } from './clinics-list/clinics-list.component';
+import { MedicalRecordComponent } from './medical-record/medical-record.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +41,11 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     PatientsListComponent,
     NewAppointmentComponent,
     PatientProfleComponent,
-    NurseHomePageComponent
+    NurseHomePageComponent,
+    SearchForPatientsComponent,
+    PatientHomePageComponent,
+    ClinicsListComponent,
+    MedicalRecordComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +54,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     HttpClientModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
+    ReactiveFormsModule,
+    Ng2SearchPipeModule,
     NgbModule,
     ReactiveFormsModule
   ],
@@ -53,8 +63,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpInterceptorService,
-      multi: true 
-      
+      multi: true
+
     }
   ],
   bootstrap: [AppComponent]

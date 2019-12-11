@@ -14,7 +14,9 @@ export class DoktorHomePageComponent implements OnInit {
   ngOnInit() {
   }
   change(){
+    if(this.isButtonVisible==false)
     this.isButtonVisible=true;
+    else this.isButtonVisible=false;
   }
 
   sendHolidayRequest(){
