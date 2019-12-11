@@ -12,6 +12,7 @@ import { ClinicComponent } from './clinic/clinic.component';
 import { NewAppointmentComponent } from './new-appointment/new-appointment.component';
 import { PatientProfleComponent } from './profiles/patient-profile.component';
 import { NurseHomePageComponent } from './profiles/nurse-home-page/nurse-home-page.component';
+import { PatientHomePageComponent } from './profiles/patient-home-page/patient-home-page.component';
 
 
 
@@ -27,7 +28,8 @@ const routes: Routes = [
       { path: 'patients', component:  PatientsListComponent},
       { path: 'nurse-home-page', component:  NurseHomePageComponent},
       { path: 'newAppointment', component:  NewAppointmentComponent},
-      { path: 'patient-profile', component:  PatientProfleComponent}
+      { path: 'patient-profile', component:  PatientProfleComponent},
+      { path: 'patient-home-page', component:  PatientHomePageComponent}
 ];
 
 @NgModule({
