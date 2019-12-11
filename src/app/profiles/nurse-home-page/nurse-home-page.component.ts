@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { HolidayRequest } from 'src/app/model/HolidayRequest';
+
 import {formatDate } from '@angular/common';
+import { NurseService } from 'src/app/service/nurse.service';
+import { HolidayRequest } from 'src/app/model/HolidayRequest';
+import { HolidayRequestString } from 'src/app/model/HolidayRequestString';
+import {NgbDateParserFormatter} from '@ng-bootstrap/ng-bootstrap';
+import { NgbDateStructAdapter } from '@ng-bootstrap/ng-bootstrap/datepicker/adapters/ngb-date-adapter';
 
 @Component({
   selector: 'app-nurse-home-page',
@@ -9,46 +14,19 @@ import {formatDate } from '@angular/common';
 })
 export class NurseHomePageComponent implements OnInit {
 
-  date = new Date();
-  today = Date.now();
-  today2;
   isButtonVisible=false;
-  holidayRequest:HolidayRequest = new HolidayRequest();
-  minDate = new Date(2019, 11, 5);
-  maxDate = new Date(2019, 11, 22);
-  jstoday = '';
-  ymd: String[] = [];
-  year: number;
-  month: number;
-  day: number;
-  yearStartDate: number;
-  monthStartDate: number;
-  dayStartDate: number;
-  constructor() {
-    
-  }
+  
+  constructor() { }
 
   ngOnInit() {
-    this.jstoday = formatDate(this.today, 'dd-MM-yyyy', 'en-US', '+0530');
-    this.ymd = this.jstoday.split("-");
-    console.log(this.ymd);
-    this.year = Number(this.ymd[2]);
-    this.month =  Number(this.ymd[1]);
-    this.day =  Number(this.ymd[0]);
+    
     
   }
 
   change(){
-    this.isButtonVisible=true;
-    
+    this.isButtonVisible= !this.isButtonVisible;
   }
 
-  sendHolidayRequest(){
-    this.isButtonVisible=false;
-    console.log(this.holidayRequest);
-    console.log(this.today);
-    
-    console.log(this.jstoday);
-  }
+  
 
 }

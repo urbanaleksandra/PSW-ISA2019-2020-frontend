@@ -28,6 +28,9 @@ import { PatientHomePageComponent } from './profiles/patient-home-page/patient-h
 import { ClinicsListComponent } from './clinics-list/clinics-list.component';
 import { MedicalRecordComponent } from './medical-record/medical-record.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { HolidayRequestComponent } from './holiday-request/holiday-request.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +48,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     SearchForPatientsComponent,
     PatientHomePageComponent,
     ClinicsListComponent,
-    MedicalRecordComponent
+    MedicalRecordComponent,
+    HolidayRequestComponent
   ],
   imports: [
     BrowserModule,
