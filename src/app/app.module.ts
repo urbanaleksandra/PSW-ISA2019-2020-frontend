@@ -31,6 +31,8 @@ import { HospitalRoomSearchComponent } from './hospital-room-search/hospital-roo
 import { MedicalRecordComponent } from './medical-record/medical-record.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { HolidayRequestComponent } from './holiday-request/holiday-request.component';
+import { CalendarComponent } from './calendar/calendar.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,8 @@ import { HolidayRequestComponent } from './holiday-request/holiday-request.compo
     ClinicsListComponent,
     HospitalRoomSearchComponent,
     MedicalRecordComponent,
-    HolidayRequestComponent
+    HolidayRequestComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +66,8 @@ import { HolidayRequestComponent } from './holiday-request/holiday-request.compo
     ReactiveFormsModule,
     Ng2SearchPipeModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FullCalendarModule
   ],
   providers: [
     {

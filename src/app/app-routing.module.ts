@@ -17,6 +17,7 @@ import { PatientHomePageComponent } from './profiles/patient-home-page/patient-h
 import { ClinicsListComponent } from './clinics-list/clinics-list.component';
 import { HospitalRoomSearchComponent } from './hospital-room-search/hospital-room-search.component';
 import { MedicalRecordComponent } from './medical-record/medical-record.component';
+import { CalendarComponent } from './calendar/calendar.component';
 
 
 
@@ -37,7 +38,8 @@ const routes: Routes = [
       { path: 'patient-home-page', component:  PatientHomePageComponent},
       { path: 'clinics', component:  ClinicsListComponent},
       { path: 'find-room', component:  HospitalRoomSearchComponent},
-      { path: 'medicalRecord', component:  MedicalRecordComponent}
+      { path: 'medicalRecord', component:  MedicalRecordComponent},
+      { path: 'calendar', component:  CalendarComponent}
 
 ];
 
