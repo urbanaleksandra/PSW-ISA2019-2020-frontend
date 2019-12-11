@@ -23,6 +23,8 @@ import { NewAppointmentComponent } from './new-appointment/new-appointment.compo
 import { PatientProfleComponent } from './profiles/patient-profile.component';
 import { NurseHomePageComponent } from './profiles/nurse-home-page/nurse-home-page.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { HolidayRequestComponent } from './holiday-request/holiday-request.component';
+
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     PatientsListComponent,
     NewAppointmentComponent,
     PatientProfleComponent,
-    NurseHomePageComponent
+    NurseHomePageComponent,
+    HolidayRequestComponent
   ],
   imports: [
     BrowserModule,
