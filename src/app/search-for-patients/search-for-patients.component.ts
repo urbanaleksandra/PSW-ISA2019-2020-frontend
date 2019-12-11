@@ -10,7 +10,8 @@ import { PatientService } from '../service/patient.service';
 export class SearchForPatientsComponent implements OnInit {
   searchText;
   patients: Patient[] = [];
-  
+  selectedPatient : Patient=new Patient;
+  isButtonVisible=false;
   constructor(private service: PatientService) { }
 
   ngOnInit(): void {
@@ -26,7 +27,12 @@ export class SearchForPatientsComponent implements OnInit {
       }
     )
 
-
   }
 
+  change( patient: Patient) {
+    this.selectedPatient=patient;
+     if (this.isButtonVisible == false)
+      this.isButtonVisible = true;
+    else this.isButtonVisible = false; 
+  }
 }
