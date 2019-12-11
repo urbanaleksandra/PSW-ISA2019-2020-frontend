@@ -15,6 +15,7 @@ import { NurseHomePageComponent } from './profiles/nurse-home-page/nurse-home-pa
 import { SearchForPatientsComponent } from './search-for-patients/search-for-patients.component';
 import { PatientHomePageComponent } from './profiles/patient-home-page/patient-home-page.component';
 import { ClinicsListComponent } from './clinics-list/clinics-list.component';
+import { HospitalRoomSearchComponent } from './hospital-room-search/hospital-room-search.component';
 
 
 
@@ -33,7 +34,8 @@ const routes: Routes = [
       { path: 'patient-profile', component:  PatientProfleComponent},
       { path: 'find-patient', component:  SearchForPatientsComponent},
       { path: 'patient-home-page', component:  PatientHomePageComponent},
-      { path: 'clinics', component:  ClinicsListComponent}
+      { path: 'clinics', component:  ClinicsListComponent},
+      { path: 'find-room', component:  HospitalRoomSearchComponent}
 
 ];
 
