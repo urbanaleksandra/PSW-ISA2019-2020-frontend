@@ -25,6 +25,8 @@ import { PatientProfleComponent } from './profiles/patient-profile.component';
 import { NurseHomePageComponent } from './profiles/nurse-home-page/nurse-home-page.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { SearchForPatientsComponent } from './search-for-patients/search-for-patients.component';
+import { PatientHomePageComponent } from './profiles/patient-home-page/patient-home-page.component';
+import { ClinicsListComponent } from './clinics-list/clinics-list.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,8 @@ import { SearchForPatientsComponent } from './search-for-patients/search-for-pat
     PatientProfleComponent,
     NurseHomePageComponent,
     SearchForPatientsComponent,
+    PatientHomePageComponent,
+    ClinicsListComponent
   ],
   imports: [
     BrowserModule,

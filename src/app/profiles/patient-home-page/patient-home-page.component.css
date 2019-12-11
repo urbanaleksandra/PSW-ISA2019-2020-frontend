@@ -1,0 +1,27 @@
+#adminLinks{
+    margin-top: 30px;
+    
+}
+a:hover {
+    text-decoration: none;
+    cursor:pointer;
+    color: rgb(86, 70, 187);
+}
+footer{
+    margin-top: 200px;
+}
+
+.card {
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 10px; /* Added */
+}
+#newform, button {
+    margin: 0 auto; /* Added */
+    margin-top: 30px;
+    float: none; /* Added */
+    margin-bottom: 10px; /* Added */
+}
+
+
+
