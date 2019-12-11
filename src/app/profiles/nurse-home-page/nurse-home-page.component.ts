@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+
+import {formatDate } from '@angular/common';
+import { NurseService } from 'src/app/service/nurse.service';
 import { HolidayRequest } from 'src/app/model/HolidayRequest';
+import { HolidayRequestString } from 'src/app/model/HolidayRequestString';
+import {NgbDateParserFormatter} from '@ng-bootstrap/ng-bootstrap';
+import { NgbDateStructAdapter } from '@ng-bootstrap/ng-bootstrap/datepicker/adapters/ngb-date-adapter';
 
 @Component({
   selector: 'app-nurse-home-page',
@@ -9,18 +15,18 @@ import { HolidayRequest } from 'src/app/model/HolidayRequest';
 export class NurseHomePageComponent implements OnInit {
 
   isButtonVisible=false;
-  holidayRequest:HolidayRequest = new HolidayRequest();
+  
   constructor() { }
 
   ngOnInit() {
+    
+    
   }
 
   change(){
-    this.isButtonVisible=true;
+    this.isButtonVisible= !this.isButtonVisible;
   }
 
-  sendHolidayRequest(){
-    this.isButtonVisible=false;
-  }
+  
 
 }

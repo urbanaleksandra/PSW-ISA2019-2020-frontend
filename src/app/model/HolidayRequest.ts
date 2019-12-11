@@ -1,4 +1,5 @@
 export class HolidayRequest {
-    dateStart : string="";
-    dateEnd : string="";
+    dateStart : Date;
+    dateEnd : Date;
+    username: String;
 }
