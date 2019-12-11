@@ -20,9 +20,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ClinicComponent } from './clinic/clinic.component';
 import { NewAppointmentComponent } from './new-appointment/new-appointment.component';
-import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { PatientProfleComponent } from './profiles/patient-profile.component';
 import { NurseHomePageComponent } from './profiles/nurse-home-page/nurse-home-page.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -46,6 +46,7 @@ import { NurseHomePageComponent } from './profiles/nurse-home-page/nurse-home-pa
     HttpClientModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
+    NgbModule,
     ReactiveFormsModule
   ],
   providers: [
@@ -53,6 +54,7 @@ import { NurseHomePageComponent } from './profiles/nurse-home-page/nurse-home-pa
       provide: HTTP_INTERCEPTORS,
       useClass: HttpInterceptorService,
       multi: true 
+      
     }
   ],
   bootstrap: [AppComponent]

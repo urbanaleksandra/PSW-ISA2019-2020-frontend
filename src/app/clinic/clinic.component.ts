@@ -65,12 +65,12 @@ export class ClinicComponent implements OnInit{
         this.addAdminClicked = true;
     }
     onSubmitAdmin() {
-        console.log(this.clinicToAddNewAdmin);
+        console.log(this.clinicAdministrator);
         this.addAdminClicked = false;
         this.adminService.newAdmin(this.clinicAdministrator, this.clinicToAddNewAdmin.id)
-        .subscribe((result)=>{
-            console.log("proslo!!!");
-        })       
+         .subscribe((result)=>{
+             console.log("proslo!!!");
+          })       
     }
 
 }
