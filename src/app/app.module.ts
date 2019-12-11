@@ -26,10 +26,11 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { SearchForPatientsComponent } from './search-for-patients/search-for-patients.component';
 import { PatientHomePageComponent } from './profiles/patient-home-page/patient-home-page.component';
 import { ClinicsListComponent } from './clinics-list/clinics-list.component';
+
+import { HospitalRoomSearchComponent } from './hospital-room-search/hospital-room-search.component';
 import { MedicalRecordComponent } from './medical-record/medical-record.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { HolidayRequestComponent } from './holiday-request/holiday-request.component';
-
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { HolidayRequestComponent } from './holiday-request/holiday-request.compo
     SearchForPatientsComponent,
     PatientHomePageComponent,
     ClinicsListComponent,
+    HospitalRoomSearchComponent,
     MedicalRecordComponent,
     HolidayRequestComponent
   ],

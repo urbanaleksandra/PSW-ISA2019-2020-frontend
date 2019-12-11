@@ -1,0 +1,23 @@
+<div class="container text-center">
+    <h1>{{title}}</h1>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="search-hero">
+        <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching for a room by name or room number">
+      </div>
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th>Number</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let room of rooms | filter:searchText" (click)="change(patient)">
+          <td>{{room.name}}</td>
+          <td>{{room.room_number}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
