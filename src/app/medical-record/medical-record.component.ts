@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Appointment } from '../model/Appointment';
 import { MedicalRecordService } from '../service/medicalRecord.service';
+import { Surgery } from '../model/Surgery';
 
 @Component({
   selector: 'app-medical-record',
@@ -16,10 +17,15 @@ export class MedicalRecordComponent implements OnInit {
   appointment : Appointment;
   usernameUlogovanog : string;
 
+  surgeries : Surgery[] = [];
+  surgeries1 : Surgery[] = [];
+  surgery : Surgery;
+
   constructor(private router: Router, private service: MedicalRecordService) { }
 
   ngOnInit() {
     this.getAppointments();
+    this.getSurgeries();
   }
 
   getAppointments(){
@@ -37,8 +43,25 @@ export class MedicalRecordComponent implements OnInit {
         console.log(error);
       }
     );
-
-    
   }
+
+  getSurgeries(){
+    this.usernameUlogovanog = sessionStorage.getItem("authenticatedUser");
+    this.service.getSurgeries(this.usernameUlogovanog).subscribe(
+      data=>{
+        this.surgeries=data;
+        for(let a of this.surgeries){
+          console.log(a.patient);
+          if(a.patient === this.usernameUlogovanog){
+            this.surgeries1.push(a);
+          }
+        }
+      }, error =>{
+        console.log(error);
+      }
+    );
+  }
+
+
 
 }
