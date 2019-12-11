@@ -54,7 +54,7 @@ export class ClinicCenterAdministratorComponent implements OnInit{
 
     newDiagnosis(){
         this.clickedDiagnoisis = false;
-        this.service.newDiagnosis(this.diagnosis);
+        this.service.newDiagnosis(this.diagnosis).subscribe((result)=>{console.log("dodala se diagnoza")});
         this.diagnosis = new Diagnosis();
     }
 }

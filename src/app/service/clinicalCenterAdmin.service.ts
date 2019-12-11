@@ -25,5 +25,6 @@ export class ClinicCenterAdministratorService{
 
     newDiagnosis(diagnosis: Diagnosis){
         console.log(diagnosis);
+        return this.http.post('http://localhost:8080/api/add-diagnosis', diagnosis);
     }
 }
