@@ -1,16 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
+import timeGridPlugin from '@fullcalendar/timegrid';
 
 @Component({
   selector: 'app-root',
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.css']
 })
-export class CalendarComponent implements OnInit {
+export class CalendarComponent {
+  
   title = 'easyfullcalendar';
-  calendarPlugins = [dayGridPlugin];
+  calendarPlugins = [dayGridPlugin, timeGridPlugin];
 
-ngOnInit(){
+      header={
+          left: "timeGridWeek,timeGridDay",
+          center: "title",
+          right: "today, prevYear, prev, next, nextYear"
+      }
+
+      
+    ngOnInit(){
        
    }
+   handleDateClick(arg) { // handler method
+    alert(arg.dateStr);
+  }
 }

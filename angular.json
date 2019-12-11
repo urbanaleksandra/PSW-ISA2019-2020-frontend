@@ -27,7 +27,8 @@
               "src/styles.css",
               "node_modules/fullcalendar/dist/fullcalendar.min.css",
               "node_modules/@fullcalendar/core/main.min.css",
-              "node_modules/@fullcalendar/daygrid/main.min.css"
+              "node_modules/@fullcalendar/daygrid/main.min.css",
+              "node_modules/@fullcalendar/timegrid/main.min.css"
             ],
             "scripts": ["node_modules/jquery/dist/jquery.min.js",
             "node_modules/moment/min/moment.min.js",
