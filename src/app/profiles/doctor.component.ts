@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { User } from '../model/User';
 
 @Component({
     templateUrl: './doctor.component.html',
@@ -6,11 +7,13 @@ import { Component } from "@angular/core";
 })
 
 export class DoctorComponent{
-    
-
+    user:User=new User() ;
+ 
     constructor() { }
 
     ngOnInit() {
+      this.user.username = sessionStorage.getItem("authenticatedUser");
+      
     }
   
     private isButtonVisible = false;
