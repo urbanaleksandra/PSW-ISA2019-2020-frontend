@@ -9,14 +9,14 @@
       <table class="table table-striped">
         <thead>
         <tr>
-          <!-- <th>Id</th> -->
+          <th>JMBG</th>
           <th>Patient's username</th>
           <th>Country</th>
         </tr>
         </thead>
         <tbody>
         <tr *ngFor="let patient of patients | filter:searchText">
-          <!-- <td>{{patient.id}}</td> -->
+           <td>{{patient.jmbg}}</td>
           <td>{{patient.username}}</td>
           <td>{{patient.country}}</td>
         </tr>
