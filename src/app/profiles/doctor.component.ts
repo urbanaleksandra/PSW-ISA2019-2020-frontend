@@ -43,9 +43,40 @@ export class DoctorComponent{
       }
 
       change2(isButtonVisible2:boolean){
+
         if(this.isButtonVisible2==false)
         this.isButtonVisible2=true;
         else this.isButtonVisible2=false;
+      
+      }
+
+      submitNewInfo(){
+        this.isButtonVisible2=false;
+        console.log(this.newDoctor.firstName);
+        if(this.newDoctor.firstName === ""){
+          this.newDoctor.firstName = this.doctor.firstName;
+        }
+        /* if(this.newPatient.lastName === ""){
+          this.newPatient.lastName = this.patient.lastName;
+        }
+        if(this.newPatient.city === ""){
+          this.newPatient.city = this.patient.city;
+        }
+        if(this.newPatient.country === ""){
+          this.newPatient.country = this.patient.country;
+        }
+        if(this.newPatient.address === ""){
+          this.newPatient.address = this.patient.address;
+        }
+        if(this.newPatient.mobileNumber !== NaN){
+          this.newPatient.mobileNumber = this.patient.mobileNumber;
+        } */
+    
+        this.newDoctor.username = this.doctor.username;
+    
+        location.reload();
+    
+        this.patientService.changeDoctorInfo(this.newDoctor).subscribe()
       }
 }
 

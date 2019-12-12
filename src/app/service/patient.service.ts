@@ -32,4 +32,8 @@ export class PatientService {
     return this.http.get<Doctor>('http://localhost:8080/osoblje/'+username);
   }
 
+  changeDoctorInfo(doctor : Doctor){
+    return this.http.post<Doctor>('http://localhost:8080/osobljePromjena', doctor)
+  }
+
 }
