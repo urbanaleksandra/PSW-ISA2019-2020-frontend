@@ -33,6 +33,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { HolidayRequestComponent } from './holiday-request/holiday-request.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { FullCalendarModule } from '@fullcalendar/angular';
     HospitalRoomSearchComponent,
     MedicalRecordComponent,
     HolidayRequestComponent,
-    CalendarComponent
+    CalendarComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

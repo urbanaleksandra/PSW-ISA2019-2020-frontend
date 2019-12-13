@@ -1,0 +1,7 @@
+<div class="d-inline-block" ngbDropdown #myDrop="ngbDropdown">
+  <button class="btn btn-light mr-2" id="dropdownManual" ngbDropdownAnchor (focus)="myDrop.open()">
+      <img style="width:25px;height:25px;" src="https://mpng.pngfly.com/20190621/xes/kisspng-user-profile-computer-icons-transparency-clip-art-huawei-mobile-cloud-5d0d1542d3e8a0.652196711561138498868.jpg">
+      {{ username }}</button>
+  <div ngbDropdownMenu aria-labelledby="dropdownManual">
+    <button (click)="logout()" ngbDropdownItem>Log out</button>
+  </div>
