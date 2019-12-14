@@ -34,6 +34,7 @@ import { HolidayRequestComponent } from './holiday-request/holiday-request.compo
 import { CalendarComponent } from './calendar/calendar.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { LogoutComponent } from './logout/logout.component';
+import { HistoryOfAppointmentsComponent } from './history-of-appointments/history-of-appointments.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { LogoutComponent } from './logout/logout.component';
     MedicalRecordComponent,
     HolidayRequestComponent,
     CalendarComponent,
-    LogoutComponent
+    LogoutComponent,
+    HistoryOfAppointmentsComponent
   ],
   imports: [
     BrowserModule,

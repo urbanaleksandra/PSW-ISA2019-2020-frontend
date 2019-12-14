@@ -18,6 +18,7 @@ import { ClinicsListComponent } from './clinics-list/clinics-list.component';
 import { HospitalRoomSearchComponent } from './hospital-room-search/hospital-room-search.component';
 import { MedicalRecordComponent } from './medical-record/medical-record.component';
 import { CalendarComponent } from './calendar/calendar.component';
+import { HistoryOfAppointmentsComponent } from './history-of-appointments/history-of-appointments.component';
 
 
 
@@ -39,8 +40,8 @@ const routes: Routes = [
       { path: 'clinics', component:  ClinicsListComponent},
       { path: 'find-room', component:  HospitalRoomSearchComponent},
       { path: 'medicalRecord', component:  MedicalRecordComponent},
-      { path: 'calendar', component:  CalendarComponent}
-
+      { path: 'calendar', component:  CalendarComponent},
+      { path: 'historyOfAppointments', component:  HistoryOfAppointmentsComponent}
 ];
 
 @NgModule({
