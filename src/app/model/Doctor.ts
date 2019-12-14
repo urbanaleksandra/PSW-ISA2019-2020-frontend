@@ -16,6 +16,8 @@ export class Doctor{
             country : string = "";
 		
             mobileNumber : number;
+
+            oldPassword: string ="" ;
 		
             jmbg : number;
 }
