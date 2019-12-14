@@ -12,7 +12,7 @@ export class DoctorComponent{
     user:User=new User() ;
     doctor: Doctor=new Doctor();
     newDoctor: Doctor= new Doctor();
-    constructor(private patientService : PatientService) { }
+    constructor(private doctorService : PatientService) { }
 
     ngOnInit() {
      this.getDoctor();
@@ -25,10 +25,9 @@ export class DoctorComponent{
 
     getDoctor(){
       this.user.username = sessionStorage.getItem("authenticatedUser");
-      this.patientService.getDoctor(this.user.username).subscribe(
+      this.doctorService.getDoctor(this.user.username).subscribe(
         data =>{
           this.doctor=data;
-          console.log(this.doctor);
       },
       error => {
       console.log(error);
@@ -52,31 +51,34 @@ export class DoctorComponent{
 
       submitNewInfo(){
         this.isButtonVisible2=false;
-        console.log(this.newDoctor.firstName);
         if(this.newDoctor.firstName === ""){
           this.newDoctor.firstName = this.doctor.firstName;
         }
-        /* if(this.newPatient.lastName === ""){
-          this.newPatient.lastName = this.patient.lastName;
+         if(this.newDoctor.lastName === ""){
+          this.newDoctor.lastName = this.doctor.lastName;
+         
         }
-        if(this.newPatient.city === ""){
-          this.newPatient.city = this.patient.city;
+        if(this.newDoctor.city === ""){
+          this.newDoctor.city = this.doctor.city;
         }
-        if(this.newPatient.country === ""){
-          this.newPatient.country = this.patient.country;
+        if(this.newDoctor.country === ""){
+          
+          this.newDoctor.country = this.doctor.country;
         }
-        if(this.newPatient.address === ""){
-          this.newPatient.address = this.patient.address;
+        if(this.newDoctor.address === ""){
+          this.newDoctor.address = this.doctor.address;
         }
-        if(this.newPatient.mobileNumber !== NaN){
-          this.newPatient.mobileNumber = this.patient.mobileNumber;
-        } */
-    
+        if(this.newDoctor.mobileNumber === NaN){
+          this.newDoctor.mobileNumber = this.doctor.mobileNumber;
+        } 
+        if(this.newDoctor.email === ""){
+          this.newDoctor.email = this.doctor.email;
+        }
         this.newDoctor.username = this.doctor.username;
     
         location.reload();
     
-        this.patientService.changeDoctorInfo(this.newDoctor).subscribe()
+        this.doctorService.changeDoctorInfo(this.newDoctor).subscribe()
       }
 }
 
