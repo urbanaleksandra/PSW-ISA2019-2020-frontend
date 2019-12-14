@@ -85,7 +85,6 @@ export class DoctorComponent {
 
     this.newDoctor.username = this.doctor.username;
 
-
     if (this.invalidLogin == false) {
       location.reload();
       this.doctorService.changeDoctorInfo(this.newDoctor).subscribe()
