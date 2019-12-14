@@ -53,17 +53,18 @@
     </div>
 
     <div *ngIf="this.isButtonVisible">
+        
         <form id="newform"style="max-width: 540px;">
+            <div class="alert alert-warning" *ngIf='invalidLogin'>{{errorMessage}}</div>
             <div class="form-group">
-              <label for="exampleInputEmail1">Old password</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter old password">
-              <small id="emailHelp" class="form-text text-muted">Enter new password.</small>
+              <label for="oldPassword">Old password</label>
+              <input type="password" class="form-control" [(ngModel)]="newDoctor.oldPassword" name="oldPassword" aria-describedby="emailHelp" placeholder="Enter old password">
             </div>
             <div class="form-group">
-              <label for="exampleInputPassword1">New password</label>
-              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter new password">
+              <label for="newPassword">New password</label>
+              <input type="password" [(ngModel)]="newDoctor.password" class="form-control" name="newPassword" placeholder="Enter new password">
             </div>
-            <button type="submit" (click)="change(false)" class="btn btn-primary">Change password</button>
+            <button type="submit" (click)="submitNewInfo()" class="btn btn-primary">Change password</button>
           </form>
     </div>
 
