@@ -5,6 +5,7 @@ import { FormBuilder } from '@angular/forms';
 import { Patient } from '../model/Patient';
 import { PatientService } from '../service/patient.service';
 import { RequestAppointmentService } from '../service/requestAppointment.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,7 +15,7 @@ import { RequestAppointmentService } from '../service/requestAppointment.service
 })
 export class NewAppointmentComponent implements OnInit {
   appointment: Appointment = new Appointment();
-  constructor(public fb: FormBuilder,private service : PatientService,private rAservice: RequestAppointmentService) { }
+  constructor(public fb: FormBuilder,private service : PatientService,private rAservice: RequestAppointmentService,private router: Router) { }
   patients: Patient[];
  
 
@@ -29,13 +30,14 @@ export class NewAppointmentComponent implements OnInit {
     this.patientSel = event.target.value;
   }
   onSubmit() {
-
-    alert(JSON.stringify(this.appointment.date));
-    
-    alert(this.patientSel)
-    alert(this.appointment.description)
     this.appointment.patient=this.patientSel;
     this.rAservice.addrequestAppointment(this.appointment).subscribe(
+      data=>{
+        alert("Request for scheduling the appointment has been succesfully sent to clinic administrator.")
+        this.router.navigateByUrl('/doctorHomePage');
+    }, error =>{
+        console.log(error);
+    }
     );
   }
 
