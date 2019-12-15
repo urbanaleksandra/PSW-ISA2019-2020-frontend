@@ -87,6 +87,9 @@ export class DoctorComponent {
 
 
     if (this.invalidLogin == false) {
+      if(this.newDoctor.password!=this.doctor.password){
+        alert("Password succesfully changed");
+      }
       location.reload();
       this.doctorService.changeDoctorInfo(this.newDoctor).subscribe()
 
