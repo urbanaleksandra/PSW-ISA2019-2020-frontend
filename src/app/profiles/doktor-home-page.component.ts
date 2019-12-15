@@ -22,6 +22,7 @@ export class DoktorHomePageComponent implements OnInit {
 
   sendHolidayRequest(){
     this.isButtonVisible=false;
+   
   }
 
 }
