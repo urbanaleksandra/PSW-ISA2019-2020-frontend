@@ -1,0 +1,83 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"><img src= 'https://powernetco.com/files/2018-04/icon-healthcare.png' 
+        style="width:50px;height:50px;"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#" routerLinkActive='active' [routerLink]="['/patient-home-page']">Home <span class="sr-only">(current)</span></a>
+      
+        </li>
+        
+      </ul>
+      
+    </div>
+  </nav>
+
+<div class= "container"  >
+
+  <h4>Appointments:</h4>
+  <table class="table table-hover" matSort (matSortChange)="sortData($event)">
+      <thead class="thead-light">
+          <tr>
+            <th mat-sort-header="date">Date</th>
+            <th mat-sort-header="description">Description</th>
+            <th mat-sort-header="duration">Duration</th>
+            <th mat-sort-header="type">Type</th>
+            <!-- <th>Doctor</th>
+            <th>Hospital room</th>
+            <th>Recipe</th> -->
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let appointment of appointments1'>
+              <td>{{ appointment?.date }}</td>
+              <td>{{ appointment?.description }}</td>
+              <td>{{ appointment?.duration }}</td>
+              <td>{{ appointment?.type }}</td>
+              <!-- <td>{{ appointment.doctor }}</td>
+              <td>{{ appointment.hospitalRoom }}</td>
+              <td>{{ appointment.recipe }}</td> -->
+            </tr>
+          </tbody>
+  </table>
+ 
+  
+</div>
+<div class= "container"  >
+
+    <h4>Operations:</h4>
+    <table class="table table-hover" matSort (matSortChange)="sortData1($event)">
+        <thead class="thead-light">
+            <tr>
+              <th mat-sort-header="date">Date</th>
+              <th mat-sort-header="description">Description</th>
+              <!-- <th>Doctor</th>
+              <th>Hospital room</th> -->
+            </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor='let surgery of surgeries1'>
+                <td>{{ surgery?.date }}</td>
+                <td>{{ surgery?.description }}</td>
+              </tr>
+            </tbody>
+    </table>
+   
+    
+  </div>
+  <!-- Footer -->
+  <footer class="page-footer font-small special-color-dark pt-4">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2019 Copyright:
+      <b>Tim 52</b>
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->
+
