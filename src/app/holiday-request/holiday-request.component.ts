@@ -52,7 +52,9 @@ export class HolidayRequestComponent implements OnInit {
     
     console.log(this.holidayRequestString);
     this.service.newHolidayRequest(this.holidayRequestString).subscribe((result)=>{
-      console.log("proslo!!!");
+      this.isButtonVisible = false;
+      alert("Request successfully sent to clinic administrator.");
+      location.reload();
     })
     this.date1 = "";
     this.date2 = "";

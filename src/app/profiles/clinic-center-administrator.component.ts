@@ -36,7 +36,7 @@ export class ClinicCenterAdministratorComponent implements OnInit{
         console.log(this.ccadmin);
 
         this.service.newAdmin(this.ccadmin).subscribe((result)=>{
-            console.log("proslo!!!");
+            alert("Successfully added!");
         }) 
         this.ccadmin = new ClinicCenterAdministrator();
     }
@@ -48,13 +48,13 @@ export class ClinicCenterAdministratorComponent implements OnInit{
     }
     newDrug(){
         this.clickedDrugs = false;
-        this.service.newDrug(this.drug).subscribe((result)=>{console.log("dodao se novi lek")});
+        this.service.newDrug(this.drug).subscribe((result)=>{ alert("Successfully added!");});
         this.drug = new Drug();
     }
 
     newDiagnosis(){
         this.clickedDiagnoisis = false;
-        this.service.newDiagnosis(this.diagnosis).subscribe((result)=>{console.log("dodala se diagnoza")});
+        this.service.newDiagnosis(this.diagnosis).subscribe((result)=>{ alert("Successfully added!");});
         this.diagnosis = new Diagnosis();
     }
 }

@@ -1,0 +1,65 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"><img src= 'https://powernetco.com/files/2018-04/icon-healthcare.png' 
+        style="width:50px;height:50px;"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#" routerLinkActive='active' [routerLink]="['/profileClinicCenterAdmin']">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#" routerLinkActive='active' [routerLink]="['/profileClinicCenterAdmin']">Profile<span class="sr-only">(current)</span></a>
+          </li>
+        
+      </ul>
+    </div>
+  </nav>
+  <div class="container" *ngFor='let request of requests' >
+      <div class="card text-center">
+          <div class="card-header">
+          </div>
+          <div class="card-body">
+            <table class="table">
+              <tr><td><b>Date:</b></td><td>{{ request.date}}</td></tr>
+              <tr><td><b>Description:</b></td><td>{{ request.description }}</td></tr>
+              <tr><td><b>Duration:</b></td><td>{{ request.duration }}</td></tr>
+              <tr><td><b>Patient:</b></td><td>{{ request.patient }}</td></tr>
+            </table>
+          </div>
+          <div class="card-footer text-muted">
+              <a (click)="accept(request)" class="btn btn-outline-success" style="margin-right: 15px;"><img src="https://www.freeiconspng.com/uploads/accept-tick-icon-12.png"
+                  >Accept</a>
+              <button (click)="deleteRequests(request)" class="btn btn-outline-danger"><img src="https://icon-library.net/images/cancel-icon-transparent/cancel-icon-transparent-28.jpg"
+                  >Deny</button>
+                  <div class="container">
+                      <div *ngIf="this.denyClicked">
+                        <label>Message:</label>
+                        <textarea class="form-control" rows="5" placeholder="Description" [(ngModel)]="message" name="clinicDescription" id="description" required></textarea>
+                        <button class="btn btn-success" (click)="sendMessage()" >Send explanation</button>
+                      </div> 
+                    </div>
+          </div>
+          
+      </div>
+      
+      
+  
+  </div>
+    
+  
+   
+   <!-- Footer -->
+   <footer class="page-footer font-small special-color-dark pt-4">
+  
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2019 Copyright:
+      <b>Tim 52</b>
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->
+  

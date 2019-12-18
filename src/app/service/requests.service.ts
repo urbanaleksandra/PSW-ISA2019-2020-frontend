@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Patient } from '../model/Patient';
+import { Appointment } from '../model/Appointment';
 
 
 @Injectable({
@@ -16,6 +17,9 @@ export class RequestService{
         return this.http.get<Patient[]>('http://localhost:8080/api/requests');
     }
 
+    getRequestA(){
+        return this.http.get<Appointment[]>('http://localhost:8080/getAppointmentRequests');
+    }
     deleteRequest(patient: Patient){
         return this.http.post('http://localhost:8080/api/deny-request', patient);
 

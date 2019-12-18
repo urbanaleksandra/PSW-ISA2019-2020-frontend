@@ -19,6 +19,7 @@ import { HospitalRoomSearchComponent } from './hospital-room-search/hospital-roo
 import { MedicalRecordComponent } from './medical-record/medical-record.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { HistoryOfAppointmentsComponent } from './history-of-appointments/history-of-appointments.component';
+import { RequestHolidayViewComponent } from './request-holiday-view/request-holiday-view.component';
 
 
 
@@ -41,7 +42,8 @@ const routes: Routes = [
       { path: 'find-room', component:  HospitalRoomSearchComponent},
       { path: 'medicalRecord', component:  MedicalRecordComponent},
       { path: 'calendar', component:  CalendarComponent},
-      { path: 'historyOfAppointments', component:  HistoryOfAppointmentsComponent}
+      { path: 'historyOfAppointments', component:  HistoryOfAppointmentsComponent},
+      { path: 'requestHolidayViewComponent', component:  RequestHolidayViewComponent}
 ];
 
 @NgModule({
