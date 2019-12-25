@@ -1,1 +1,23 @@
-<p>auth-recipe works!</p>
+<div class= "container"  >
+
+    <h4>Recipes:</h4>
+    <table class="table table-hover">
+        <thead class="thead-light">
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Drug</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor='let recipe of recipes'>
+                <td>{{ recipe.id }}</td>
+                <td>{{ recipe.name }}</td>
+                <td>{{ recipe.description }}</td>
+                <td>{{ recipe.drug }}</td>
+                <td><a class="btn btn-outline-success" (click)="addAdminForm(clinic)" style="font-size: 14px;">Add admin</a></td>
+              </tr>
+            </tbody>
+    </table>
+    <div>
