@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Recipe } from '../model/Recipe';
+import { AuthRecipeService } from '../service/auth-recipe.service';
 
 @Component({
   selector: 'app-auth-recipe',
@@ -8,10 +9,12 @@ import { Recipe } from '../model/Recipe';
 })
 export class AuthRecipeComponent implements OnInit {
   recipes: Recipe[] = [];
-
-  constructor() { }
+  
+  constructor(private service: AuthRecipeService) { }
 
   ngOnInit() {
+    this.getRecipes();
+    
   }
 
   authRecipe(recipe){
@@ -19,6 +22,14 @@ export class AuthRecipeComponent implements OnInit {
   }
 
   getRecipes(){
-    
+    this.service.getRecipes().subscribe(
+      data=>{
+        this.recipes = data;
+        console.log(this.recipes);
+      },
+      error => {
+        console.log(error);
+        }
+    )
   }
 }

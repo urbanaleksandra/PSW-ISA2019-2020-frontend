@@ -5,18 +5,17 @@
         <thead class="thead-light">
             <tr>
               <th>#</th>
-              <th>Name</th>
               <th>Description</th>
               <th>Drug</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
               <tr *ngFor='let recipe of recipes'>
                 <td>{{ recipe.id }}</td>
-                <td>{{ recipe.name }}</td>
                 <td>{{ recipe.description }}</td>
                 <td>{{ recipe.drug }}</td>
-                <td><a class="btn btn-outline-success" (click)="addAdminForm(clinic)" style="font-size: 14px;">Add admin</a></td>
+                <td><a class="btn btn-outline-success" (click)="addAdminForm(clinic)" style="font-size: 14px;">Auth recipe</a></td>
               </tr>
             </tbody>
     </table>

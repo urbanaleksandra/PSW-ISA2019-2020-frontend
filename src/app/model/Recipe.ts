@@ -1,6 +1,8 @@
+import { Drug } from './Drug';
+
 export class Recipe{
     id: number = 0;
     name: string = "";
     description: string = "";
-    drug: number = 0;
+    drug: Drug;
 }
