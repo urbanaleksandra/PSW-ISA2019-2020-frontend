@@ -14,8 +14,8 @@
               <tr *ngFor='let recipe of recipes'>
                 <td>{{ recipe.id }}</td>
                 <td>{{ recipe.description }}</td>
-                <td>{{ recipe.drug }}</td>
-                <td><a class="btn btn-outline-success" (click)="addAdminForm(clinic)" style="font-size: 14px;">Auth recipe</a></td>
+                <td>{{ recipe.drug_id}}</td>
+                <td><a class="btn btn-outline-success" (click)="authRecipe(recipe)" style="font-size: 14px;">Auth recipe</a></td>
               </tr>
             </tbody>
     </table>
