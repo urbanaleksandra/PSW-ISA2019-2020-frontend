@@ -11,11 +11,11 @@ export class CalendarComponent {
   
   title = 'easyfullcalendar';
   calendarPlugins = [dayGridPlugin, timeGridPlugin];
-
+  
       header={
-          left: "timeGridWeek,timeGridDay",
+          left: "timeGridDay,timeGridWeek,dayGridMonth",
           center: "title",
-          right: "today, prevYear, prev, next, nextYear"
+          right: "today,prevYear,prev,next,nextYear"
       }
 
       
