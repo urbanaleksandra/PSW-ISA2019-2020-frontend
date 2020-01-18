@@ -36,6 +36,8 @@ import { FullCalendarModule } from '@fullcalendar/angular';
 import { LogoutComponent } from './logout/logout.component';
 import { HistoryOfAppointmentsComponent } from './history-of-appointments/history-of-appointments.component';
 import { RequestHolidayViewComponent } from './request-holiday-view/request-holiday-view.component';
+import { ClinicAdminHomePageComponent } from './profiles/clinic-admin-home-page/clinic-admin-home-page.component';
+
 
 @NgModule({
   declarations: [
@@ -60,7 +62,8 @@ import { RequestHolidayViewComponent } from './request-holiday-view/request-holi
     CalendarComponent,
     LogoutComponent,
     HistoryOfAppointmentsComponent,
-    RequestHolidayViewComponent
+    RequestHolidayViewComponent,
+    ClinicAdminHomePageComponent
   ],
   imports: [
     BrowserModule,
