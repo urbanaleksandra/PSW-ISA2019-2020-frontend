@@ -21,6 +21,7 @@ import { CalendarComponent } from './calendar/calendar.component';
 import { HistoryOfAppointmentsComponent } from './history-of-appointments/history-of-appointments.component';
 import { RequestHolidayViewComponent } from './request-holiday-view/request-holiday-view.component';
 import { ClinicAdminHomePageComponent } from './profiles/clinic-admin-home-page/clinic-admin-home-page.component';
+import { NewRoomComponent } from './new-room/new-room.component';
 
 
 
@@ -46,6 +47,7 @@ const routes: Routes = [
       { path: 'historyOfAppointments', component:  HistoryOfAppointmentsComponent},
       { path: 'requestHolidayViewComponent', component:  RequestHolidayViewComponent},
       { path: 'cadmin-home-page', component:  ClinicAdminHomePageComponent},
+      { path: 'new-room', component:  NewRoomComponent},
 ];
 
 @NgModule({

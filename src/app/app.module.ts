@@ -37,6 +37,8 @@ import { LogoutComponent } from './logout/logout.component';
 import { HistoryOfAppointmentsComponent } from './history-of-appointments/history-of-appointments.component';
 import { RequestHolidayViewComponent } from './request-holiday-view/request-holiday-view.component';
 import { ClinicAdminHomePageComponent } from './profiles/clinic-admin-home-page/clinic-admin-home-page.component';
+import { NewRoomComponent } from './new-room/new-room.component';
+
 
 
 @NgModule({
@@ -63,7 +65,9 @@ import { ClinicAdminHomePageComponent } from './profiles/clinic-admin-home-page/
     LogoutComponent,
     HistoryOfAppointmentsComponent,
     RequestHolidayViewComponent,
-    ClinicAdminHomePageComponent
+    ClinicAdminHomePageComponent,
+    NewRoomComponent,
+
   ],
   imports: [
     BrowserModule,
