@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HospitalRoom } from '../model/HospitalRoom';
 import { hospitalRoomsService } from '../service/hospitalRooms.service';
+import { MatDialog } from '@angular/material';
+
 
 @Component({
   selector: 'app-hospital-room-search',
@@ -26,4 +28,6 @@ export class HospitalRoomSearchComponent implements OnInit {
       }
     )
     }
+
+   
 }
