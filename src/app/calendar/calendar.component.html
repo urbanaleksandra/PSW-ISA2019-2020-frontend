@@ -22,7 +22,7 @@
 
 <div class="container" id = "cal">
     <full-calendar defaultView="dayGridMonth" [header]="header" (dateClick)="handleDateClick($event)" [events]="calendarEvents"
-     [plugins]="calendarPlugins" [eventDurationEditable] = "true"   [editable]="true"></full-calendar>
+     [plugins]="calendarPlugins" [eventDurationEditable] = "true" [selectable] = "true"   [editable]="true"></full-calendar>
 </div>
 
 <footer class="page-footer font-small special-color-dark pt-4">
