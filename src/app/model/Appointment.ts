@@ -1,4 +1,5 @@
 export class Appointment {
+    id : string="0";
     date : string="";
     description : string ="";
     duration: number = 0;

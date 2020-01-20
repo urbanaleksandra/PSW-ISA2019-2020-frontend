@@ -17,9 +17,9 @@
     </div>
   </nav>
 
-<div class= "container"  >
+<div style="padding-top: 10px;" class= "container"  >
 
-  <h4>Clinics:</h4>
+  <h4>All clinics:</h4>
   <table class="table table-hover" matSort (matSortChange)="sortData($event)">
       <thead class="thead-light">
           <tr>
@@ -43,8 +43,55 @@
           </tbody>
   </table>
  
-  
+  <form class="needs-validation" novalidate (ngSubmit)="onSubmit()" style="padding-bottom: 20px;">
+      <div style="background-color: rgb(217, 236, 236, 0.7); padding: 2em; border-radius: 10px;">
+        <h3 style="padding-bottom: 20px;">
+          Search for available clinics:
+        </h3>
+
+        <div class="form-group">
+          <mat-form-field>
+              <input matInput type="datetime-local" [(ngModel)]="appointment.date"  name="dateAppointment" placeholder="Search date for appointment">
+          </mat-form-field>
+          <br>
+          <small *ngIf='flagForSearch' style="color: red;">DATE and TIME is required!</small>
+        </div>
+
+        <div class="form-group">
+          <label>Type:</label>
+          <input class="form-control" placeholder="Type for search" [(ngModel)]="appointment.type"
+              name="typeAppointment" id="typeAppointment">
+        </div>
+
+        <button class="btn btn-success" type="submit" >Search</button>
+    </div>
+</form>
+
+<table *ngIf='flagForSearchTable' class="table table-hover" matSort (matSortChange)="sortData1($event)">
+  <thead class="thead-light">
+      <tr>
+        <th>#</th>
+        <th mat-sort-header="name">Name</th>
+        <th mat-sort-header="address">Address</th>
+        <th mat-sort-header="description">Description</th>
+        <th mat-sort-header="profit">Profit</th>
+        <th mat-sort-header="pricelist">Pricelist</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor='let clinic1 of clinics1'>
+          <td>{{ clinic1.id }}</td>
+          <td>{{ clinic1.name }}</td>
+          <td>{{ clinic1.address }}</td>
+          <td>{{ clinic1.description }}</td>
+          <td>{{ clinic1.profit }}</td>
+          <td>{{ clinic1.pricelist }}</td>
+        </tr>
+      </tbody>
+</table>
+
 </div>
+
   <!-- Footer -->
   <footer class="page-footer font-small special-color-dark pt-4">
 

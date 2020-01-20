@@ -27,4 +27,8 @@ export class ClinicService {
     return this.http.get<Clinic[]>('http://localhost:8080/api/get-clinics');
   }
 
+  getSearchClinics(searchDate: String){
+    return this.http.get<Clinic[]>('http://localhost:8080/api/get-search-clinics/'+searchDate);
+  }
+
 }
