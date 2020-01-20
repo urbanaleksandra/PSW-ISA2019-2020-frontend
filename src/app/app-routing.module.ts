@@ -20,6 +20,7 @@ import { MedicalRecordComponent } from './medical-record/medical-record.componen
 import { CalendarComponent } from './calendar/calendar.component';
 import { HistoryOfAppointmentsComponent } from './history-of-appointments/history-of-appointments.component';
 import { RequestHolidayViewComponent } from './request-holiday-view/request-holiday-view.component';
+import { ClinicAdminHomePageComponent } from './profiles/clinic-admin-home-page/clinic-admin-home-page.component';
 
 
 
@@ -43,7 +44,8 @@ const routes: Routes = [
       { path: 'medicalRecord', component:  MedicalRecordComponent},
       { path: 'calendar', component:  CalendarComponent},
       { path: 'historyOfAppointments', component:  HistoryOfAppointmentsComponent},
-      { path: 'requestHolidayViewComponent', component:  RequestHolidayViewComponent}
+      { path: 'requestHolidayViewComponent', component:  RequestHolidayViewComponent},
+      { path: 'cadmin-home-page', component:  ClinicAdminHomePageComponent},
 ];
 
 @NgModule({

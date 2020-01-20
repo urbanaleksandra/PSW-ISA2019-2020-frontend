@@ -1,0 +1,89 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"><img src='https://powernetco.com/files/2018-04/icon-healthcare.png'
+            style="width:50px;height:50px;"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#" routerLinkActive='active' [routerLink]="['/doctorHomePage']">Home <span
+                        class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" routerLinkActive='active' [routerLink]="['/doctorHomePage']">Profile<span
+                        class="sr-only">(current)</span></a>
+            </li>
+
+        </ul>
+
+        <app-logout></app-logout>
+    </div>
+
+   <!--  <mat-sidenav-container>
+        <mat-sidenav #appDrawer mode="over" opened="false">
+          <mat-nav-list>
+            <app-menu-list-item *ngFor="let item of navItems" [item]="item"></app-menu-list-item>
+          </mat-nav-list>
+        </mat-sidenav>
+        <app-top-nav fxHide.xs></app-top-nav>
+        <router-outlet></router-outlet>
+        <div fxFlex></div>
+        <span class="version-info">Current build: {{version.full ? version.full : version}}</span>
+      </mat-sidenav-container> -->
+</nav>
+<div class="container" style="margin-top: 20px;">
+    <div class="row">
+        <div class="card" style="width: 18rem;margin: 10px;">
+            <img class="card-img-top"
+                src="https://images.unsplash.com/photo-1435527173128-983b87201f4d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1047&q=80"
+                alt="Card image cap">
+
+            <div class="card-body">
+                <h5 class="card-title">Free appointments</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's
+                    content.</p>
+                <a href="#" class="stretched-link"> Define free appointments </a>
+            </div>
+        </div>
+
+        <div class="card" style="width: 18rem;margin: 10px;">
+            <img class="card-img-top"
+                src="https://images.unsplash.com/photo-1519494140681-8b17d830a3e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1053&q=80"
+                alt="Card image cap">
+
+            <div class="card-body">
+                <h5 class="card-title">Clinic profile</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's
+                    content.</p>
+                <a href="#" class="stretched-link"> Change clinic data</a>
+            </div>
+        </div>
+
+        <div class="card" style="width: 18rem;margin: 10px;">
+            <img class="card-img-top"
+                src=" https://images.unsplash.com/photo-1434626881859-194d67b2b86f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1053&q=80"
+                alt="Card image cap">
+
+            <div class="card-body">
+                <h5 class="card-title">Business report</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's
+                    content.</p>
+                <a href="#" class="stretched-link"> See business reports</a>
+            </div>
+        </div>
+        <div class="col" style="width: 18rem; margin: 10px;" id="adminLinks">
+            <ul class="list-group list-group-flush" id="options">
+                <li class="list-group-item"><a href="#" routerLinkActive='active' [routerLink]="['/patients']">Hospital rooms</a></li>
+                <li class="list-group-item"><a href="#" routerLinkActive='active' [routerLink]="['/newAppointment']">Types of appointments</a></li>
+                <li class="list-group-item"><a href="#" routerLinkActive='active' [routerLink]="['/newAppointment']">Doctors</a></li>
+              </ul>
+        </div>
+
+    </div>
+</div>
