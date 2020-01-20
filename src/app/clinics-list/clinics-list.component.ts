@@ -3,6 +3,7 @@ import { ClinicService } from '../service/clinic.service';
 import { Router } from '@angular/router';
 import { Clinic } from '../model/clinic';
 import { Sort } from '@angular/material/sort';
+import { Appointment } from '../model/Appointment';
 
 @Component({
   selector: 'app-clinics-list',
@@ -12,13 +13,28 @@ import { Sort } from '@angular/material/sort';
 export class ClinicsListComponent implements OnInit {
 
   clinic: Clinic = new Clinic();
+  appointment: Appointment = new Appointment();
   clinics: Clinic[] = [];
+  flagForSearch: boolean;
 
   constructor(private clinicService: ClinicService,
     private router: Router) { }
 
   ngOnInit() {
     this.getClinics();
+    this.flagForSearch = false;
+  }
+
+  onSubmit(){
+    console.log(this.appointment.date);
+    if(this.appointment.date == ""){
+      this.flagForSearch = true;
+    }
+    else{
+      // ovde odraditi sve za search
+      this.flagForSearch = false;
+    }
+    //console.log(this.appointment.type);
   }
 
   getClinics(){

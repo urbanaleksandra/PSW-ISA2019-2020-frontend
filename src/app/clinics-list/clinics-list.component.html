@@ -17,7 +17,7 @@
     </div>
   </nav>
 
-<div class= "container"  >
+<div style="padding-top: 10px;" class= "container"  >
 
   <h4>Clinics:</h4>
   <table class="table table-hover" matSort (matSortChange)="sortData($event)">
@@ -43,8 +43,31 @@
           </tbody>
   </table>
  
-  
+  <form class="needs-validation" novalidate (ngSubmit)="onSubmit()">
+      <div style="background-color: rgb(217, 236, 236, 0.7); padding: 2em; border-radius: 10px;">
+        <h3 style="padding-bottom: 20px;">
+          Search available clinics:
+        </h3>
+
+        <div class="form-group">
+          <mat-form-field>
+              <input matInput type="datetime-local"  [(ngModel)]="appointment.date"  name="dateAppointment" placeholder="Search date for appointment">
+          </mat-form-field>
+          <br>
+          <small *ngIf='flagForSearch' style="color: red;">Time is required!</small>
+        </div>
+
+        <div class="form-group">
+          <label>Type:</label>
+          <input class="form-control" placeholder="Type for search" [(ngModel)]="appointment.type"
+              name="typeAppointment" id="typeAppointment">
+        </div>
+
+        <button class="btn btn-success" type="submit" >Search</button>
+    </div>
+</form>
 </div>
+
   <!-- Footer -->
   <footer class="page-footer font-small special-color-dark pt-4">
 
