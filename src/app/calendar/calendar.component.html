@@ -1,7 +1,38 @@
-<div class="container">
-    <full-calendar defaultView="dayGridMonth" [header]="header" (dateClick)="handleDateClick($event)" [plugins]="calendarPlugins"  [events]="[
-{ title: 'appointment', date: '2019-12-15' },
-{ title: 'surgery', date: '2019-12-24' }
-]" [editable]="true"></full-calendar>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"><img src= 'https://powernetco.com/files/2018-04/icon-healthcare.png' 
+        style="width:50px;height:50px;"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#" routerLinkActive='active' [routerLink]="['/doctorHomePage']">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#" routerLinkActive='active' [routerLink]="['/doctor']">Profile<span class="sr-only">(current)</span></a>
+          </li>
+        
+      </ul>
+      
+        <app-logout></app-logout>
+    </div>
+  </nav>
+
+<div class="container" id = "cal">
+    <full-calendar defaultView="dayGridMonth" [header]="header" (dateClick)="handleDateClick($event)" [events]="calendarEvents"
+     [plugins]="calendarPlugins" [eventDurationEditable] = "true"   [editable]="true"></full-calendar>
 </div>
+
+<footer class="page-footer font-small special-color-dark pt-4">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2019 Copyright:
+      <b>Tim 52</b>
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->
 
