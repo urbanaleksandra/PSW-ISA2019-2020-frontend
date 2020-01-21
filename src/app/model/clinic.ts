@@ -5,4 +5,5 @@ export class Clinic {
     pricelist: number = 0;
     profit: number = 0;
     id: number = 0;
+    rating: number = 0;
 }

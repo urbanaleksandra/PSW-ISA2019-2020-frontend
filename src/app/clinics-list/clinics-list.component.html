@@ -75,17 +75,17 @@
         <th mat-sort-header="address">Address</th>
         <th mat-sort-header="description">Description</th>
         <th mat-sort-header="profit">Profit</th>
-        <th mat-sort-header="pricelist">Pricelist</th>
+        <th mat-sort-header="pricelist">Rating</th>
       </tr>
     </thead>
     <tbody>
         <tr *ngFor='let clinic1 of clinics1'>
           <td>{{ clinic1.id }}</td>
-          <td>{{ clinic1.name }}</td>
+          <td class="imeKlinike" ><a href="#" routerLinkActive='active' [routerLink]="['/find-patient']">{{ clinic1.name }}</a></td>
           <td>{{ clinic1.address }}</td>
           <td>{{ clinic1.description }}</td>
           <td>{{ clinic1.profit }}</td>
-          <td>{{ clinic1.pricelist }}</td>
+          <td>{{ clinic1.rating }}</td>
         </tr>
       </tbody>
 </table>
