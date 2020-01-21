@@ -24,6 +24,8 @@ import { ClinicAdminHomePageComponent } from './profiles/clinic-admin-home-page/
 import { NewRoomComponent } from './new-room/new-room.component';
 import { AppointmentType } from './model/AppointmentType';
 import { AppointmentTypesComponent } from './appointment-types/appointment-types.component';
+import { SurgeryHospitalRoomComponent } from './surgery-hospital-room/surgery-hospital-room.component';
+
 
 
 
@@ -51,6 +53,8 @@ const routes: Routes = [
       { path: 'cadmin-home-page', component:  ClinicAdminHomePageComponent},
       { path: 'new-room', component:  NewRoomComponent},
       { path: 'appTypes', component:  AppointmentTypesComponent},
+      { path: 'surgery-hospital-room', component:  SurgeryHospitalRoomComponent}
+
 ];
 
 @NgModule({

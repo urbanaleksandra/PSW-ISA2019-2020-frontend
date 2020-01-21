@@ -7,19 +7,16 @@
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <!-- <li class="nav-item active">
-          <a class="nav-link" href="#" routerLinkActive='active' [routerLink]="['/profileClinicCenterAdmin']">Home <span class="sr-only">(current)</span></a>
-        </li>
         <li class="nav-item">
-            <a class="nav-link" href="#" routerLinkActive='active' [routerLink]="['/profileClinicCenterAdmin']">Profile<span class="sr-only">(current)</span></a>
-          </li> -->
+            <a class="nav-link" href="#" routerLinkActive='active' [routerLink]="['/patient-profile']">Profile<span class="sr-only"></span></a>
+          </li>
         
       </ul>
       
     </div>
     <app-logout></app-logout>
   </nav>
-    <div class="container patientHomePage">
+    <!-- <div class="container patientHomePage">
             <div class="card border-light mb-3" style="width: 20rem;" id="newform1">
                 <ul class="list-group list-group-flush" id="options">
                     <li class="list-group-item"><a href="#" routerLinkActive='active' [routerLink]="['/clinics']">Clinics</a></li>
@@ -29,7 +26,45 @@
                 </ul>
             </div>
 
-    </div>
+    </div> -->
+    <!--========Cards========-->
+<div class="container-fluid main-cont">
+  <div class="row news-row">
+      <div class="container-fluid col-md-12 col-sm-6 justify-content-center news-block">
+          <div class="card-group">
+            <div class="underlay">
+              <div class="card">
+                  <div class="card-img-top clinicsImage"></div>
+                  <div class="card-block" >
+                  <h5 class="card-title" style="font-size: 25px;"><a href="#" routerLinkActive='active' [routerLink]="['/clinics']">Clinics</a></h5>
+                  </div>
+              </div>
+            </div>
+            <div class="underlay">
+             <div class="card">
+                  <div class="card-img-top historyImage"></div>
+                  <div class="card-block" >
+                    <h5 class="card-title" style="font-size: 25px;"><a class="prosirenje" href="#" routerLinkActive='active' [routerLink]="['/historyOfAppointments']">History</a></h5>
+                  </div>
+                </div>
+              </div>
+              <div class="underlay">
+                <div class="card">
+                  <div class="card-img-top mrImage" ></div>
+                  <div class="card-block" >
+                    <h5 class="card-title" style="font-size: 25px;"><a href="#" routerLinkActive='active' [routerLink]="['/medicalRecord']">Medical record</a></h5>
+                    
+                  </div>
+                </div>
+              </div>
+              
+              
+          </div>
+      </div>
+  </div>
+</div>
+
+
 
    
   <!-- Footer -->

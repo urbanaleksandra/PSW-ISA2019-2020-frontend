@@ -1,0 +1,92 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"><img src='https://powernetco.com/files/2018-04/icon-healthcare.png'
+            style="width:50px;height:50px;"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#" routerLinkActive='active' [routerLink]="['/cadmin-home-page']">Home <span
+                        class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" routerLinkActive='active' [routerLink]="['/cadmin-home-page']">Profile<span
+                        class="sr-only">(current)</span></a>
+            </li>
+
+        </ul>
+
+        <app-logout></app-logout>
+    </div>
+
+</nav>
+  <div class="container">
+    <div class="row">
+      <h2>Surgeries</h2>
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Date</th>
+          <th>Duration</th>
+          <th>Description</th>
+          <th>Patient</th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let surgery of surgeries">
+            <td> <mat-form-field>
+              <input matInput type="datetime-local" value="{{surgery.date}}" [readonly]="!editable"  name="dateAppointment" placeholder="operation date">
+          </mat-form-field></td>
+            <td>{{surgery.duration}}</td>
+            <td>{{surgery.description}}</td>
+            <td>{{surgery.patient}}</td>
+            <td>
+                <button class="btn btn-outline-success">Add room</button>
+            </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    
+  </div>
+
+
+<div class="container">
+    <h4>Available hospital rooms</h4>
+    
+      <div class="search-hero">
+        <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching for a room by name or room number">
+      </div>
+      <div class="row">
+ 
+          <div class="card col-4-ld mr-4 mt-4" *ngFor="let room of rooms | filter:searchText" (click)="change(patient)" style="width: 14rem;margin: 10px;">
+            <img class="card-img-top"
+                src="https://image.freepik.com/free-vector/_1441-1916.jpg"
+                alt="Card image cap">
+
+            <div class="card-body">
+                <h5 class="card-title">{{room.name}}</h5>
+                <h6>No. {{room.room_number}}</h6>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up the bulk of the
+                    card's
+                    content.</p>
+                <a href="#" class="stretched-link"> Define free appointments </a>
+            </div>
+          </div> 
+      </div>
+    </div>
+<footer class="page-footer font-small special-color-dark pt-4">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2019 Copyright:
+      <b>Tim 52</b>
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->
