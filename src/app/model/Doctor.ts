@@ -20,4 +20,6 @@ export class Doctor{
             oldPassword: string ="" ;
 		
             jmbg : number;
+
+            rating: number = 0;
 }

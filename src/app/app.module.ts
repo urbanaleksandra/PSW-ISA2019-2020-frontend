@@ -40,6 +40,8 @@ import { ClinicAdminHomePageComponent } from './profiles/clinic-admin-home-page/
 import { NewRoomComponent } from './new-room/new-room.component';
 import { AuthRecipeComponent } from './auth-recipe/auth-recipe.component';
 import { CdkTableModule } from '@angular/cdk/table';
+import { SurgeryHospitalRoomComponent } from './surgery-hospital-room/surgery-hospital-room.component';
+
 
 
 
@@ -70,7 +72,8 @@ import { CdkTableModule } from '@angular/cdk/table';
     ClinicAdminHomePageComponent,
     NewRoomComponent,
     ClinicAdminHomePageComponent,
-    AuthRecipeComponent
+    AuthRecipeComponent,
+    SurgeryHospitalRoomComponent
 
   ],
   imports: [

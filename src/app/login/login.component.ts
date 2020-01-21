@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
           console.log(this.user.role);
           this.router.navigate(['/patient-home-page']);
         }else if(this.user.role === 'CA'){
-          this.router.navigate(['/profileClinicCenterAdmin']);  ///izmeniti
+          this.router.navigate(['/cadmin-home-page']);  ///izmenjeno
         }else if(this.user.role === 'DOC'){
           this.router.navigate(['/doctorHomePage']);
         }else if(this.user.role === 'NURSE'){
