@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { HospitalRoom } from '../model/HospitalRoom';
+import { hospitalRoomsService } from '../service/hospitalRooms.service';
+import { SurgeryRoomService } from '../service/surgery-room.service';
+import { Surgery } from '../model/Surgery';
 
 @Component({
   selector: 'app-surgery-hospital-room',
@@ -7,9 +11,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SurgeryHospitalRoomComponent implements OnInit {
 
-  constructor() { }
+  searchText;
+  rooms: HospitalRoom[] = [];
+  isButtonVisible=false;
+  surgeries: Surgery[] = [];
+  constructor(private service: SurgeryRoomService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.getRooms();
+    this.getSurgeries();
+  }
+
+  getRooms() {
+    this.service.getAllRooms().subscribe(
+      data => {
+        this.rooms = data;
+      }, error => {
+        console.log(error);
+      }
+    )
+    }
+
+  getSurgeries(){
+    this.service.getSurgeriesService().subscribe(
+      data => {
+        this.surgeries = data;
+      },error => {
+        console.log(error);
+      }
+    );
   }
 
 }
