@@ -39,6 +39,7 @@ import { RequestHolidayViewComponent } from './request-holiday-view/request-holi
 import { ClinicAdminHomePageComponent } from './profiles/clinic-admin-home-page/clinic-admin-home-page.component';
 import { NewRoomComponent } from './new-room/new-room.component';
 import { AuthRecipeComponent } from './auth-recipe/auth-recipe.component';
+import { SurgeryHospitalRoomComponent } from './surgery-hospital-room/surgery-hospital-room.component';
 
 
 
@@ -69,7 +70,8 @@ import { AuthRecipeComponent } from './auth-recipe/auth-recipe.component';
     ClinicAdminHomePageComponent,
     NewRoomComponent,
     ClinicAdminHomePageComponent,
-    AuthRecipeComponent
+    AuthRecipeComponent,
+    SurgeryHospitalRoomComponent
 
   ],
   imports: [
