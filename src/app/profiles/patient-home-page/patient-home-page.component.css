@@ -2,11 +2,7 @@
     margin-top: 30px;
     
 }
-a:hover {
-    text-decoration: none;
-    cursor:pointer;
-    color: rgb(86, 70, 187);
-}
+
 footer{
     margin-top: 200px;
 }
@@ -26,4 +22,254 @@ footer{
 .patientHomePage {
     padding-top: 20px;
 }
+
+
+
+html{
+    overflow-y: scroll;
+}
+
+body{
+    background-color: transparent;
+    background: url('https://i.imgur.com/ApQKtQZ.jpeg') fixed no-repeat;
+    background-size: cover;
+    max-height: 300rem;
+    border: 15px solid transparent !important;
+    -o-border-image: linear-gradient(to bottom right,rgba(255, 255, 255, 0.75) 0%,rgba(245, 245, 245, 0.75) 0%,rgba(245, 245, 245, 0.75) 16.6%,rgb(245, 245, 245) 37.8%,rgb(245, 245, 245) 48.8%,rgb(254, 254, 254) 53.1%,rgba(245, 245, 245, 0.75) 79.4%,rgba(245, 245, 245, 0.75) 84.3%) !important;
+       
+       border-image: linear-gradient(to bottom right,rgba(255, 255, 255, 0.75) 0%,rgba(245, 245, 245, 0.75) 0%,rgba(245, 245, 245, 0.75) 16.6%,rgb(245, 245, 245) 37.8%,rgb(245, 245, 245) 48.8%,rgb(254, 254, 254) 53.1%,rgba(245, 245, 245, 0.75) 79.4%,rgba(245, 245, 245, 0.75) 84.3%) !important;
+    border-image-slice: 1 !important;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    opacity: 0.95;
+    display: block;
+}
+
+a:hover{
+  opacity: 1;
+}
+/*----------------
+Push Bar
+------------------*/
+
+
+
+
+@-webkit-keyframes bounce {
+	0%, 20%, 50%, 80%, 100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+	40% {
+    -webkit-transform: translateY(-30px);
+            transform: translateY(-30px);
+  }
+	60% {
+    -webkit-transform: translateY(-15px);
+            transform: translateY(-15px);
+  }
+}
+
+@keyframes bounce {
+	0%, 20%, 50%, 80%, 100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+	40% {
+    -webkit-transform: translateY(-30px);
+            transform: translateY(-30px);
+  }
+	60% {
+    -webkit-transform: translateY(-15px);
+            transform: translateY(-15px);
+  }
+}
+/*-----------------
+Cards
+------------------*/
+.main-cont{
+    padding: 0;
+    margin: 0;
+    top: -215px;
+}
+
+.news-row {
+	margin: 0;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.news-block{
+    margin: auto;
+    padding: 0;
+    background-color: transparent;
+    max-width: 1060px;
+    min-width: 100px;
+    border: 20px solid transparent;
+    -o-border-image: linear-gradient(to bottom right,rgba(255, 255, 255, 0.75) 0%,rgba(245, 245, 245, 0.75) 0%,rgba(245, 245, 245, 0.75) 16.6%,rgb(245, 245, 245) 37.8%,rgb(245, 245, 245) 48.8%,rgb(254, 254, 254) 53.1%,rgba(245, 245, 245, 0.75) 79.4%,rgba(245, 245, 245, 0.75) 84.3%) !important;
+       border-image: linear-gradient(to bottom right,rgba(255, 255, 255, 0.75) 0%,rgba(245, 245, 245, 0.75) 0%,rgba(245, 245, 245, 0.75) 16.6%,rgb(245, 245, 245) 37.8%,rgb(245, 245, 245) 48.8%,rgb(254, 254, 254) 53.1%,rgba(245, 245, 245, 0.75) 79.4%,rgba(245, 245, 245, 0.75) 84.3%) !important;
+    border-image-slice: 1 !important;
+    -webkit-transition: all 0.6s ease;
+    transition: all 0.6s ease;
+    -webkit-animation: blockAppear .6s ease-in-out;
+            animation: blockAppear .6s ease-in-out;
+    -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+}
+
+.underlay{
+  /*display: none;*/
+  margin: 0;
+  padding: 0;
+  max-height: 350px;
+  max-width: 340px;
+}
+
+.card{
+    margin: 0;
+    width: 340px;
+    max-height: 350px;
+    max-width: 340px;
+    background-color: transparent;
+    border: 20px solid transparent !important;
+    -o-border-image: linear-gradient(to bottom right,rgba(255, 255, 255, 0.75) 0%,rgba(245, 245, 245, 0.75) 0%,rgba(245, 245, 245, 0.75) 16.6%,rgba(245, 245, 245, 0.75) 79.4%,rgba(245, 245, 245, 0.75) 84.3%) !important;
+       border-image: linear-gradient(to bottom right,rgba(255, 255, 255, 0.75) 0%,rgba(245, 245, 245, 0.75) 0%,rgba(245, 245, 245, 0.75) 16.6%,rgba(245, 245, 245, 0.75) 79.4%,rgba(245, 245, 245, 0.75) 84.3%) !important;
+    border-image-slice: 1 !important;
+    -webkit-transition: -webkit-transform 0.6s ease;
+    transition: -webkit-transform 0.6s ease;
+    transition: transform 0.6s ease;
+    transition: transform 0.6s ease, -webkit-transform 0.6s ease;
+    -webkit-animation: blockAppear .6s ease-in-out;
+            animation: blockAppear .6s ease-in-out;
+    -webkit-animation-duration: 1.5s;
+            animation-duration: 1.5s;
+}
+
+
+
+
+
+.card:hover{
+    z-index: 999;
+    max-height: 800px;
+    width: 400px;
+    max-width: 400px;
+    border: none !important;
+    border-right: 60px solid transparent !important;
+    border-bottom: 20px solid transparent !important;
+    margin-right: -20px;
+	  -webkit-transform:  translate(-30px, -50px);
+	          transform:  translate(-30px, -50px);
+}
+
+
+
+.card:hover:before
+{
+  max-width: 300px;
+  -webkit-box-shadow: 60px 60px 20px RGBA(142, 142, 142, .6);
+          box-shadow: 60px 60px 20px RGBA(142, 142, 142, .6);
+}
+
+.card:hover .card-img-top{
+	height: 300px;
+}
+
+.card:hover .card-block {
+  width: 300px;
+	}
+
+.card:hover .card-title{
+    color: rgb(162, 187, 240);
+    padding: 20px;
+}
+
+
+.card:hover .card-text{
+	  /*display: block !important;*/
+    color: rgb(162, 187, 240);
+}
+
+.card-block{
+    background-color: transparent;
+    background-image: linear-gradient(to bottom right,rgba(255, 255, 255, 0.75) 0%,rgba(245, 245, 245, 0.75) 0%,rgba(245, 245, 245, 0.75) 16.6%,rgb(245, 245, 245) 37.8%,rgb(245, 245, 245) 48.8%,rgb(254, 254, 254) 53.1%,rgba(245, 245, 245, 0.75) 79.4%,rgba(245, 245, 245, 0.75) 84.3%);
+    background-repeat: no-repeat;
+}
+
+.card-text {
+	display: none;
+}
+
+.card-img-top{
+    width: 300px;
+    height: 250px;
+    background-color: #fff;
+    -webkit-transition: height 0.8s ease;
+    transition: height 0.8s ease;
+}
+
+.clinicsImage{
+    background-image: url('./images/clinics.jpg');
+}
+
+.historyImage{
+    background-image: url('./images/history.jpg');
+}
+
+.mrImage{
+    background-image: url('./images/medical-record1.jpg');
+}
+
+
+/*-----------------
+Pixel Grid
+------------------*/
+.pixel-grid{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  z-index: 15;
+  opacity: .2;
+  display: none;
+}
+
+#toggle-grid{
+  position: fixed;
+  top: 150px;
+  right: 2px;
+  z-index: 16;
+  color: white;
+  display: inline-block;
+  /*border: 2px ridge white;*/
+  font-size: 1.8em;
+  width: 1.8em;
+  text-align: center;
+  line-height: 1.85em;
+  background: #666;
+  border-radius: 50%; /* or 50% width & line-height */
+  opacity: .3;
+  -webkit-transition: background 1s ease-out;
+  transition: background 1s ease-out;
+  display: none;
+}
+
+#toggle-grid:hover{
+  cursor: pointer;
+  background: repeating-linear-gradient(to bottom right,rgb(0, 0, 0) 0%,rgb(226, 226, 226) 61.4%,rgb(226, 226, 226) 66.9%,rgb(226, 226, 226) 76.6%,rgb(226, 226, 226) 88.7%,rgb(255, 255, 255) 100%);
+}
+
+.orange{
+  color: orange !important;
+  -webkit-box-shadow: 2px 2px 3px #888;
+          box-shadow: 2px 2px 3px #888;
+  opacity: 1 !important;
+}
+/*------------------*/
 
