@@ -22,5 +22,15 @@ export class AppTypeService {
         return this.http.get<any>('http://localhost:8080/getAppointmentTypes');
       }
     
+      deleteType(type : AppointmentType){
+        console.log(type.name)
+  
+        return this.http.post('http://localhost:8080/delete-type',type);
+      }
+  
+      
+      modifyType(type : AppointmentType, name: String){
+      return this.http.post('http://localhost:8080/changeTypeInfo/'+name ,type);
+      }
 
 }
