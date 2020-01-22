@@ -40,6 +40,7 @@ import { ClinicAdminHomePageComponent } from './profiles/clinic-admin-home-page/
 import { NewRoomComponent } from './new-room/new-room.component';
 import { AuthRecipeComponent } from './auth-recipe/auth-recipe.component';
 import { SurgeryHospitalRoomComponent } from './surgery-hospital-room/surgery-hospital-room.component';
+import { DoctorsListComponent } from './doctors-list/doctors-list.component';
 
 
 
@@ -71,7 +72,8 @@ import { SurgeryHospitalRoomComponent } from './surgery-hospital-room/surgery-ho
     NewRoomComponent,
     ClinicAdminHomePageComponent,
     AuthRecipeComponent,
-    SurgeryHospitalRoomComponent
+    SurgeryHospitalRoomComponent,
+    DoctorsListComponent
 
   ],
   imports: [

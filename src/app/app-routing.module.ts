@@ -23,6 +23,7 @@ import { RequestHolidayViewComponent } from './request-holiday-view/request-holi
 import { ClinicAdminHomePageComponent } from './profiles/clinic-admin-home-page/clinic-admin-home-page.component';
 import { NewRoomComponent } from './new-room/new-room.component';
 import { SurgeryHospitalRoomComponent } from './surgery-hospital-room/surgery-hospital-room.component';
+import { DoctorsListComponent } from './doctors-list/doctors-list.component';
 
 
 
@@ -49,7 +50,8 @@ const routes: Routes = [
       { path: 'requestHolidayViewComponent', component:  RequestHolidayViewComponent},
       { path: 'cadmin-home-page', component:  ClinicAdminHomePageComponent},
       { path: 'new-room', component:  NewRoomComponent},
-      { path: 'surgery-hospital-room', component:  SurgeryHospitalRoomComponent}
+      { path: 'surgery-hospital-room', component:  SurgeryHospitalRoomComponent},
+      { path: 'doctorsList', component:  DoctorsListComponent}
 ];
 
 @NgModule({

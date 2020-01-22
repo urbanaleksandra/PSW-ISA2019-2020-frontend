@@ -21,5 +21,5 @@ export class Doctor{
 		
             jmbg : number;
 
-            rating: number = 0;
+            review: number;
 }
