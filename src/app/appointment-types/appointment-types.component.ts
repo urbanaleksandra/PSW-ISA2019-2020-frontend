@@ -21,6 +21,7 @@ export class AppointmentTypesComponent implements OnInit {
   searchText;
   types: AppointmentType[] = [];
   newType: AppointmentType = new AppointmentType();
+  changeType: AppointmentType = new AppointmentType();
   isButtonVisible=false;
   dataSource = new MatTableDataSource(this.types);
   columnsToDisplay = ['name'];
@@ -54,7 +55,37 @@ export class AppointmentTypesComponent implements OnInit {
       );
     }
 
+    modifyType(type: AppointmentType){
+      console.log(type.name);
+      console.log(this.changeType.name)
+      this.service.modifyType(this.changeType,type.name).subscribe(
+        data => {
+          location.reload();
+        }, error => {
+          console.log(error);
+        }
+      )
+  
+      }
+
+    deleteType(type: AppointmentType){
+      this.service.deleteType(type).subscribe(
+        data => {
+          location.reload();
+        }, error => {
+          console.log(error);
+        }
+      )
+    }
+
+
     applyFilter(filterValue: string) {
       this.dataSource.filter = filterValue.trim().toLowerCase();
+    }
+
+    change(){
+      if(this.isButtonVisible==false)
+      this.isButtonVisible=true;
+      else this.isButtonVisible=false;
     }
 }
