@@ -42,6 +42,8 @@ import { AuthRecipeComponent } from './auth-recipe/auth-recipe.component';
 import { CdkTableModule } from '@angular/cdk/table';
 import { AppointmentTypesComponent } from './appointment-types/appointment-types.component';
 import { SurgeryHospitalRoomComponent } from './surgery-hospital-room/surgery-hospital-room.component';
+import { DoctorsSearchComponent } from './doctors-search/doctors-search.component';
+import { AddDoctorComponent } from './add-doctor/add-doctor.component';
 
 
 
@@ -74,7 +76,9 @@ import { SurgeryHospitalRoomComponent } from './surgery-hospital-room/surgery-ho
     ClinicAdminHomePageComponent,
     AuthRecipeComponent,
     AppointmentTypesComponent,
-    SurgeryHospitalRoomComponent
+    SurgeryHospitalRoomComponent,
+    DoctorsSearchComponent,
+    AddDoctorComponent
 
 
   ],

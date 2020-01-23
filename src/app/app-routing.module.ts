@@ -25,6 +25,8 @@ import { NewRoomComponent } from './new-room/new-room.component';
 import { AppointmentType } from './model/AppointmentType';
 import { AppointmentTypesComponent } from './appointment-types/appointment-types.component';
 import { SurgeryHospitalRoomComponent } from './surgery-hospital-room/surgery-hospital-room.component';
+import { DoctorsSearchComponent } from './doctors-search/doctors-search.component';
+import { AddDoctorComponent } from './add-doctor/add-doctor.component';
 
 
 
@@ -53,7 +55,9 @@ const routes: Routes = [
       { path: 'cadmin-home-page', component:  ClinicAdminHomePageComponent},
       { path: 'new-room', component:  NewRoomComponent},
       { path: 'appTypes', component:  AppointmentTypesComponent},
-      { path: 'surgery-hospital-room', component:  SurgeryHospitalRoomComponent}
+      { path: 'surgery-hospital-room', component:  SurgeryHospitalRoomComponent},
+      {path: 'doctors',component: DoctorsSearchComponent},
+      {path: 'add-doc',component: AddDoctorComponent},
 
 ];
 
