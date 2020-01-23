@@ -21,9 +21,12 @@ export class Doctor{
 		
             jmbg : number;
 
+            review: number;
+
             rating: number = 0;
 
             pocetakRadnogVremena: number=0;
 
             krajRadnogVremena:number=0;
+
 }
