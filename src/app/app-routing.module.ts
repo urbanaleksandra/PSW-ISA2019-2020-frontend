@@ -55,7 +55,7 @@ const routes: Routes = [
       { path: 'cadmin-home-page', component:  ClinicAdminHomePageComponent},
       { path: 'new-room', component:  NewRoomComponent},
       { path: 'surgery-hospital-room', component:  SurgeryHospitalRoomComponent},
-      { path: 'doctorsList', component:  DoctorsListComponent}
+      { path: 'doctorsList', component:  DoctorsListComponent},
 
       { path: 'appTypes', component:  AppointmentTypesComponent},
       { path: 'surgery-hospital-room', component:  SurgeryHospitalRoomComponent},

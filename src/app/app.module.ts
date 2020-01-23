@@ -77,7 +77,7 @@ import { AddDoctorComponent } from './add-doctor/add-doctor.component';
     ClinicAdminHomePageComponent,
     AuthRecipeComponent,
     SurgeryHospitalRoomComponent,
-    DoctorsListComponent
+    DoctorsListComponent,
     AppointmentTypesComponent,
     SurgeryHospitalRoomComponent,
     DoctorsSearchComponent,
