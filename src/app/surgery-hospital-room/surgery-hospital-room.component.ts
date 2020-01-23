@@ -11,14 +11,16 @@ import { Surgery } from '../model/Surgery';
 })
 export class SurgeryHospitalRoomComponent implements OnInit {
 
+  addRoomClicked = false;
   searchText;
   rooms: HospitalRoom[] = [];
   isButtonVisible=false;
   surgeries: Surgery[] = [];
+  clickedSurgery: Surgery;
   constructor(private service: SurgeryRoomService) { }
 
   ngOnInit(): void {
-    this.getRooms();
+    //this.getRooms();
     this.getSurgeries();
   }
 
@@ -40,6 +42,20 @@ export class SurgeryHospitalRoomComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+
+  addRoom(surgery){
+    this.addRoomClicked = true;
+    this.clickedSurgery = surgery;
+    console.log(surgery);
+    this.service.getAvailableRooms(surgery).subscribe(
+      data => {
+        this.rooms = data;
+        console.log(data);
+      },error => {
+        console.log(error);
+      }
+    )
   }
 
 }
