@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HospitalRoom } from '../model/HospitalRoom';
-import { hospitalRoomsService } from '../service/hospitalRooms.service';
 import { SurgeryRoomService } from '../service/surgery-room.service';
 import { Surgery } from '../model/Surgery';
+import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
+import { PopUpDoctorsComponent } from '../pop-up-doctors/pop-up-doctors.component';
 
 @Component({
   selector: 'app-surgery-hospital-room',
@@ -17,7 +18,8 @@ export class SurgeryHospitalRoomComponent implements OnInit {
   isButtonVisible=false;
   surgeries: Surgery[] = [];
   clickedSurgery: Surgery;
-  constructor(private service: SurgeryRoomService) { }
+  constructor(private service: SurgeryRoomService,
+    private dialog: MatDialog) { }
 
   ngOnInit(): void {
     //this.getRooms();
@@ -58,4 +60,12 @@ export class SurgeryHospitalRoomComponent implements OnInit {
     )
   }
 
+  chooseDoctor(){
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "60%";
+    this.dialog.open(PopUpDoctorsComponent, dialogConfig);
+    
+  }
 }

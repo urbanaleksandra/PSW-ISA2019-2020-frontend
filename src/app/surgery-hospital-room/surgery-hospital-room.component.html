@@ -67,7 +67,7 @@
       </div>
       <div class="row">
  
-          <div class="card col-4-ld mr-4 mt-4" *ngFor="let room of rooms | filter:searchText" (click)="change(patient)" style="width: 14rem;margin: 10px;">
+          <div class="card col-4-ld mr-4 mt-4" *ngFor="let room of rooms | filter:searchText" style="width: 14rem;margin: 10px;">
             <img class="card-img-top"
                 src="https://imageog.flaticon.com/icons/png/512/608/608888.png?size=1200x630f&pad=10,10,10,10&ext=png&bg=FFFFFFFF"
                 alt="Card image cap">
@@ -77,7 +77,7 @@
                 <h6>No. {{room.room_number}}</h6>
                 <p class="card-text">
                 </p>
-                <button class="btn btn-outline-success">Choose this room</button>
+                <button class="btn btn-outline-success" (click)="chooseDoctor()">Choose this room</button>
             </div>
           </div> 
       </div>

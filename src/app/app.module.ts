@@ -45,6 +45,8 @@ import { SurgeryHospitalRoomComponent } from './surgery-hospital-room/surgery-ho
 import { DoctorsListComponent } from './doctors-list/doctors-list.component';
 import { DoctorsSearchComponent } from './doctors-search/doctors-search.component';
 import { AddDoctorComponent } from './add-doctor/add-doctor.component';
+import { SurgeryRoomService } from './service/surgery-room.service';
+import { PopUpDoctorsComponent } from './pop-up-doctors/pop-up-doctors.component';
 
 
 
@@ -81,7 +83,8 @@ import { AddDoctorComponent } from './add-doctor/add-doctor.component';
     AppointmentTypesComponent,
     SurgeryHospitalRoomComponent,
     DoctorsSearchComponent,
-    AddDoctorComponent
+    AddDoctorComponent,
+    PopUpDoctorsComponent
 
 
   ],
@@ -107,6 +110,7 @@ import { AddDoctorComponent } from './add-doctor/add-doctor.component';
 
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[PopUpDoctorsComponent]
 })
 export class AppModule { }
