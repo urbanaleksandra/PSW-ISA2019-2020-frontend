@@ -39,8 +39,12 @@ import { RequestHolidayViewComponent } from './request-holiday-view/request-holi
 import { ClinicAdminHomePageComponent } from './profiles/clinic-admin-home-page/clinic-admin-home-page.component';
 import { NewRoomComponent } from './new-room/new-room.component';
 import { AuthRecipeComponent } from './auth-recipe/auth-recipe.component';
+import { CdkTableModule } from '@angular/cdk/table';
+import { AppointmentTypesComponent } from './appointment-types/appointment-types.component';
 import { SurgeryHospitalRoomComponent } from './surgery-hospital-room/surgery-hospital-room.component';
 import { DoctorsListComponent } from './doctors-list/doctors-list.component';
+import { DoctorsSearchComponent } from './doctors-search/doctors-search.component';
+import { AddDoctorComponent } from './add-doctor/add-doctor.component';
 
 
 
@@ -74,6 +78,11 @@ import { DoctorsListComponent } from './doctors-list/doctors-list.component';
     AuthRecipeComponent,
     SurgeryHospitalRoomComponent,
     DoctorsListComponent
+    AppointmentTypesComponent,
+    SurgeryHospitalRoomComponent,
+    DoctorsSearchComponent,
+    AddDoctorComponent
+
 
   ],
   imports: [
@@ -87,7 +96,8 @@ import { DoctorsListComponent } from './doctors-list/doctors-list.component';
     Ng2SearchPipeModule,
     NgbModule,
     ReactiveFormsModule,
-    FullCalendarModule
+    FullCalendarModule,
+    CdkTableModule
   ],
   providers: [
     {

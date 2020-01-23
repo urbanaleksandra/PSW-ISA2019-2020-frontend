@@ -1,0 +1,119 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"><img src='https://powernetco.com/files/2018-04/icon-healthcare.png'
+            style="width:50px;height:50px;"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#" routerLinkActive='active' [routerLink]="['/doctorHomePage']">Home <span
+                        class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" routerLinkActive='active' [routerLink]="['/doctorHomePage']">Profile<span
+                        class="sr-only">(current)</span></a>
+            </li>
+
+        </ul>
+
+        <app-logout></app-logout>
+    </div>
+
+   <!--  <mat-sidenav-container>
+        <mat-sidenav #appDrawer mode="over" opened="false">
+          <mat-nav-list>
+            <app-menu-list-item *ngFor="let item of navItems" [item]="item"></app-menu-list-item>
+          </mat-nav-list>
+        </mat-sidenav>
+        <app-top-nav fxHide.xs></app-top-nav>
+        <router-outlet></router-outlet>
+        <div fxFlex></div>
+        <span class="version-info">Current build: {{version.full ? version.full : version}}</span>
+      </mat-sidenav-container> -->
+</nav>
+
+<div class="container" fxLayout="row" fxLayoutAlign="center center" style="margin-top: 20px; height: 100vh; width: 100vh">
+
+    <h4>Enter data for new doctor:</h4>
+    <form class="needs-validation" novalidate (ngSubmit)="onSubmit()">
+
+
+        <div class="form-group">
+            <label for="duration"> Username :</label>
+            <textarea class="form-control" rows="1" placeholder="username" [(ngModel)]="doctor.username"
+                name="clinicDescription" id="description"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="description">First name:</label>
+            <textarea class="form-control" rows="2" placeholder="first-name" [(ngModel)]="doctor.firstName"
+                name="clinicDescription" id="description"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="description">Last name:</label>
+            <textarea class="form-control" rows="2" placeholder="last-name" [(ngModel)]="doctor.lastName"
+                name="clinicDescription" id="description"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="description">City:</label>
+            <textarea class="form-control" rows="2" placeholder="city" [(ngModel)]="doctor.city"
+                name="clinicDescription" id="description"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="description">Country:</label>
+            <textarea class="form-control" rows="2" placeholder="country" [(ngModel)]="doctor.country"
+                name="clinicDescription" id="description"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="description">Email :</label>
+            <textarea class="form-control" rows="2" placeholder="email" [(ngModel)]="doctor.email"
+                name="clinicDescription" id="description"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="description">Unique number :</label>
+            <textarea class="form-control" rows="2" placeholder="unique-number" [(ngModel)]="doctor.jmbg"
+                name="clinicDescription" id="description"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="description">Address :</label>
+            <textarea class="form-control" rows="2" placeholder="address" [(ngModel)]="doctor.address"
+                name="clinicDescription" id="description"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="description">Start of working hours :</label>
+            <textarea class="form-control" rows="2" placeholder="start" [(ngModel)]="doctor.pocetakRadnogVremena"
+                name="clinicDescription" id="description"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="description">End of working hours :</label>
+            <textarea class="form-control" rows="2" placeholder="end" [(ngModel)]="doctor.krajRadnogVremena"
+                name="clinicDescription" id="description"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="description">Mobile number :</label>
+            <textarea class="form-control" rows="2" placeholder="mobile-number" [(ngModel)]="doctor.mobileNumber"
+                name="clinicDescription" id="description"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="description">Password :</label>
+            <textarea class="form-control" rows="2" placeholder="password" [(ngModel)]="doctor.password"
+                name="clinicDescription" id="description"></textarea>
+        </div>
+
+        <button class="btn btn-success" type="submit">Add doctor</button>
+    </form>
+</div>
+    <!-- Footer -->
+   

@@ -22,8 +22,12 @@ import { HistoryOfAppointmentsComponent } from './history-of-appointments/histor
 import { RequestHolidayViewComponent } from './request-holiday-view/request-holiday-view.component';
 import { ClinicAdminHomePageComponent } from './profiles/clinic-admin-home-page/clinic-admin-home-page.component';
 import { NewRoomComponent } from './new-room/new-room.component';
+import { AppointmentType } from './model/AppointmentType';
+import { AppointmentTypesComponent } from './appointment-types/appointment-types.component';
 import { SurgeryHospitalRoomComponent } from './surgery-hospital-room/surgery-hospital-room.component';
 import { DoctorsListComponent } from './doctors-list/doctors-list.component';
+import { DoctorsSearchComponent } from './doctors-search/doctors-search.component';
+import { AddDoctorComponent } from './add-doctor/add-doctor.component';
 
 
 
@@ -52,6 +56,12 @@ const routes: Routes = [
       { path: 'new-room', component:  NewRoomComponent},
       { path: 'surgery-hospital-room', component:  SurgeryHospitalRoomComponent},
       { path: 'doctorsList', component:  DoctorsListComponent}
+
+      { path: 'appTypes', component:  AppointmentTypesComponent},
+      { path: 'surgery-hospital-room', component:  SurgeryHospitalRoomComponent},
+      {path: 'doctors',component: DoctorsSearchComponent},
+      {path: 'add-doc',component: AddDoctorComponent},
+
 ];
 
 @NgModule({
