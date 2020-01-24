@@ -24,6 +24,12 @@ export class DoctorsListComponent implements OnInit {
   imeKlinike: string;
   datumZakazivanja: string;
   doctors: Doctor[] = [];
+  selectTimeClicked: boolean;
+  selectedDoctor: Doctor;
+  minVreme: String;
+  maxVreme: String;
+  myDate = new Date().toJSON("yyyy/MM/dd HH:mm");
+  now: string;
 
   constructor(private clinicService: ClinicService) { }
 
@@ -33,6 +39,10 @@ export class DoctorsListComponent implements OnInit {
     console.log(this.imeKlinike);
     console.log(this.datumZakazivanja);
     this.getSearchDoctors();
+
+    
+
+    this.selectTimeClicked = false;
   }
 
 
@@ -47,6 +57,27 @@ export class DoctorsListComponent implements OnInit {
        )
   }
 
+  addTimeForm(doctor:Doctor){
+    this.now = this.myDate.split("T")[1].split(":")[0] + ":" + this.myDate.split("T")[1].split(":")[1];
+    console.log(this.now);
+    this.selectTimeClicked = true;
+    this.selectedDoctor = doctor;
 
+
+    this.minVreme = this.selectedDoctor.pocetakRadnogVremena;
+    this.maxVreme = this.selectedDoctor.krajRadnogVremena;
+    console.log(this.minVreme);
+    console.log(this.maxVreme);
+  }
+
+  redirectToNewAppointment(){
+    this.clinicService.imeKlinike1 = this.imeKlinike;
+    this.clinicService.datumZakazivanja1 = this.datumZakazivanja;
+    this.clinicService.vremeZakazivanja = this.now;
+    this.clinicService.doctor = this.selectedDoctor;
+
+  }
+
+ 
 
 }

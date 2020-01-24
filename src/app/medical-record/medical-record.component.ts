@@ -30,11 +30,12 @@ export class MedicalRecordComponent implements OnInit {
 
   getAppointments(){
     this.usernameUlogovanog = sessionStorage.getItem("authenticatedUser");
+    console.log(this.usernameUlogovanog);
     this.service.getAppointments(this.usernameUlogovanog).subscribe(
       data=>{
         this.appointments=data;
         for(let a of this.appointments){
-          console.log(a.patient);
+          //console.log(a.patient);
           if(a.patient === this.usernameUlogovanog){
             this.appointments1.push(a);
           }
@@ -51,7 +52,7 @@ export class MedicalRecordComponent implements OnInit {
       data=>{
         this.surgeries=data;
         for(let a of this.surgeries){
-          console.log(a.patient);
+          //console.log(a.patient);
           if(a.patient === this.usernameUlogovanog){
             this.surgeries1.push(a);
           }
