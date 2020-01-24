@@ -24,6 +24,7 @@ export class ClinicsListComponent implements OnInit {
   myDate = new Date().toJSON("yyyy/MM/dd HH:mm");
   now: string;
   kliknutaKlinika: string;
+  usernameUlogovanog: string;
 
   constructor(private clinicService: ClinicService,
     private router: Router,private datePipe: DatePipe) { }
@@ -32,14 +33,18 @@ export class ClinicsListComponent implements OnInit {
     this.getClinics();
     this.flagForSearch = false;
     this.flagForSearchTable = false;
-    this.now = this.myDate.split(":")[0] + ":" + this.myDate.split(":")[1];
-    this.appointment.date = this.myDate.split(":")[0] + ":" + this.myDate.split(":")[1];
+    console.log(this.myDate.split("T")[0]);
+    this.now = this.myDate.split("T")[0];// + ":" + this.myDate.split(":")[1];
+    this.appointment.date = this.myDate.split("T")[0];// + ":" + this.myDate.split(":")[1];
     //console.log(this.myDate.split(":")[0] + ":" + this.myDate.split(":")[1]);
+    this.usernameUlogovanog = sessionStorage.getItem("authenticatedUser");
+    console.log(this.usernameUlogovanog);
   }
 
-  klinika(ime: string){ //prenosim ime klinike i datum zakazivanja u drugu komponentu
+  klinika(clinic : Clinic){ //prenosim ime klinike i datum zakazivanja u drugu komponentu
     //this.kliknutaKlinika = ime;
-    this.clinicService.imeKlinike1 = ime;
+    this.clinicService.clinic = clinic;
+    this.clinicService.imeKlinike1 = clinic.name;
     this.clinicService.datumZakazivanja1 = this.appointment.date;
     //console.log(ime + this.appointment.date);
   }

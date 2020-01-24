@@ -1,3 +1,5 @@
+import { Doctor } from './Doctor';
+
 export class Appointment {
     id : string="0";
     date : string="";

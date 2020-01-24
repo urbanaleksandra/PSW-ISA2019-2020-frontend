@@ -45,6 +45,7 @@ import { SurgeryHospitalRoomComponent } from './surgery-hospital-room/surgery-ho
 import { DoctorsListComponent } from './doctors-list/doctors-list.component';
 import { DoctorsSearchComponent } from './doctors-search/doctors-search.component';
 import { AddDoctorComponent } from './add-doctor/add-doctor.component';
+import { PatientCreateAppointmentComponent } from './patient-create-appointment/patient-create-appointment.component';
 
 
 
@@ -81,7 +82,8 @@ import { AddDoctorComponent } from './add-doctor/add-doctor.component';
     AppointmentTypesComponent,
     SurgeryHospitalRoomComponent,
     DoctorsSearchComponent,
-    AddDoctorComponent
+    AddDoctorComponent,
+    PatientCreateAppointmentComponent
 
 
   ],

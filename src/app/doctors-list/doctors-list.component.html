@@ -21,7 +21,7 @@
   <div class="container">
     <div >
       <h3 style="padding-bottom: 10px; padding-top: 20px;">
-        You choose {{ this.imeKlinike }} clinic.
+        You choose {{ this.imeKlinike }} clinic for date: {{ this.datumZakazivanja }}
       </h3>
       <div class="search-hero">
         <input class="form-control " type="search"  name="search" [(ngModel)]="searchText" 
@@ -33,6 +33,7 @@
             <th>Name</th>
             <th>Last name</th>
             <th>Rating</th>
+            <th style="width: 174px;">Select a time</th>
           </tr>
         </thead>
         <tbody>
@@ -40,11 +41,26 @@
             <td>{{doctor.firstName}}</td>
             <td>{{doctor.lastName}}</td>
             <td>{{doctor.review}}</td>
+            <td><a class="btn btn-outline-success" (click)="addTimeForm(doctor)" style="font-size: 14px; ">select</a></td>
           </tr>
         </tbody>
       </table>
     </div>
+    <div style="background-color: rgb(217, 236, 236, 0.7); padding: 2em; border-radius: 10px;" *ngIf="this.selectTimeClicked">
+      <div style="padding-bottom: 10px; padding-top: 20px;">
+        Selected doctor: {{ this.selectedDoctor.firstName }}.
+        <br> 
+        <br>
+        Select a time: 
+        <input type="time" id="appt" name="appt" value="{{this.now}}" [(ngModel)]="this.now"
+        min="{{this.minVreme}}" max="{{this.maxVreme}}" required>
+      </div>
+      <br>
+      <a class="btn btn-outline-success" (click)="redirectToNewAppointment()" href="#" routerLinkActive='active' [routerLink]="['/patient-create-appointment']" style="font-size: 14px; ">Create new appointment</a>
+    </div>
   </div>
+
+  
 
 
 
