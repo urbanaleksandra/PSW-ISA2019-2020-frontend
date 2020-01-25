@@ -21,7 +21,7 @@
   <div class="container">
     <div >
       <h3 style="padding-bottom: 10px; padding-top: 20px;">
-        You choose {{ this.imeKlinike }} clinic for date: {{ this.datumZakazivanja }}
+        You chose {{ this.imeKlinike }} clinic for date: {{ this.datumZakazivanja }}
       </h3>
       <div class="search-hero">
         <input class="form-control " type="search"  name="search" [(ngModel)]="searchText" 
@@ -54,9 +54,12 @@
         Select a time: 
         <input type="time" id="appt" name="appt" value="{{this.now}}" [(ngModel)]="this.now"
         min="{{this.minVreme}}" max="{{this.maxVreme}}" required>
+        <br>
+        <br>
+        <small *ngIf='upozorenjeZaRadnoVreme' style="color: red;">Doctors working hours are from {{this.minVreme}} to {{this.maxVreme}}</small>
       </div>
       <br>
-      <a class="btn btn-outline-success" (click)="redirectToNewAppointment()" href="#" routerLinkActive='active' [routerLink]="['/patient-create-appointment']" style="font-size: 14px; ">Create new appointment</a>
+      <a class="btn btn-outline-success" (click)="redirectToNewAppointment()"  style="font-size: 14px; ">Create new appointment</a>
     </div>
   </div>
 

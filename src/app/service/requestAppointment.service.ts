@@ -17,6 +17,12 @@ export class RequestAppointmentService{
         return this.http.post<Patient>('http://localhost:8080/api/add-requestApp', appointment)
       }
 
+
+    addrequestAppointmentFromPatient(appointment : Appointment){
+    console.log(appointment.description)
+    return this.http.post<Patient>('http://localhost:8080/api/add-requestApp-from-patient', appointment)
+    }
+
 /*     getRequest(){
         return this.http.get<Patient[]>('http://localhost:8080/api/requests');
     }
