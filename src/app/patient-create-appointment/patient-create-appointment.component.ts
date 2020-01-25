@@ -28,15 +28,25 @@ export class PatientCreateAppointmentComponent implements OnInit {
     this.vremeZakazivanja = this.clinicService.vremeZakazivanja;
     this.doctor = this.clinicService.doctor;
     //this.doctor.clinic = this.clinicService.clinic;
-    //this.appointment.doctor = this.doctor; //napraviti u appointDTO string doctor i ovako prosledim dovtorov username, i ovde u apointment modelu stavim string doctor username kao patient
+    this.appointment.doctorUsername = this.doctor.username; //napraviti u appointDTO string doctor i ovako prosledim username doktora, i ovde u apointment modelu stavim string doctor username kao patient
     this.appointment.date = this.datumZakazivanja + "T" + this.vremeZakazivanja;
     this.appointment.patient = this.usernameUlogovanog;
     this.appointment.type = "bla";
+    console.log(this.appointment.doctorUsername);
     
     console.log(this.appointment.patient);
   }
 
   onSubmit(){
+
+    this.rAservice.addrequestAppointmentFromPatient(this.appointment).subscribe(
+      data=>{
+        alert("Request for creating the appointment has been successfully sent to clinic administrator.");
+        this.router.navigateByUrl("/patient-home-page");
+    }, error =>{
+        console.log(error);
+    }
+    );
 
   }
 

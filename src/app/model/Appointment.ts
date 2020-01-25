@@ -7,4 +7,5 @@ export class Appointment {
     duration: number = 0;
     type : string = "";
     patient : string = "";
+    doctorUsername: string=""; 
 }
