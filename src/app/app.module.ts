@@ -45,7 +45,12 @@ import { SurgeryHospitalRoomComponent } from './surgery-hospital-room/surgery-ho
 import { DoctorsListComponent } from './doctors-list/doctors-list.component';
 import { DoctorsSearchComponent } from './doctors-search/doctors-search.component';
 import { AddDoctorComponent } from './add-doctor/add-doctor.component';
+<<<<<<< HEAD
 import { PatientCreateAppointmentComponent } from './patient-create-appointment/patient-create-appointment.component';
+=======
+import { SurgeryRoomService } from './service/surgery-room.service';
+import { PopUpDoctorsComponent } from './pop-up-doctors/pop-up-doctors.component';
+>>>>>>> feature-3.20-1.system-reservation
 
 
 
@@ -83,7 +88,11 @@ import { PatientCreateAppointmentComponent } from './patient-create-appointment/
     SurgeryHospitalRoomComponent,
     DoctorsSearchComponent,
     AddDoctorComponent,
+<<<<<<< HEAD
     PatientCreateAppointmentComponent
+=======
+    PopUpDoctorsComponent
+>>>>>>> feature-3.20-1.system-reservation
 
 
   ],
@@ -109,6 +118,7 @@ import { PatientCreateAppointmentComponent } from './patient-create-appointment/
 
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[PopUpDoctorsComponent]
 })
 export class AppModule { }
