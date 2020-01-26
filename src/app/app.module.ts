@@ -48,6 +48,7 @@ import { AddDoctorComponent } from './add-doctor/add-doctor.component';
 import { PatientCreateAppointmentComponent } from './patient-create-appointment/patient-create-appointment.component';
 import { SurgeryRoomService } from './service/surgery-room.service';
 import { PopUpDoctorsComponent } from './pop-up-doctors/pop-up-doctors.component';
+import { NewSurgeryComponent } from './new-surgery/new-surgery.component';
 
 
 @NgModule({
@@ -85,7 +86,8 @@ import { PopUpDoctorsComponent } from './pop-up-doctors/pop-up-doctors.component
     DoctorsSearchComponent,
     AddDoctorComponent,
     PatientCreateAppointmentComponent,
-    PopUpDoctorsComponent
+    PopUpDoctorsComponent,
+    NewSurgeryComponent
 
 
   ],
