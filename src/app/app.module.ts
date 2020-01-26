@@ -47,6 +47,7 @@ import { DoctorsSearchComponent } from './doctors-search/doctors-search.componen
 import { AddDoctorComponent } from './add-doctor/add-doctor.component';
 import { SurgeryRoomService } from './service/surgery-room.service';
 import { PopUpDoctorsComponent } from './pop-up-doctors/pop-up-doctors.component';
+import { PatientCreateAppointmentComponent } from './patient-create-appointment/patient-create-appointment.component';
 
 
 
@@ -84,7 +85,9 @@ import { PopUpDoctorsComponent } from './pop-up-doctors/pop-up-doctors.component
     SurgeryHospitalRoomComponent,
     DoctorsSearchComponent,
     AddDoctorComponent,
-    PopUpDoctorsComponent
+    PopUpDoctorsComponent,
+    PatientCreateAppointmentComponent
+
 
 
   ],
