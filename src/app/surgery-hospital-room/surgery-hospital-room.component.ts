@@ -65,7 +65,8 @@ export class SurgeryHospitalRoomComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.width = "60%";
-    this.dialog.open(PopUpDoctorsComponent, dialogConfig);
+    dialogConfig.data = this.clickedSurgery;
+    this.dialog.open(PopUpDoctorsComponent, dialogConfig );
     
   }
 }

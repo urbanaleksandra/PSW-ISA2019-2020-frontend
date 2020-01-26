@@ -23,4 +23,9 @@ export class SurgeryRoomService {
     console.log("getAvailableRooms");
     return this.http.post<any>('http://localhost:8080/api/availableRooms', surgery);
   }
+
+  getAvailableDoctors(surgery){
+    console.log("usao u getAvailableDoctors");
+    return this.http.post<any>('http://localhost:8080/api/availableDoctors', surgery);
+  }
 }

@@ -4,7 +4,15 @@
         <h5 class="modal-title" id="exampleModalLongTitle">Add doctors to surgery</h5>
         
       </div>
-      <p>pop-up-doctors works!</p>
+      <div class="form-group" >
+          <div class="form-control">
+              <label class="checkbox-inline">
+                <input type="checkbox" name="isActive" >
+                    Is Active
+              </label>
+          </div>
+          
+      </div>
     <div class="modal-footer">
         <button class="btn btn-success" (click)="onSubmit()">Add doctors</button>
         <button class="btn btn-danger" (click)="onClose()">Close</button>
