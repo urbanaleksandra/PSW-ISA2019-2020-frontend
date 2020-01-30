@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HospitalRoom } from '../model/HospitalRoom';
 import { hospitalRoomsService } from '../service/hospitalRooms.service';
 import { Router } from '@angular/router';
+import { User } from '../model/User';
 
 @Component({
   selector: 'app-new-room',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./new-room.component.css']
 })
 export class NewRoomComponent implements OnInit {
-
+  user: User= new User();
   room: HospitalRoom = new HospitalRoom();
   constructor(private service : hospitalRoomsService,private router: Router) { }
 
@@ -17,8 +18,8 @@ export class NewRoomComponent implements OnInit {
   }
 
   onSubmit() {
-
-    this.service.addRoom(this.room).subscribe(
+    this.user.username = sessionStorage.getItem("authenticatedUser");
+    this.service.addRoom(this.room,this.user.username).subscribe(
       data=>{
         alert("The room has been added.");
         this.router.navigateByUrl("/find-room");

@@ -23,10 +23,10 @@ export class hospitalRoomsService{
       return this.http.post('http://localhost:8080/changeRoomInfo/'+name ,room);
     }
 
-    addRoom(room : HospitalRoom){
+    addRoom(room : HospitalRoom,username:String){
       console.log(room.name+room.room_number)
 
-      return this.http.post<HospitalRoom>('http://localhost:8080/add-room', room);
+      return this.http.post<HospitalRoom>('http://localhost:8080/add-room/'+username, room);
     }
 
     getAllRooms() {
