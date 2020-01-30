@@ -44,6 +44,7 @@ import { AppointmentTypesComponent } from './appointment-types/appointment-types
 import { SurgeryHospitalRoomComponent } from './surgery-hospital-room/surgery-hospital-room.component';
 import { DoctorsSearchComponent } from './doctors-search/doctors-search.component';
 import { AddDoctorComponent } from './add-doctor/add-doctor.component';
+import { ClinicAdminProfileComponent } from './clinic-admin-profile/clinic-admin-profile.component';
 
 
 
@@ -78,7 +79,8 @@ import { AddDoctorComponent } from './add-doctor/add-doctor.component';
     AppointmentTypesComponent,
     SurgeryHospitalRoomComponent,
     DoctorsSearchComponent,
-    AddDoctorComponent
+    AddDoctorComponent,
+    ClinicAdminProfileComponent
 
 
   ],

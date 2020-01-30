@@ -27,6 +27,7 @@ import { AppointmentTypesComponent } from './appointment-types/appointment-types
 import { SurgeryHospitalRoomComponent } from './surgery-hospital-room/surgery-hospital-room.component';
 import { DoctorsSearchComponent } from './doctors-search/doctors-search.component';
 import { AddDoctorComponent } from './add-doctor/add-doctor.component';
+import { ClinicAdminProfileComponent } from './clinic-admin-profile/clinic-admin-profile.component';
 
 
 
@@ -58,6 +59,7 @@ const routes: Routes = [
       { path: 'surgery-hospital-room', component:  SurgeryHospitalRoomComponent},
       {path: 'doctors',component: DoctorsSearchComponent},
       {path: 'add-doc',component: AddDoctorComponent},
+      {path: 'cadmin-profile',component: ClinicAdminProfileComponent}
 
 ];
 

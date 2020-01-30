@@ -9,6 +9,8 @@ export class ClinicAdministrator{
 
     email : string = "";
 
+    oldPassword: string= "";
+
     address : string = "";
 
     city : string = "";

@@ -13,16 +13,14 @@ export class DoctorService{
     constructor(private http: HttpClient) { }
 
 
- /*    deleteRoom(room : HospitalRoom){
-      console.log(room.name)
-
-      return this.http.post('http://localhost:8080/delete-room',room);
+    deleteDoctor(doc : Doctor){
+      return this.http.post('http://localhost:8080/delete-doc',doc);
     }
 
 
-    modifyRoom(room : HospitalRoom, name: String){
-      return this.http.post('http://localhost:8080/changeRoomInfo/'+name ,room);
-    } */
+    modifyDoctor(doctor : Doctor, name: String){
+      return this.http.post('http://localhost:8080/osobljePromjena/'+name ,doctor);
+    } 
 
     addDoctor(doctor : Doctor){
       console.log(doctor.username)

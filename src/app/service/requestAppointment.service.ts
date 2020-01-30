@@ -13,7 +13,7 @@ export class RequestAppointmentService{
     constructor(private http: HttpClient) { }
 
     addrequestAppointment(appointment : Appointment){
-        console.log(appointment.description)
+        console.log(appointment.description+appointment.date+appointment.duration+appointment.patient+appointment.type)
         return this.http.post<Patient>('http://localhost:8080/api/add-requestApp', appointment)
       }
 
