@@ -4,6 +4,7 @@ import { MedicalRecordService } from '../service/medicalRecord.service';
 import { Surgery } from '../model/Surgery';
 import { Appointment } from '../model/Appointment';
 import { Sort } from '@angular/material/sort';
+import { Doctor } from '../model/Doctor';
 
 @Component({
   selector: 'app-history-of-appointments',
@@ -16,6 +17,7 @@ export class HistoryOfAppointmentsComponent implements OnInit {
   appointments1 : Appointment[] = [];
   appointment : Appointment;
   usernameUlogovanog : string;
+  doctorsForRate : Doctor[] = [];
 
   surgeries : Surgery[] = [];
   surgeries1 : Surgery[] = [];
@@ -26,7 +28,25 @@ export class HistoryOfAppointmentsComponent implements OnInit {
   ngOnInit() {
     this.getAppointments();
     this.getSurgeries();
+    this.getDoctorsForRate();
   }
+
+  doSomething(doctor:Doctor){
+    console.log(doctor.firstName);
+    console.log(doctor.review);
+  }
+
+  getDoctorsForRate(){
+    this.usernameUlogovanog = sessionStorage.getItem("authenticatedUser");
+    this.service.getDoctorsForRate(this.usernameUlogovanog).subscribe(
+      data=>{
+        this.doctorsForRate=data;
+      }, error =>{
+        console.log(error);
+      }
+    );
+  }
+
 
   getAppointments(){
     this.usernameUlogovanog = sessionStorage.getItem("authenticatedUser");

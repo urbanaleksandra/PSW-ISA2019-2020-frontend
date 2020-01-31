@@ -24,6 +24,7 @@
       <thead class="thead-light">
           <tr>
             <th mat-sort-header="date">Date</th>
+            <th mat-sort-header="time">Time</th>
             <th mat-sort-header="description">Description</th>
             <th mat-sort-header="duration">Duration</th>
             <th mat-sort-header="type">Type</th>
@@ -34,7 +35,8 @@
         </thead>
         <tbody>
             <tr *ngFor='let appointment of appointments1'>
-              <td>{{ appointment?.date }}</td>
+              <td>{{ appointment?.date.split("T")[0] }}</td>
+              <td>{{ appointment?.date.split("T")[1] }}</td>
               <td>{{ appointment?.description }}</td>
               <td>{{ appointment?.duration }}</td>
               <td>{{ appointment?.type }}</td>
@@ -54,6 +56,7 @@
         <thead class="thead-light">
             <tr>
               <th mat-sort-header="date">Date</th>
+              <th mat-sort-header="time">Time</th>
               <th mat-sort-header="description">Description</th>
               <!-- <th>Doctor</th>
               <th>Hospital room</th> -->
@@ -61,14 +64,43 @@
           </thead>
           <tbody>
               <tr *ngFor='let surgery of surgeries1'>
-                <td>{{ surgery?.date }}</td>
+                <td>{{ surgery?.date.split("T")[0] }}</td>
+                <td>{{ surgery?.date.split("T")[1] }}</td>
                 <td>{{ surgery?.description }}</td>
               </tr>
             </tbody>
     </table>
    
     
-  </div>
+</div>
+
+<div class= "container"  style="background-color: rgb(217, 236, 236, 0.7); padding: 2em; border-radius: 10px;">
+  <h3 style="padding-bottom: 20px;">
+    You can rate:
+  </h3>
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Doctor</th>
+        <th>Rating</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let doctor of doctorsForRate">
+        <td>{{doctor?.firstName}}</td>
+        <td><ngb-rating [(rate)]="doctor.review" (rateChange)='doSomething(doctor)'></ngb-rating>
+          <hr>
+          <pre>Rate: <b>{{doctor.review}}</b></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  
+
+</div>
+
   <!-- Footer -->
   <footer class="page-footer font-small special-color-dark pt-4">
 

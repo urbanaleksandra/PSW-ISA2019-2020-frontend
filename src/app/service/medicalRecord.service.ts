@@ -13,9 +13,18 @@ export class MedicalRecordService {
         return this.http.get<any>('http://localhost:8080/getAppointments/' + username);
     }
   
+    getAppointmentsMR(username : String){
+   
+        return this.http.get<any>('http://localhost:8080/getAppointmentsMR/' + username);
+    }
+
     getSurgeries(username : String){
 
         return this.http.get<any>('http://localhost:8080/getSurgeries/' + username);
+    }
+
+    getDoctorsForRate(username : String){
+        return this.http.get<any>('http://localhost:8080/getDoctorsForRate/' + username);
     }
 
 }
