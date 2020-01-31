@@ -34,5 +34,11 @@ export class SurgeryRoomService {
     console.log(resRoom);
     return this.http.post('http://localhost:8080/api/add-room-to-surgery', resRoom);
   }
+
+  getAvailableRoomForOtherDate(surgery: Object){
+    console.log('usao u getAvailableRoomForOtherDate');
+    console.log(surgery);
+    return this.http.post('http://localhost:8080/api/add-room-to-surgery', surgery);
+  }
   
 }

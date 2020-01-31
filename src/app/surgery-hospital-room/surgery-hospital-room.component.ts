@@ -18,6 +18,7 @@ export class SurgeryHospitalRoomComponent implements OnInit {
   isButtonVisible=false;
   surgeries: Surgery[] = [];
   clickedSurgery: Surgery;
+  showMessage: boolean = false;
   constructor(private service: SurgeryRoomService,
     private dialog: MatDialog) { }
 
@@ -55,6 +56,13 @@ export class SurgeryHospitalRoomComponent implements OnInit {
       data => {
         this.rooms = data;
         console.log(data);
+        if(this.rooms.length == 0)
+        this.showMessage = true;
+        this.service.getAvailableRoomForOtherDate(surgery).subscribe(
+          data =>{
+            
+          });
+
       },error => {
         console.log(error);
       }

@@ -76,7 +76,7 @@ export class PopUpDoctorsComponent implements OnInit {
     this.service.setRoomOfSurgery(this.resRoom).subscribe(
       (result)=>{ 
         alert("success!!");
-
+        window.location.href = 'http://localhost:4200/surgery-hospital-room';
     });
     this.onClose();
   }

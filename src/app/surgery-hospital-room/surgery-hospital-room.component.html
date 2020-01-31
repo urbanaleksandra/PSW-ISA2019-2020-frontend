@@ -61,6 +61,7 @@
       <input matInput type="datetime-local" value="{{clickedSurgery.date}}" [readonly]="!editable"  name="dateAppointment">
     </mat-form-field> 
   </h4>
+  <div *ngIf="this.showMessage">No available room for that specific time, choose another one:</div>
     
       <div class="search-hero">
         <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching for a room by name or room number">
