@@ -23,7 +23,7 @@ export class Doctor{
 
             rating: number = 0;
 
-            pocetakRadnogVremena: number=0;
+            pocetakRadnogVremena: String="";
 
-            krajRadnogVremena:number=0;
+            krajRadnogVremena:String="";
 }
