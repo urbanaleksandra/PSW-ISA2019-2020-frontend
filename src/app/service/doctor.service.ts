@@ -18,14 +18,15 @@ export class DoctorService{
     }
 
 
+
     modifyDoctor(doctor : Doctor, name: String){
       return this.http.post('http://localhost:8080/osobljePromjena/'+name ,doctor);
     } 
 
-    addDoctor(doctor : Doctor){
+    addDoctor(doctor : Doctor,username:String){
       console.log(doctor.username)
 
-      return this.http.post<HospitalRoom>('http://localhost:8080/add-doctor', doctor);
+      return this.http.post<HospitalRoom>('http://localhost:8080/add-doctor/'+username, doctor);
     }
 
     getAllDoctors() {
