@@ -28,8 +28,10 @@ import { SurgeryHospitalRoomComponent } from './surgery-hospital-room/surgery-ho
 import { DoctorsListComponent } from './doctors-list/doctors-list.component';
 import { DoctorsSearchComponent } from './doctors-search/doctors-search.component';
 import { AddDoctorComponent } from './add-doctor/add-doctor.component';
+import { ClinicAdminProfileComponent } from './clinic-admin-profile/clinic-admin-profile.component';
 import { PatientCreateAppointmentComponent } from './patient-create-appointment/patient-create-appointment.component';
 import { NewSurgeryComponent } from './new-surgery/new-surgery.component';
+
 
 
 
@@ -63,7 +65,9 @@ const routes: Routes = [
       { path: 'surgery-hospital-room', component:  SurgeryHospitalRoomComponent},
       {path: 'doctors',component: DoctorsSearchComponent},
       {path: 'add-doc',component: AddDoctorComponent},
+      {path: 'cadmin-profile',component: ClinicAdminProfileComponent},
       {path: 'new-surgery',component: NewSurgeryComponent},
+
 
 ];
 
