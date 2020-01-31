@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Clinic } from '../model/clinic';
+import { Doctor } from '../model/Doctor';
 
 
 
@@ -11,6 +12,11 @@ import { Clinic } from '../model/clinic';
 export class ClinicService {
 
   private baseUrl = 'http://localhost:8080/api';
+  imeKlinike1: string;
+  datumZakazivanja1: string;
+  vremeZakazivanja: string;
+  doctor: Doctor;
+  clinic: Clinic;
 
   constructor(private http: HttpClient) { }
 
@@ -28,7 +34,20 @@ export class ClinicService {
   }
 
   getSearchClinics(searchDate: String){
+    console.log("USAO U getSearchClinics " + searchDate);
     return this.http.get<Clinic[]>('http://localhost:8080/api/get-search-clinics/'+searchDate);
+  }
+
+  getSearchDoctors(searchDate: string, imeKlinike: string){
+    return this.http.get<Doctor[]>('http://localhost:8080/api/get-search-doctors/'+searchDate+"/"+imeKlinike);
+  }
+
+  setMinTime(username : String){
+    return this.http.get<Doctor>('http://localhost:8080/api/minTime/'+username);
+  }
+
+  setMaxTime(username : String){
+    return this.http.get<Doctor>('http://localhost:8080/api/maxTime/'+username);
   }
 
 }

@@ -21,7 +21,8 @@ import {
        MatInputModule,
        MatDialogModule, 
        MatFormFieldModule,
-      MatButtonModule
+       MatButtonModule,
+       MatDialogModule
     ],
     exports: [
        MatTableModule,
@@ -33,7 +34,8 @@ import {
        MatInputModule,
        MatDialogModule, 
        MatFormFieldModule,
-        MatButtonModule
+       MatButtonModule,
+       MatDialogModule
     ]
  })
 

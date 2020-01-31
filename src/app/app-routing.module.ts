@@ -25,9 +25,12 @@ import { NewRoomComponent } from './new-room/new-room.component';
 import { AppointmentType } from './model/AppointmentType';
 import { AppointmentTypesComponent } from './appointment-types/appointment-types.component';
 import { SurgeryHospitalRoomComponent } from './surgery-hospital-room/surgery-hospital-room.component';
+import { DoctorsListComponent } from './doctors-list/doctors-list.component';
 import { DoctorsSearchComponent } from './doctors-search/doctors-search.component';
 import { AddDoctorComponent } from './add-doctor/add-doctor.component';
 import { ClinicAdminProfileComponent } from './clinic-admin-profile/clinic-admin-profile.component';
+import { PatientCreateAppointmentComponent } from './patient-create-appointment/patient-create-appointment.component';
+import { NewSurgeryComponent } from './new-surgery/new-surgery.component';
 
 
 
@@ -55,11 +58,16 @@ const routes: Routes = [
       { path: 'requestHolidayViewComponent', component:  RequestHolidayViewComponent},
       { path: 'cadmin-home-page', component:  ClinicAdminHomePageComponent},
       { path: 'new-room', component:  NewRoomComponent},
+      { path: 'surgery-hospital-room', component:  SurgeryHospitalRoomComponent},
+      { path: 'doctorsList', component:  DoctorsListComponent},
+      {path: 'patient-create-appointment', component:  PatientCreateAppointmentComponent },
       { path: 'appTypes', component:  AppointmentTypesComponent},
       { path: 'surgery-hospital-room', component:  SurgeryHospitalRoomComponent},
       {path: 'doctors',component: DoctorsSearchComponent},
       {path: 'add-doc',component: AddDoctorComponent},
-      {path: 'cadmin-profile',component: ClinicAdminProfileComponent}
+      {path: 'cadmin-profile',component: ClinicAdminProfileComponent},
+      {path: 'new-surgery',component: NewSurgeryComponent},
+
 
 ];
 

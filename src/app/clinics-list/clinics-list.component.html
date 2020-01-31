@@ -51,7 +51,7 @@
 
         <div class="form-group">
           <mat-form-field>
-              <input matInput type="datetime-local" [(ngModel)]="appointment.date"  name="dateAppointment" placeholder="Search date for appointment">
+              <input matInput type="date" min="{{ this.now }}" [(ngModel)]="appointment.date"  name="dateAppointment"  placeholder="Search date for appointment" >
           </mat-form-field>
           <br>
           <small *ngIf='flagForSearch' style="color: red;">DATE and TIME is required!</small>
@@ -81,7 +81,7 @@
     <tbody>
         <tr *ngFor='let clinic1 of clinics1'>
           <td>{{ clinic1.id }}</td>
-          <td class="imeKlinike" ><a href="#" routerLinkActive='active' [routerLink]="['/find-patient']">{{ clinic1.name }}</a></td>
+          <td class="imeKlinike" ><a (click)="klinika(clinic1)" href="#" routerLinkActive='active' [routerLink]="['/doctorsList']">{{ clinic1.name }}</a></td>
           <td>{{ clinic1.address }}</td>
           <td>{{ clinic1.description }}</td>
           <td>{{ clinic1.profit }}</td>
@@ -91,6 +91,7 @@
 </table>
 
 </div>
+
 
   <!-- Footer -->
   <footer class="page-footer font-small special-color-dark pt-4">

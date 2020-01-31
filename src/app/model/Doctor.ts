@@ -1,4 +1,8 @@
+import { Clinic } from './clinic';
+
 export class Doctor{
+            id: number;
+
             username : string = "";
 		
             password : string = "";
@@ -21,9 +25,15 @@ export class Doctor{
 		
             jmbg : number;
 
+            review: number;
+
             rating: number = 0;
 
             pocetakRadnogVremena: String="";
 
             krajRadnogVremena:String="";
+
+            clinic: Clinic;
+
+
 }
