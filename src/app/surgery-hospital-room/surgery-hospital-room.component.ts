@@ -49,6 +49,7 @@ export class SurgeryHospitalRoomComponent implements OnInit {
   addRoom(surgery){
     this.addRoomClicked = true;
     this.clickedSurgery = surgery;
+    surgery.doctorSurgery = "";
     console.log(surgery);
     this.service.getAvailableRooms(surgery).subscribe(
       data => {
@@ -60,11 +61,12 @@ export class SurgeryHospitalRoomComponent implements OnInit {
     )
   }
 
-  chooseDoctor(){
+  chooseDoctor(room){
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.width = "60%";
+    this.clickedSurgery.roomID = room;
     dialogConfig.data = this.clickedSurgery;
     this.dialog.open(PopUpDoctorsComponent, dialogConfig );
     

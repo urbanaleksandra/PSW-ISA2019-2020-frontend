@@ -58,7 +58,7 @@ export class NewSurgeryComponent implements OnInit {
   onSubmit(){
     console.log(this.date1);
     this.surgery.patient= this.patientSel;
-    this.surgery.doctor = sessionStorage.getItem('authenticatedUser');
+    this.surgery.doctorSurgery = sessionStorage.getItem('authenticatedUser');
     console.log(this.selectedTime)
     if(this.selectedTime == '09-12h')
       this.surgery.date = this.parserFormatter.format(this.date1) + 'T09:00';
@@ -71,6 +71,7 @@ export class NewSurgeryComponent implements OnInit {
     this.service.addSurgery(this.surgery).subscribe((result)=> {
       alert("Successfully added!");
       this.surgery = new Surgery();
+      window.location.href = 'http://localhost:4200/doctorHomePage';
     });
     
   }
