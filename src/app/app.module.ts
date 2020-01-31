@@ -42,9 +42,14 @@ import { AuthRecipeComponent } from './auth-recipe/auth-recipe.component';
 import { CdkTableModule } from '@angular/cdk/table';
 import { AppointmentTypesComponent } from './appointment-types/appointment-types.component';
 import { SurgeryHospitalRoomComponent } from './surgery-hospital-room/surgery-hospital-room.component';
+import { DoctorsListComponent } from './doctors-list/doctors-list.component';
 import { DoctorsSearchComponent } from './doctors-search/doctors-search.component';
 import { AddDoctorComponent } from './add-doctor/add-doctor.component';
 import { ClinicAdminProfileComponent } from './clinic-admin-profile/clinic-admin-profile.component';
+import { PatientCreateAppointmentComponent } from './patient-create-appointment/patient-create-appointment.component';
+import { SurgeryRoomService } from './service/surgery-room.service';
+import { PopUpDoctorsComponent } from './pop-up-doctors/pop-up-doctors.component';
+import { NewSurgeryComponent } from './new-surgery/new-surgery.component';
 
 
 
@@ -76,11 +81,17 @@ import { ClinicAdminProfileComponent } from './clinic-admin-profile/clinic-admin
     NewRoomComponent,
     ClinicAdminHomePageComponent,
     AuthRecipeComponent,
+    SurgeryHospitalRoomComponent,
+    DoctorsListComponent,
     AppointmentTypesComponent,
     SurgeryHospitalRoomComponent,
     DoctorsSearchComponent,
     AddDoctorComponent,
-    ClinicAdminProfileComponent
+    ClinicAdminProfileComponent,
+    PatientCreateAppointmentComponent,
+    PopUpDoctorsComponent,
+    NewSurgeryComponent
+
 
 
   ],
@@ -106,6 +117,7 @@ import { ClinicAdminProfileComponent } from './clinic-admin-profile/clinic-admin
 
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[PopUpDoctorsComponent]
 })
 export class AppModule { }

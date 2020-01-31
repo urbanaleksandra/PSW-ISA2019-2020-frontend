@@ -1,0 +1,75 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"><img src='https://powernetco.com/files/2018-04/icon-healthcare.png'
+            style="width:50px;height:50px;"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#" routerLinkActive='active' [routerLink]="['/profileClinicCenterAdmin']">Home
+                    <span class="sr-only">(current)</span></a>
+
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" routerLinkActive='active'
+                    [routerLink]="['/profileClinicCenterAdmin']">Profile<span class="sr-only">(current)</span></a>
+            </li>
+
+        </ul>
+
+    </div>
+</nav>
+
+<div class="container">
+
+    <h4>Schedule new surgery:</h4>
+    <form [formGroup]="form" (ngSubmit)="onSubmit() && form.valid">
+        
+        <div class="form-group">
+            
+            <input formControlName="date" (click)="d.toggle()" type="text" class="form-control" style="width: 18rem;" ngbDatepicker #d="ngbDatepicker" [minDate]="{year: this.year, month: this.month, day: this.day}" [(ngModel)]="this.date1" name="dateStart"
+            [ngClass]="{'is-invalid': form.get('date').touched && form.get('date').invalid}"/>             
+            <div class="invalid-feedback">Date is required</div>
+        </div>
+
+        
+        <div class="form-group">
+            <label for="time">Choose time:</label>
+            <form>
+                <div class="form-check" *ngFor="let time of valueTime">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="time1" (change)="inputChangeHandler($event)" value="{{time}}" checked>
+                    <label class="form-check-label" for="time1">
+                      {{time}}
+                    </label>
+                  </div>
+            </form>
+        </div>
+        <div class="form-group">
+            <select formControlName="patient" [ngClass]="{'is-invalid': form.get('patient').touched && form.get('patient').invalid}" class="custom-select" (change)="selectChangeHandler($event)">
+                <option *ngFor="let patient of patients">{{patient.username}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea formControlName="description"  [ngClass]="{'is-invalid': form.get('description').touched && form.get('description').invalid}" class="form-control" rows="5" placeholder="Description" [(ngModel)]="surgery.description"
+                name="clinicDescription" id="description"></textarea>
+        </div>
+
+        
+        <button class="btn btn-success" [disabled]="!form.valid" type="submit">Schedule</button>
+    </form>
+</div>
+<!-- Footer -->
+<footer class="page-footer font-small special-color-dark pt-4">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2019 Copyright:
+        <b>Tim 52</b>
+    </div>
+    <!-- Copyright -->
+
+</footer>
+<!-- Footer -->

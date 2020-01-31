@@ -1,0 +1,80 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"><img src= 'https://powernetco.com/files/2018-04/icon-healthcare.png' 
+        style="width:50px;height:50px;"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#" routerLinkActive='active' [routerLink]="['/clinics']">Back <span class="sr-only">(current)</span></a>
+      
+        </li>
+        
+      </ul>
+      
+    </div>
+  </nav>
+
+ 
+  <div class="container">
+    <div >
+      <h3 style="padding-bottom: 10px; padding-top: 20px;">
+        You chose {{ this.imeKlinike }} clinic for date: {{ this.datumZakazivanja }}
+      </h3>
+      <div class="search-hero">
+        <input class="form-control " type="search"  name="search" [(ngModel)]="searchText" 
+          placeholder="Search doctors by name, last name or rating" style="width: 450px; margin: 10px;">
+      </div>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Last name</th>
+            <th>Rating</th>
+            <th style="width: 174px;">Select a time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let doctor of doctors | filter:searchText">
+            <td>{{doctor.firstName}}</td>
+            <td>{{doctor.lastName}}</td>
+            <td>{{doctor.review}}</td>
+            <td><a class="btn btn-outline-success" (click)="addTimeForm(doctor)" style="font-size: 14px; ">select</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="background-color: rgb(217, 236, 236, 0.7); padding: 2em; border-radius: 10px;" *ngIf="this.selectTimeClicked">
+      <div style="padding-bottom: 10px; padding-top: 20px;">
+        Selected doctor: {{ this.selectedDoctor.firstName }}.
+        <br> 
+        <br>
+        Select a time: 
+        <input type="time" id="appt" name="appt" value="{{this.now}}" [(ngModel)]="this.now"
+        min="{{this.minVreme}}" max="{{this.maxVreme}}" required>
+        <br>
+        <br>
+        <small *ngIf='upozorenjeZaRadnoVreme' style="color: red;">Doctors working hours are from {{this.minVreme}} to {{this.maxVreme}}</small>
+      </div>
+      <br>
+      <a class="btn btn-outline-success" (click)="redirectToNewAppointment()"  style="font-size: 14px; ">Create new appointment</a>
+    </div>
+  </div>
+
+  
+
+
+
+  <!-- Footer -->
+  <footer class="page-footer font-small special-color-dark pt-4">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2019 Copyright:
+      <b>Tim 52</b>
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->

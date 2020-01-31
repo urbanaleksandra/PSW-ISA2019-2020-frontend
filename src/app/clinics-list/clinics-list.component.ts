@@ -4,11 +4,13 @@ import { Router } from '@angular/router';
 import { Clinic } from '../model/clinic';
 import { Sort } from '@angular/material/sort';
 import { Appointment } from '../model/Appointment';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-clinics-list',
   templateUrl: './clinics-list.component.html',
-  styleUrls: ['./clinics-list.component.css']
+  styleUrls: ['./clinics-list.component.css'],
+  providers: [DatePipe]
 })
 export class ClinicsListComponent implements OnInit {
 
@@ -19,18 +21,35 @@ export class ClinicsListComponent implements OnInit {
   clinics1: Clinic[] = [];
   flagForSearch: boolean;
   flagForSearchTable: boolean;
+  myDate = new Date().toJSON("yyyy/MM/dd HH:mm");
+  now: string;
+  kliknutaKlinika: string;
+  usernameUlogovanog: string;
 
   constructor(private clinicService: ClinicService,
-    private router: Router) { }
+    private router: Router,private datePipe: DatePipe) { }
 
   ngOnInit() {
     this.getClinics();
     this.flagForSearch = false;
     this.flagForSearchTable = false;
+    console.log(this.myDate.split("T")[0]);
+    this.now = this.myDate.split("T")[0];// + ":" + this.myDate.split(":")[1];
+    this.appointment.date = this.myDate.split("T")[0];// + ":" + this.myDate.split(":")[1];
+    //console.log(this.myDate.split(":")[0] + ":" + this.myDate.split(":")[1]);
+    this.usernameUlogovanog = sessionStorage.getItem("authenticatedUser");
+    console.log(this.usernameUlogovanog);
   }
 
+  klinika(clinic : Clinic){ //prenosim ime klinike i datum zakazivanja u drugu komponentu
+    //this.kliknutaKlinika = ime;
+    this.clinicService.clinic = clinic;
+    this.clinicService.imeKlinike1 = clinic.name;
+    this.clinicService.datumZakazivanja1 = this.appointment.date;
+    //console.log(ime + this.appointment.date);
+  }
   onSubmit(){
-    console.log(this.appointment.date);
+    //console.log(this.appointment.date);
     if(this.appointment.date == ""){
       this.flagForSearch = true;
       this.flagForSearchTable = false;
@@ -40,9 +59,11 @@ export class ClinicsListComponent implements OnInit {
       this.flagForSearch = false;
       this.flagForSearchTable = true;
       this.getSearchClinics();
+      console.log(this.appointment.date);
     }
     //console.log(this.appointment.type);
   }
+
 
   getClinics(){
     this.clinicService.getClinics().subscribe(

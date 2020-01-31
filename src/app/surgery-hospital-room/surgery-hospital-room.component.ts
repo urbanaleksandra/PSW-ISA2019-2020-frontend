@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HospitalRoom } from '../model/HospitalRoom';
-import { hospitalRoomsService } from '../service/hospitalRooms.service';
 import { SurgeryRoomService } from '../service/surgery-room.service';
 import { Surgery } from '../model/Surgery';
+import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
+import { PopUpDoctorsComponent } from '../pop-up-doctors/pop-up-doctors.component';
 
 @Component({
   selector: 'app-surgery-hospital-room',
@@ -11,14 +12,17 @@ import { Surgery } from '../model/Surgery';
 })
 export class SurgeryHospitalRoomComponent implements OnInit {
 
+  addRoomClicked = false;
   searchText;
   rooms: HospitalRoom[] = [];
   isButtonVisible=false;
   surgeries: Surgery[] = [];
-  constructor(private service: SurgeryRoomService) { }
+  clickedSurgery: Surgery;
+  constructor(private service: SurgeryRoomService,
+    private dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.getRooms();
+    //this.getRooms();
     this.getSurgeries();
   }
 
@@ -42,4 +46,29 @@ export class SurgeryHospitalRoomComponent implements OnInit {
     );
   }
 
+  addRoom(surgery){
+    this.addRoomClicked = true;
+    this.clickedSurgery = surgery;
+    surgery.doctorSurgery = "";
+    console.log(surgery);
+    this.service.getAvailableRooms(surgery).subscribe(
+      data => {
+        this.rooms = data;
+        console.log(data);
+      },error => {
+        console.log(error);
+      }
+    )
+  }
+
+  chooseDoctor(room){
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "60%";
+    this.clickedSurgery.roomID = room;
+    dialogConfig.data = this.clickedSurgery;
+    this.dialog.open(PopUpDoctorsComponent, dialogConfig );
+    
+  }
 }
