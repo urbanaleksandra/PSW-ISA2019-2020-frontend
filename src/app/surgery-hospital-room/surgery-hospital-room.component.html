@@ -56,17 +56,17 @@
 
 
 <div *ngIf="this.addRoomClicked" class="container">
-    <h4>Available hospital rooms for
+    <h4>Available hospital rooms for surgeryID: #{{clickedSurgery.id}}
     <mat-form-field>
       <input matInput type="datetime-local" value="{{clickedSurgery.date}}" [readonly]="!editable"  name="dateAppointment">
     </mat-form-field> 
   </h4>
   <div *ngIf="this.showMessage">No available room for that specific time, choose another one:</div>
     
-      <div class="search-hero">
+      <div *ngIf="!this.showMessage" class="search-hero">
         <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching for a room by name or room number">
       </div>
-      <div class="row">
+      <div  *ngIf="!this.showMessage" class="row">
  
           <div class="card col-4-ld mr-4 mt-4" *ngFor="let room of rooms | filter:searchText" style="width: 14rem;margin: 10px;">
             <img class="card-img-top"
@@ -82,6 +82,29 @@
             </div>
           </div> 
       </div>
+      
+      <div  *ngIf="this.showMessage" class="row">
+ 
+        <div class="card" style="width: 20rem;margin: 10px;">
+          <img class="card-img-top"
+              src="https://imageog.flaticon.com/icons/png/512/608/608888.png?size=1200x630f&pad=10,10,10,10&ext=png&bg=FFFFFFFF"
+              alt="Card image cap">
+
+          <div class="card-body text-center">
+              <h5 class="card-title">{{availableRoom.name}}</h5>
+              <h6>No. {{availableRoom.room_num}}</h6>
+              <p class="card-text">
+                <mat-form-field>
+                  <input matInput type="datetime-local" value="{{availableRoom.date}}" [readonly]="!editable"  name="dateAppointment">
+                </mat-form-field>
+              </p>
+              <button class="btn btn-outline-success" (click)="chooseDoctor2(availableRoom.id)">Choose this room</button>
+          </div>
+        </div> 
+    </div>
+      
+
+
     </div>
 <footer class="page-footer font-small special-color-dark pt-4">
 

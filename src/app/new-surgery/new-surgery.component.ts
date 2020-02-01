@@ -41,9 +41,10 @@ export class NewSurgeryComponent implements OnInit {
       patient: new FormControl('', Validators.required)
     })
     valueTime: any = [
-        '09-12h',
-        '12-15h',
-        '15-18h'
+        '10-12h',
+        '12-14h',
+        '14-16h',
+        '16-18h'
 
     ];
   ngOnInit() {
@@ -60,12 +61,14 @@ export class NewSurgeryComponent implements OnInit {
     this.surgery.patient= this.patientSel;
     this.surgery.doctorSurgery = sessionStorage.getItem('authenticatedUser');
     console.log(this.selectedTime)
-    if(this.selectedTime == '09-12h')
-      this.surgery.date = this.parserFormatter.format(this.date1) + 'T09:00';
-    else  if(this.selectedTime == '12-15h')
+    if(this.selectedTime == '10-12h')
+      this.surgery.date = this.parserFormatter.format(this.date1) + 'T10:00';
+    else  if(this.selectedTime == '12-14h')
       this.surgery.date = this.parserFormatter.format(this.date1) + 'T12:00';
+    else  if(this.selectedTime == '14-16h')
+      this.surgery.date = this.parserFormatter.format(this.date1) + 'T14:00';
     else 
-      this.surgery.date = this.parserFormatter.format(this.date1) + 'T15:00';
+      this.surgery.date = this.parserFormatter.format(this.date1) + 'T16:00';
     console.log(this.surgery);
 
     this.service.addSurgery(this.surgery).subscribe((result)=> {
