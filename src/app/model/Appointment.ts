@@ -8,4 +8,5 @@ export class Appointment {
     type : string = "";
     patient : string = "";
     doctorUsername: string=""; 
+    start: boolean = false;
 }
