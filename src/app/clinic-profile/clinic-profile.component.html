@@ -1,0 +1,94 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"><img src='https://powernetco.com/files/2018-04/icon-healthcare.png'
+            style="width:50px;height:50px;"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#" routerLinkActive='active' [routerLink]="['/doctorHomePage']">Home <span
+                        class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" routerLinkActive='active' [routerLink]="['/doctorHomePage']">Profile<span
+                        class="sr-only">(current)</span></a>
+            </li>
+
+        </ul>
+
+        <app-logout></app-logout>
+    </div>
+</nav>
+<div class="container text-center">
+    <h1>{{title}}</h1>
+</div>
+
+<div style="width:800px; margin:0 auto;">
+    <mat-tab-group dynamicHeight class="example-stretched-tabs mat-elevation-z4">
+        <mat-tab label="Clinic data ">
+            <div class="example-large-box mat-elevation-z4">
+
+                <form class="example-form" style="margin: 10px;">
+                    Name:
+                    <mat-form-field class="example-full-width">
+                        <input matInput [(ngModel)]="clinic.name" name="naziv">
+                    </mat-form-field>
+
+                    Address:
+                    <mat-form-field class="example-full-width">
+                        <input matInput [(ngModel)]="clinic.address" name="adresa">
+                    </mat-form-field>
+
+                    Description:
+                    <mat-form-field class="example-full-width">
+                        <input matInput [(ngModel)]="clinic.description" name="opis">
+                    </mat-form-field>
+                    <div style="text-align:center;">
+                        <button style="width: 150px;" class="button button2" (click)="modifyClinic()">Send
+                            changes</button>
+                    </div>
+                </form>
+
+            </div>
+        </mat-tab>
+        <mat-tab label="Free appointments">
+            <div class="example-large-box mat-elevation-z4">
+                Large content
+            </div>
+        </mat-tab>
+        <mat-tab label="Price list">
+            <div class="example-large-box mat-elevation-z4">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                      <th>Price</th>
+                      <th>Name</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let price of priceList">
+                      <td>{{price.price}}</td>
+                      <td>{{price.appointmentType.name}}</td>
+                      <td><button class="btn btn-info" style="font-size: 13px; "(click)="openDialog(price)">Modify</button></td>
+                    </tr>
+                    </tbody>
+                  </table>
+        
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+</div>
+<!-- Footer -->
+<footer class="page-footer font-small special-color-dark pt-4">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2019 Copyright:
+        <b>Tim 52</b>
+    </div>
+    <!-- Copyright -->
+
+</footer>
+<!-- Footer -->

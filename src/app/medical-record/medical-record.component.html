@@ -24,6 +24,7 @@
       <thead class="thead-light">
           <tr>
             <th>Date</th>
+            <th>Time</th>
             <th>Description</th>
             <th>Duration</th>
             <th>Type</th>
@@ -34,7 +35,8 @@
         </thead>
         <tbody>
             <tr *ngFor='let appointment of appointments1'>
-              <td>{{ appointment?.date }}</td>
+              <td>{{ appointment?.date.split("T")[0] }}</td>
+              <td>{{ appointment?.date.split("T")[1] }}</td>
               <td>{{ appointment?.description }}</td>
               <td>{{ appointment?.duration }}</td>
               <td>{{ appointment?.type }}</td>
@@ -54,6 +56,7 @@
         <thead class="thead-light">
             <tr>
               <th>Date</th>
+              <th>Time</th>
               <th>Description</th>
               <!-- <th>Doctor</th>
               <th>Hospital room</th> -->
@@ -61,7 +64,8 @@
           </thead>
           <tbody>
               <tr *ngFor='let surgery of surgeries1'>
-                <td>{{ surgery?.date }}</td>
+                <td>{{ surgery?.date.split("T")[0] }}</td>
+                <td>{{ surgery?.date.split("T")[1] }}</td>
                 <td>{{ surgery?.description }}</td>
               </tr>
             </tbody>

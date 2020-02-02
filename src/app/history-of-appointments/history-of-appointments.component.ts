@@ -4,6 +4,10 @@ import { MedicalRecordService } from '../service/medicalRecord.service';
 import { Surgery } from '../model/Surgery';
 import { Appointment } from '../model/Appointment';
 import { Sort } from '@angular/material/sort';
+import { Doctor } from '../model/Doctor';
+import { PatientRatedDoctor } from '../model/PatientRatedDoctor';
+import { Clinic } from '../model/clinic';
+import { PatientRatedClinic } from '../model/PatientRatedClinic';
 
 @Component({
   selector: 'app-history-of-appointments',
@@ -16,6 +20,9 @@ export class HistoryOfAppointmentsComponent implements OnInit {
   appointments1 : Appointment[] = [];
   appointment : Appointment;
   usernameUlogovanog : string;
+  doctorsForRate : Doctor[] = [];
+  patientRatedDoctor : PatientRatedDoctor[] = [];
+  patientRatedClinic : PatientRatedClinic[] = [];
 
   surgeries : Surgery[] = [];
   surgeries1 : Surgery[] = [];
@@ -26,7 +33,77 @@ export class HistoryOfAppointmentsComponent implements OnInit {
   ngOnInit() {
     this.getAppointments();
     this.getSurgeries();
+    //this.getDoctorsForRate();
+    this.getRate(); //vraca doktore koji se ocenjuju
+    this.getClinicsForRate(); //vraca klnike koje se ocenjuju
   }
+
+  rateChange(prd:PatientRatedDoctor){ //ocenjivanje doktora
+    console.log(prd.ocena);
+    console.log(prd.doctor.firstName);
+    console.log(prd.patient.firstName);
+    prd.patientUsername = prd.patient.username;
+    prd.doctorUsername = prd.doctor.username;
+    console.log(prd.doctorUsername);
+    
+    this.service.rateChange(prd).subscribe((result)=> {
+      alert("Successfully rate " + prd.doctor.firstName);
+      this.getRate();
+    });
+
+    
+  }
+
+  rateChange1(prclinic : PatientRatedClinic){ // ocenjivanje klinika
+    console.log(prclinic.ocena);
+    console.log(prclinic.patient.firstName);
+    console.log(prclinic.clinic.name);
+
+    prclinic.patientUsername = prclinic.patient.username;
+    prclinic.clinicName = prclinic.clinic.name;
+
+    this.service.rateChange1(prclinic).subscribe((result)=> {
+      alert("Successfully rate " + prclinic.clinic.name);
+      this.getClinicsForRate();
+    });
+
+  }
+
+  // getDoctorsForRate(){
+  //   this.usernameUlogovanog = sessionStorage.getItem("authenticatedUser");
+  //   this.service.getDoctorsForRate(this.usernameUlogovanog).subscribe(
+  //     data=>{
+  //       this.doctorsForRate=data;
+  //     }, error =>{
+  //       console.log(error);
+  //     }
+  //   );
+
+  // }
+
+  getRate(){
+    this.usernameUlogovanog = sessionStorage.getItem("authenticatedUser");
+    this.service.getRate(this.usernameUlogovanog).subscribe(
+      data=>{
+        this.patientRatedDoctor=data;
+      }, error =>{
+        console.log(error);
+      }
+    );
+  }
+
+  getClinicsForRate(){
+    this.usernameUlogovanog = sessionStorage.getItem("authenticatedUser");
+    this.service.getClinicsForRate(this.usernameUlogovanog).subscribe(
+      data=>{
+        this.patientRatedClinic=data; 
+      }, error =>{
+        console.log(error);
+      }
+    );
+
+  }
+
 
   getAppointments(){
     this.usernameUlogovanog = sessionStorage.getItem("authenticatedUser");

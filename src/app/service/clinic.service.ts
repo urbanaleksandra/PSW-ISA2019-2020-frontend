@@ -50,4 +50,8 @@ export class ClinicService {
     return this.http.get<Doctor>('http://localhost:8080/api/maxTime/'+username);
   }
 
+  changeClinicData(clinic:Clinic, name: String) {
+    return this.http.post('http://localhost:8080/clinicChangeInfo/'+name ,clinic);
+  }
+
 }

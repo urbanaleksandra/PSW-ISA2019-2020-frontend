@@ -51,6 +51,10 @@ import { SurgeryRoomService } from './service/surgery-room.service';
 import { PopUpDoctorsComponent } from './pop-up-doctors/pop-up-doctors.component';
 import { NewSurgeryComponent } from './new-surgery/new-surgery.component';
 import { AppointmentReportComponent } from './appointment-report/appointment-report.component';
+import { DialogPriceComponent } from './dialog-price/dialog-price.component';
+import { ClinicProfileComponent } from './clinic-profile/clinic-profile.component';
+import { HolidayRequestsComponent } from './holiday-requests/holiday-requests.component';
+
 
 
 
@@ -93,6 +97,9 @@ import { AppointmentReportComponent } from './appointment-report/appointment-rep
     PopUpDoctorsComponent,
     NewSurgeryComponent,
     AppointmentReportComponent
+    ClinicProfileComponent,
+    DialogPriceComponent,
+    HolidayRequestsComponent
 
 
 
@@ -120,6 +127,7 @@ import { AppointmentReportComponent } from './appointment-report/appointment-rep
     }
   ],
   bootstrap: [AppComponent],
-  entryComponents:[PopUpDoctorsComponent]
+  entryComponents:[PopUpDoctorsComponent,DialogPriceComponent],
+
 })
 export class AppModule { }

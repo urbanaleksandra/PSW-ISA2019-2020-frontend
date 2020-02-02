@@ -32,6 +32,10 @@ import { ClinicAdminProfileComponent } from './clinic-admin-profile/clinic-admin
 import { PatientCreateAppointmentComponent } from './patient-create-appointment/patient-create-appointment.component';
 import { NewSurgeryComponent } from './new-surgery/new-surgery.component';
 import { AppointmentReportComponent } from './appointment-report/appointment-report.component';
+import { ClinicProfileComponent } from './clinic-profile/clinic-profile.component';
+import { HolidayRequest } from './model/HolidayRequest';
+import { HolidayRequestsComponent } from './holiday-requests/holiday-requests.component';
+
 
 
 
@@ -69,7 +73,8 @@ const routes: Routes = [
       {path: 'cadmin-profile',component: ClinicAdminProfileComponent},
       {path: 'new-surgery',component: NewSurgeryComponent},
       {path: 'appointment-report',component: AppointmentReportComponent},
-
+      {path: 'clinic-profile',component: ClinicProfileComponent},
+      {path: 'holidays',component: HolidayRequestsComponent}
 
 ];
 
