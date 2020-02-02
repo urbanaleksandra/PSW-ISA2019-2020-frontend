@@ -1,0 +1,74 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a disabled class="navbar-brand" href="#"><img src= 'https://powernetco.com/files/2018-04/icon-healthcare.png' 
+        style="width:50px;height:50px;"></a>
+    <button class="navbar-toggler" type="button" disabled data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#" routerLinkActive='active' [routerLink]="['/doctorHomePage']">Home <span class="sr-only" disabled>(current)</span></a>
+        </li>  
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
+    <h4 class="text-center" style="margin:20px;">Report</h4>
+    <form [formGroup]="form" (ngSubmit)="onSubmit() && form.valid" novalidate>
+        
+       
+        <div class="form-group">
+          <h4>Info:</h4>
+            <textarea formControlName="info" name="info" id="info"  [ngClass]="{'is-invalid': form.get('info').touched && form.get('info').invalid}" class="form-control" rows="5" placeholder="Info" [(ngModel)]="appointment.info"
+                name="info" id="info"></textarea>
+                <div class="alert" *ngIf="form.get('info').touched && form.get('info').invalid" style="color:red;"><i>Info is required.</i></div>
+        </div>
+
+        <div class="form-group">
+            <label for="diagnosis">Diagnosis:</label>
+
+            <select class="custom-select" (change)="selectChangeHandler($event)">
+                <option *ngFor="let diagnosis of diagnoses" value="diagnosis.id" >{{diagnosis.name}} | {{diagnosis.description}}</option>
+            </select>
+        </div>
+
+      
+          <h4>Recipe:</h4>
+          <label for="recipe">Choose drug:</label>
+          <div *ngFor="let drug of drugs; let i=index" class="form-control">
+            <label class="checkbox-inline">
+              <input type="checkbox" [value]="drug.id" (change)="onCheckboxChange($event)" />
+              {{drug.name}}
+            </label>
+          </div><p class="error" *ngIf="this.form2.controls['checkArray'].errors?.required" style="color:red;">
+           <i>Drug is required, select atleast one value.</i>
+          </p>
+          
+          <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea formControlName="description" name="description" id="description"  [ngClass]="{'is-invalid': form.get('description').touched && form.get('description').invalid}" class="form-control" rows="5" placeholder="Description" [(ngModel)]="appointment.description"
+                name="clinicDescription" id="description"></textarea>
+                <div class="alert" *ngIf="form.get('description').touched && form.get('description').invalid" style="color:red;"><i>Description is required.</i></div>
+          </div>
+          
+        
+        <button class="btn btn-success" [disabled]="(!form.valid) || (!form2.valid)" type="submit">Report</button>
+    </form>
+
+
+
+
+  </div>
+
+    <!-- Footer -->
+<footer class="page-footer font-small special-color-dark pt-4">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2019 Copyright:
+      <b>Tim 52</b>
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->
