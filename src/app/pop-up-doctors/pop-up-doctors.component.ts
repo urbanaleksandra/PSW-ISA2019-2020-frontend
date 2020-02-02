@@ -48,10 +48,6 @@ export class PopUpDoctorsComponent implements OnInit {
     });
   }
 
-  onChange(email:string, isChecked: boolean) {
-    
-    console.log(email)
-  }
 
   onCheckboxChange(e) {
     const checkArray: FormArray = this.form.get('checkArray') as FormArray;

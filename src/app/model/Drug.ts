@@ -1,4 +1,5 @@
 export class Drug {
+    id:number;
     name: string = "";
     quantity: number = 0;
     price: number = 0;

@@ -59,19 +59,32 @@ export class SearchForPatientsComponent implements OnInit {
   else this.isButtonVisible2 = false; 
   }
   getAppointments(username : String){
-    this.serviceMD.getAppointments(username).subscribe(
+    let doctor = sessionStorage.getItem("authenticatedUser");
+    
+    this.serviceMD.getAppointmentPatient(username, doctor).subscribe(
       data=>{
-        this.appointments=data;
-        for(let a of this.appointments){
-          console.log(a.patient);
-          if(a.patient === username){
-            this.appointments1.push(a);
-          }
-        }
+        this.appointments1=data;
+        this.serviceMD.getAppointments(username).subscribe(
+          data =>{
+              this.appointments = data;
+              console.log(this.appointments)
+              console.log(this.appointments1)
+              for(let todayApp of this.appointments1){
+                for(let app of this.appointments){
+                    if(app.id == todayApp.id)
+                      app.start = true;
+                }
+              }
+        })
+        
       }, error =>{
         console.log(error);
       }
     );
+
+    
+
+
   }
 
   getSurgeries(username : String){
