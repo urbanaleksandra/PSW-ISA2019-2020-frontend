@@ -18,6 +18,7 @@ export class SurgeryHospitalRoomComponent implements OnInit {
   isButtonVisible=false;
   surgeries: Surgery[] = [];
   clickedSurgery: Surgery;
+  showMessage: boolean = false;
   constructor(private service: SurgeryRoomService,
     private dialog: MatDialog) { }
 
@@ -49,22 +50,31 @@ export class SurgeryHospitalRoomComponent implements OnInit {
   addRoom(surgery){
     this.addRoomClicked = true;
     this.clickedSurgery = surgery;
+    surgery.doctorSurgery = "";
     console.log(surgery);
     this.service.getAvailableRooms(surgery).subscribe(
       data => {
         this.rooms = data;
         console.log(data);
+        if(this.rooms.length == 0)
+        this.showMessage = true;
+        this.service.getAvailableRoomForOtherDate(surgery).subscribe(
+          data =>{
+            
+          });
+
       },error => {
         console.log(error);
       }
     )
   }
 
-  chooseDoctor(){
+  chooseDoctor(room){
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.width = "60%";
+    this.clickedSurgery.roomID = room;
     dialogConfig.data = this.clickedSurgery;
     this.dialog.open(PopUpDoctorsComponent, dialogConfig );
     

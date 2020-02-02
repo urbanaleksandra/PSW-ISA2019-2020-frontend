@@ -24,10 +24,21 @@ export class SurgeryRoomService {
     return this.http.post<any>('http://localhost:8080/api/availableRooms', surgery);
   }
 
-  getAvailableDoctors(surgery){
+  getAvailableDoctors(surgery: Object){
     console.log("usao u getAvailableDoctors");
     return this.http.post<any>('http://localhost:8080/api/availableDoctors', surgery);
   }
 
+  setRoomOfSurgery(resRoom: Object){
+    console.log("usao u setRoomOfSurgery");
+    console.log(resRoom);
+    return this.http.post('http://localhost:8080/api/add-room-to-surgery', resRoom);
+  }
+
+  getAvailableRoomForOtherDate(surgery: Object){
+    console.log('usao u getAvailableRoomForOtherDate');
+    console.log(surgery);
+    return this.http.post('http://localhost:8080/api/add-room-to-surgery', surgery);
+  }
   
 }

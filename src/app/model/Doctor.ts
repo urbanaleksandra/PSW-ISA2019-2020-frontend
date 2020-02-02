@@ -27,10 +27,16 @@ export class Doctor{
 
             review: number;
 
+
             pocetakRadnogVremena: string ="";
 
-            krajRadnogVremena:string ="";
+            rating: number = 0;
+
+            pocetakRadnogVremena: String="";
+
+            krajRadnogVremena:String="";
 
             clinic: Clinic;
+
 
 }

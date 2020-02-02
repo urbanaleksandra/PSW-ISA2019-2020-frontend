@@ -34,6 +34,7 @@ export class ClinicService {
   }
 
   getSearchClinics(searchDate: String){
+    console.log("USAO U getSearchClinics " + searchDate);
     return this.http.get<Clinic[]>('http://localhost:8080/api/get-search-clinics/'+searchDate);
   }
 

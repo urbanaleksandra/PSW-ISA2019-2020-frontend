@@ -2,5 +2,6 @@ export class Surgery {
     date: string = "";
     description: string = "";
     patient : string = "";
-    doctor: string = "";
+    doctorSurgery: string = "";
+    roomID: number = 0;
 }

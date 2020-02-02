@@ -83,24 +83,10 @@
   
             <div class="container">
               <div class="row">
-                <div class="col-5">
-                  <label for="number">Hospital room new number :</label>
-                  <textarea  type="number" class="form-control" rows="1" placeholder="{{element.room_number}}" name="number" 
-                    id="number"></textarea>
-                 
-                </div>
-                <div class="col-5">
-  
-                  <label for="description">Hospital room new name:</label>
-                  <textarea class="form-control" rows="1" placeholder="{{element.name}}" name="clinicDescription"  
-                    id="description"></textarea>
-  
-  
-                </div>
-                <div class="col-5">
-                  <button style="margin: 10px;" class="button button2" type="submit" (click)="modifyRoom(element)">Modify data</button>
-                  <button (click)="deleteRoom(element)" class="button button2" style="margin: 10px;">Delete this room completely</button>
-                </div>
+               
+              
+                  <button (click)="deleteDoc(element)" class="button button2" style="margin: 10px;">Delete this doctor</button>
+               
               </div>
   
             </div>

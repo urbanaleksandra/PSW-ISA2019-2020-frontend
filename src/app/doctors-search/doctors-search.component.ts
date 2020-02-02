@@ -26,6 +26,18 @@ export class DoctorsSearchComponent implements OnInit {
     this.getDoctors();
   }
 
+
+  deleteDoc(doc: Doctor){
+    this.service.deleteDoctor(doc).subscribe(
+      data => {
+        location.reload();
+      }, error => {
+        console.log(error);
+      }
+    )
+  }
+
+
   getDoctors() {
     this.service.getAllDoctors().subscribe(
       data => {
