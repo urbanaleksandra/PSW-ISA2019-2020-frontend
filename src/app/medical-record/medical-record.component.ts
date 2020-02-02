@@ -31,7 +31,7 @@ export class MedicalRecordComponent implements OnInit {
   getAppointments(){
     this.usernameUlogovanog = sessionStorage.getItem("authenticatedUser");
     console.log(this.usernameUlogovanog);
-    this.service.getAppointments(this.usernameUlogovanog).subscribe(
+    this.service.getAppointmentsMR(this.usernameUlogovanog).subscribe(
       data=>{
         this.appointments=data;
         for(let a of this.appointments){
