@@ -96,7 +96,7 @@ import { HolidayRequestsComponent } from './holiday-requests/holiday-requests.co
     PatientCreateAppointmentComponent,
     PopUpDoctorsComponent,
     NewSurgeryComponent,
-    AppointmentReportComponent
+    AppointmentReportComponent,
     ClinicProfileComponent,
     DialogPriceComponent,
     HolidayRequestsComponent
