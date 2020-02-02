@@ -4,6 +4,7 @@ import { SurgeryRoomService } from '../service/surgery-room.service';
 import { Surgery } from '../model/Surgery';
 import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import { PopUpDoctorsComponent } from '../pop-up-doctors/pop-up-doctors.component';
+import { AvailableRoom } from '../model/AvailableRoom';
 
 @Component({
   selector: 'app-surgery-hospital-room',
@@ -19,6 +20,7 @@ export class SurgeryHospitalRoomComponent implements OnInit {
   surgeries: Surgery[] = [];
   clickedSurgery: Surgery;
   showMessage: boolean = false;
+  availableRoom: AvailableRoom = new AvailableRoom();
   constructor(private service: SurgeryRoomService,
     private dialog: MatDialog) { }
 
@@ -48,6 +50,7 @@ export class SurgeryHospitalRoomComponent implements OnInit {
   }
 
   addRoom(surgery){
+    this.showMessage = false;
     this.addRoomClicked = true;
     this.clickedSurgery = surgery;
     surgery.doctorSurgery = "";
@@ -56,13 +59,14 @@ export class SurgeryHospitalRoomComponent implements OnInit {
       data => {
         this.rooms = data;
         console.log(data);
-        if(this.rooms.length == 0)
-        this.showMessage = true;
-        this.service.getAvailableRoomForOtherDate(surgery).subscribe(
-          data =>{
-            
-          });
-
+        if(this.rooms.length == 0){
+          this.showMessage = true;
+          this.service.getAvailableRoomForOtherDate(surgery).subscribe(
+            data =>{
+              console.log(data);
+              this.availableRoom = data;
+            });
+        }
       },error => {
         console.log(error);
       }
@@ -75,6 +79,17 @@ export class SurgeryHospitalRoomComponent implements OnInit {
     dialogConfig.autoFocus = true;
     dialogConfig.width = "60%";
     this.clickedSurgery.roomID = room;
+    dialogConfig.data = this.clickedSurgery;
+    this.dialog.open(PopUpDoctorsComponent, dialogConfig );
+    
+  }
+  chooseDoctor2(room){
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "60%";
+    this.clickedSurgery.roomID = room;
+    this.clickedSurgery.date = this.availableRoom.date;
     dialogConfig.data = this.clickedSurgery;
     this.dialog.open(PopUpDoctorsComponent, dialogConfig );
     
