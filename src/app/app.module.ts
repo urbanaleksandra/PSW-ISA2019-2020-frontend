@@ -50,6 +50,7 @@ import { PatientCreateAppointmentComponent } from './patient-create-appointment/
 import { SurgeryRoomService } from './service/surgery-room.service';
 import { PopUpDoctorsComponent } from './pop-up-doctors/pop-up-doctors.component';
 import { NewSurgeryComponent } from './new-surgery/new-surgery.component';
+import { ClinicProfileComponent } from './clinic-profile/clinic-profile.component';
 
 
 
@@ -90,7 +91,8 @@ import { NewSurgeryComponent } from './new-surgery/new-surgery.component';
     ClinicAdminProfileComponent,
     PatientCreateAppointmentComponent,
     PopUpDoctorsComponent,
-    NewSurgeryComponent
+    NewSurgeryComponent,
+    ClinicProfileComponent
 
 
 
