@@ -27,8 +27,6 @@ export class Doctor{
 
             review: number;
 
-            rating: number = 0;
-
             pocetakRadnogVremena: string ="";
 
             krajRadnogVremena:string ="";

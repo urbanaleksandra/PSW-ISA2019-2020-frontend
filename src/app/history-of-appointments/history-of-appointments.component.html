@@ -76,22 +76,57 @@
 
 <div class= "container"  style="background-color: rgb(217, 236, 236, 0.7); padding: 2em; border-radius: 10px;">
   <h3 style="padding-bottom: 20px;">
-    You can rate:
+    You can rate doctors:
   </h3>
 
   <table class="table table-hover">
     <thead>
       <tr>
         <th>Doctor</th>
+        <th>You rate doctor with</th>
         <th>Rating</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let doctor of doctorsForRate">
-        <td>{{doctor?.firstName}}</td>
-        <td><ngb-rating [(rate)]="doctor.review" (rateChange)='doSomething(doctor)'></ngb-rating>
+      <tr *ngFor="let prd of patientRatedDoctor">
+        <td>{{prd.doctor.firstName}}</td>
+        <td><ngb-rating [(rate)]="prd.ocena" (rateChange)='rateChange(prd)'></ngb-rating>
           <hr>
-          <pre>Rate: <b>{{doctor.review}}</b></pre>
+          <pre>Rate: <b>{{prd.ocena}}</b></pre>
+        </td>
+        <td >
+          {{prd.doctor.review}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  
+
+</div>
+
+<div class= "container"  style="background-color: rgb(217, 236, 236, 0.7); padding: 2em; border-radius: 10px;">
+  <h3 style="padding-bottom: 20px;">
+    You can rate clinics:
+  </h3>
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Clinic</th>
+        <th>You rate clinic with</th>
+        <th>Rating</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let prclinic of patientRatedClinic">
+        <td>{{prclinic.clinic.name}}</td>
+        <td><ngb-rating [(rate)]="prclinic.ocena" (rateChange)='rateChange1(prclinic)'></ngb-rating>
+          <hr>
+          <pre>Rate: <b>{{prclinic.ocena}}</b></pre>
+        </td>
+        <td >
+          {{prclinic.clinic.rating}}
         </td>
       </tr>
     </tbody>

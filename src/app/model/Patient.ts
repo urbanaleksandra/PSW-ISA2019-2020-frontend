@@ -1,4 +1,6 @@
 export class Patient{
+            id: number;
+
             username : string = "";
 		
             password : string = "";
