@@ -1,7 +1,7 @@
 import { Doctor } from './Doctor';
 
 export class Appointment {
-    id : string="0";
+    id : string="";
     date : string="";
     description : string ="";
     duration: number = 0;

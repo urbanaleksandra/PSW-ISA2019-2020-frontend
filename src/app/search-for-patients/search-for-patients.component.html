@@ -99,7 +99,7 @@
                 <td>{{ appointment?.duration }}</td>
                 <td>{{ appointment?.type }}</td>
                 <td>{{ appointment?.doctorUsername }}</td>
-                <th *ngIf="appointment.start"  routerLinkActive='active' [routerLink]="['/appointment-report']"><button class="btn btn-success">Start</button></th>
+                <th *ngIf="appointment.start"  routerLinkActive='active' [routerLink]="['/appointment-report', appointment.id]"><button class="btn btn-success">Start</button></th>
                 <!-- <td>{{ appointment.doctor }}</td>
                 <td>{{ appointment.hospitalRoom }}</td>
                 <td>{{ appointment.recipe }}</td> -->

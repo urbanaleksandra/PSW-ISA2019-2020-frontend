@@ -4,6 +4,7 @@ import { PatientService } from '../service/patient.service';
 import { Appointment } from '../model/Appointment';
 import { Surgery } from '../model/Surgery';
 import { MedicalRecordService } from '../service/medicalRecord.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-for-patients',
@@ -26,10 +27,12 @@ export class SearchForPatientsComponent implements OnInit {
   surgery : Surgery;
 
 
-  constructor(private service: PatientService,private serviceMD: MedicalRecordService) { }
+  constructor(private service: PatientService,private serviceMD: MedicalRecordService,
+    private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.getPatients();
+    this.router.navigate(['/appointment-report', this.appointment.id]);
   }
 
   getPatients() {
@@ -45,6 +48,7 @@ export class SearchForPatientsComponent implements OnInit {
 
   change( patient: Patient) {
     this.selectedPatient=patient;
+    sessionStorage.setItem('clickedPatient', patient.username);
     this.getAppointments(patient.username);
     this.getSurgeries(patient.username);
      if (this.isButtonVisible == false)
@@ -64,7 +68,7 @@ export class SearchForPatientsComponent implements OnInit {
     this.serviceMD.getAppointmentPatient(username, doctor).subscribe(
       data=>{
         this.appointments1=data;
-        this.serviceMD.getAppointments(username).subscribe(
+        this.serviceMD.getAllAppointments(username).subscribe(
           data =>{
               this.appointments = data;
               console.log(this.appointments)
@@ -75,6 +79,7 @@ export class SearchForPatientsComponent implements OnInit {
                       app.start = true;
                 }
               }
+              console.log(this.appointments);
         })
         
       }, error =>{
