@@ -53,6 +53,7 @@ import { NewSurgeryComponent } from './new-surgery/new-surgery.component';
 import { DialogPriceComponent } from './dialog-price/dialog-price.component';
 import { ClinicProfileComponent } from './clinic-profile/clinic-profile.component';
 import { HolidayRequestsComponent } from './holiday-requests/holiday-requests.component';
+import { AlreadyCreatedAppointmentsComponent } from './already-created-appointments/already-created-appointments.component';
 
 
 
@@ -96,7 +97,8 @@ import { HolidayRequestsComponent } from './holiday-requests/holiday-requests.co
     NewSurgeryComponent,
     ClinicProfileComponent,
     DialogPriceComponent,
-    HolidayRequestsComponent
+    HolidayRequestsComponent,
+    AlreadyCreatedAppointmentsComponent
 
 
 

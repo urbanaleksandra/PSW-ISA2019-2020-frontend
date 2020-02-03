@@ -34,6 +34,7 @@ import { NewSurgeryComponent } from './new-surgery/new-surgery.component';
 import { ClinicProfileComponent } from './clinic-profile/clinic-profile.component';
 import { HolidayRequest } from './model/HolidayRequest';
 import { HolidayRequestsComponent } from './holiday-requests/holiday-requests.component';
+import { AlreadyCreatedAppointmentsComponent } from './already-created-appointments/already-created-appointments.component';
 
 
 
@@ -71,7 +72,8 @@ const routes: Routes = [
       {path: 'cadmin-profile',component: ClinicAdminProfileComponent},
       {path: 'new-surgery',component: NewSurgeryComponent},
       {path: 'clinic-profile',component: ClinicProfileComponent},
-      {path: 'holidays',component: HolidayRequestsComponent}
+      {path: 'holidays',component: HolidayRequestsComponent},
+      {path: 'alreadyCreatedApp',component: AlreadyCreatedAppointmentsComponent}
 ];
 
 @NgModule({
