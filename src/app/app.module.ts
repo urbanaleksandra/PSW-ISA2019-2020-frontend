@@ -107,7 +107,7 @@ import { EditOldAppointmentReportComponent } from './edit-old-appointment-report
     DialogPriceComponent,
     HolidayRequestsComponent,
     EditMedicalRecordComponent,
-    EditOldAppointmentReportComponent
+    EditOldAppointmentReportComponent,
     AlreadyCreatedAppointmentsComponent,
     EditMedicalRecordComponent
 

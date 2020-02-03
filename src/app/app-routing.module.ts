@@ -81,7 +81,7 @@ const routes: Routes = [
       {path: 'clinic-profile',component: ClinicProfileComponent},
       {path: 'holidays',component: HolidayRequestsComponent},
       {path: 'edit-medical-record',component: EditMedicalRecordComponent},
-      {path: 'edit-old-appointment-report',component: EditOldAppointmentReportComponent}
+      {path: 'edit-old-appointment-report',component: EditOldAppointmentReportComponent},
       {path: 'alreadyCreatedApp',component: AlreadyCreatedAppointmentsComponent},
       {path: 'edit-medical-record',component: EditMedicalRecordComponent}
 
