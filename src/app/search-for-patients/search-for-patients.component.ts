@@ -32,7 +32,7 @@ export class SearchForPatientsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPatients();
-    this.router.navigate(['/appointment-report', this.appointment.id]);
+   
   }
 
   getPatients() {
@@ -45,7 +45,9 @@ export class SearchForPatientsComponent implements OnInit {
     )
 
   }
-
+  startApp(id){
+    this.router.navigate(['/appointment-report', id]);
+  }
   change( patient: Patient) {
     this.selectedPatient=patient;
     sessionStorage.setItem('clickedPatient', patient.username);
