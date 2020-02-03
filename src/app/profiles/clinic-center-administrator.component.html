@@ -19,7 +19,7 @@
       <app-logout></app-logout>
     </div>
   </nav>
-    <div class="container">
+    <div class="container" *ngIf="this.pageVisible">
             <div class="card border-light mb-3" style="width: 20rem;" id="newform">
                 <ul class="list-group list-group-flush" id="options">
                     <li class="list-group-item"><a href="#" routerLinkActive='active' [routerLink]="['/requests']">Requests</a></li>
@@ -137,6 +137,19 @@
         <button class="btn btn-success" type="submit" >Add drug</button>
       </form>
 
+</div>
+<div  class="container"   *ngIf="this.paswordFormVisible">
+  <form id="passwordForm" style="width: 20rem;" [formGroup]="form" (ngSubmit)="onSubmit() && form.valid">
+    <h4>Change password</h4>
+    <div class="form-group">
+      <small>old password</small>
+      <div class="input-group">
+        <input formControlName="newPassword" type="password" class="form-control" [(ngModel)]="this.newPassword"
+        [ngClass]="{'is-invalid': form.get('newPassword').touched && form.get('newPassword').invalid}" placeholder="New Password">
+       </div>
+    </div>
+    <button class="btn btn-success" type="submit" >Change</button>
+  </form>
 </div>
 
    
