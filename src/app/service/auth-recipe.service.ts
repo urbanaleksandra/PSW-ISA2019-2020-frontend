@@ -24,4 +24,8 @@ export class AuthRecipeService{
     authRecipeService(recipe){   
         return this.http.post('http://localhost:8080/api/auth-recipe/' +  sessionStorage.getItem("authenticatedUser"), recipe);
     }
+
+    getRecipeDTO(){
+        return this.http.get<Recipe[]>('http://localhost:8080//api/get-recipes-dto');
+    }
 }
