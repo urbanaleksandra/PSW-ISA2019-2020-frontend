@@ -13,8 +13,26 @@
       </ul>
     </div>
   </nav>
+  
   <div class="container">
-    <h4 class="text-center" style="margin:20px;">Report</h4>
+    
+      <div class="row" >
+        <div *ngFor="let app of finishedAppointment" class="col-sm-4">
+          <div class="card">
+            <img height="170" src="https://img.freepik.com/free-vector/_1441-1916.jpg?size=626&ext=jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{app.id}}</h5>
+              <p>{{app.date}}</p>
+              <p>{{app.info}}</p>
+              <button class="btn btn-success" (click)="editApp(app.id)">Edit</button>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+
+
+    <h4 class="text" style="margin:20px;">Edit report</h4>
     <form *ngIf="this.formVisible" [formGroup]="form" (ngSubmit)="onSubmit() && form.valid" novalidate>
         
        
@@ -29,7 +47,7 @@
             <label for="diagnosis">Diagnosis:</label>
 
             <select formControlName="diagnosis" [ngClass]="{'is-invalid': form.get('diagnosis').touched && form.get('diagnosis').invalid}" class="custom-select" (change)="selectChangeHandler($event)">
-                <option *ngFor="let diagnosis of diagnoses" value="{{diagnosis.id}}" >{{diagnosis.name}} | {{diagnosis.description}}</option>
+                <option *ngFor="let diagnosis of diagnoses" [selected]="this.selDiagnosisID" value="{{diagnosis.id}}" >{{diagnosis.name}} | {{diagnosis.description}}</option>
             </select>
         </div>
 
@@ -38,7 +56,7 @@
           <label for="recipe">Choose drug:</label>
           <div *ngFor="let drug of drugs; let i=index" class="form-control">
             <label class="checkbox-inline">
-              <input type="checkbox" [value]="drug.id" (change)="onCheckboxChange($event)" />
+              <input type="checkbox" [checked]="drug.selected" [value]="drug.id" (change)="onCheckboxChange($event)" />
               {{drug.name}}
             </label>
           </div><p class="error" *ngIf="this.form2.controls['checkArray'].errors?.required" style="color:red;">
@@ -56,37 +74,7 @@
         <button class="btn btn-success" [disabled]="(!form.valid) || (!form2.valid)" type="submit">Report</button>
     </form>
 
-    <div *ngIf= "this.scheduleVisible">
-      <div class="row">
-        <div class="col-sm-4">
-          <div class="card">
-            <img height="170" src="https://img.freepik.com/free-vector/_1441-1916.jpg?size=626&ext=jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Schedule appointment</h5>
-              <a href="#" class="btn btn-primary" [routerLink]="['/newAppointment']">Add</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="card">
-            <img  height="170" src="https://img.freepik.com/free-vector/plastic-surgeon-operating-patient-surgery-room_33099-2120.jpg?size=626&ext=jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Schedule surgery</h5>
-              <a href="#"  class="btn btn-primary" [routerLink]="['/new-surgery']">Add</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="card">
-            <img height="170" src="https://mammothhospital.org/wp-content/uploads/2015/11/medical-records.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Edit medical record</h5>
-              <a href="#" class="btn btn-primary"  [routerLink]="['/edit-medical-record']">Edit</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+   
 
 
   </div>
