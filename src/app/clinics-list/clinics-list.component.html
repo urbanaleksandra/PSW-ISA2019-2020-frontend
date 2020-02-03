@@ -42,11 +42,17 @@
             </tr>
           </tbody>
   </table>
+
+  <div style="background-color: rgb(217, 236, 236, 0.7); padding: 1em; border-radius: 10px;">
+    <h5>
+      Choose one of many already scheduled appointments <a href="#" routerLinkActive='active' [routerLink]="['/alreadyCreatedApp']">here</a>
+    </h5>
+  </div>
  
-  <form class="needs-validation" novalidate (ngSubmit)="onSubmit()" style="padding-bottom: 20px;">
+  <form class="needs-validation" novalidate (ngSubmit)="onSubmit()" style="padding-bottom: 20px; margin-top: 10px;">
       <div style="background-color: rgb(217, 236, 236, 0.7); padding: 2em; border-radius: 10px;">
         <h3 style="padding-bottom: 20px;">
-          Search for available clinics:
+          Search for available clinics to create a new appointment:
         </h3>
 
         <div class="form-group">
