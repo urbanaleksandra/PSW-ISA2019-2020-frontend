@@ -39,6 +39,7 @@ import { HolidayRequestsComponent } from './holiday-requests/holiday-requests.co
 import { AlreadyCreatedAppointmentsComponent } from './already-created-appointments/already-created-appointments.component';
 
 import { EditMedicalRecordComponent } from './edit-medical-record/edit-medical-record.component';
+import { EditOldAppointmentReportComponent } from './edit-old-appointment-report/edit-old-appointment-report.component';
 
 
 
@@ -79,9 +80,10 @@ const routes: Routes = [
       {path: 'appointment-report/:id',component: AppointmentReportComponent},
       {path: 'clinic-profile',component: ClinicProfileComponent},
       {path: 'holidays',component: HolidayRequestsComponent},
+      {path: 'edit-medical-record',component: EditMedicalRecordComponent},
+      {path: 'edit-old-appointment-report',component: EditOldAppointmentReportComponent}
       {path: 'alreadyCreatedApp',component: AlreadyCreatedAppointmentsComponent},
       {path: 'edit-medical-record',component: EditMedicalRecordComponent}
-
 
 ];
 
