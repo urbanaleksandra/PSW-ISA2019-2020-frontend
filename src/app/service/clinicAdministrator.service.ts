@@ -40,4 +40,9 @@ export class ClinicAdministratorService {
     console.log(price.price);
     return this.http.post('http://localhost:8080/changePrice', price);
   }
+
+  getAppointments(){
+    return this.http.get<any>('http://localhost:8080/appointments');
+  }
+
 }

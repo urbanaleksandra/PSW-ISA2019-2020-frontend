@@ -54,7 +54,8 @@ import { AppointmentReportComponent } from './appointment-report/appointment-rep
 import { DialogPriceComponent } from './dialog-price/dialog-price.component';
 import { ClinicProfileComponent } from './clinic-profile/clinic-profile.component';
 import { HolidayRequestsComponent } from './holiday-requests/holiday-requests.component';
-
+import { AdminReportsComponent } from './admin-reports/admin-reports.component';
+import { ChartsModule } from 'ng2-charts';
 
 
 
@@ -99,7 +100,9 @@ import { HolidayRequestsComponent } from './holiday-requests/holiday-requests.co
     AppointmentReportComponent,
     ClinicProfileComponent,
     DialogPriceComponent,
-    HolidayRequestsComponent
+    HolidayRequestsComponent,
+    AdminReportsComponent,
+    
 
 
 
@@ -116,7 +119,8 @@ import { HolidayRequestsComponent } from './holiday-requests/holiday-requests.co
     NgbModule,
     ReactiveFormsModule,
     FullCalendarModule,
-    CdkTableModule
+    CdkTableModule,
+    ChartsModule
   ],
   providers: [
     {

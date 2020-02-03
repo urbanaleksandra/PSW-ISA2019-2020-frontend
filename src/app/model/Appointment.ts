@@ -1,4 +1,5 @@
 import { Doctor } from './Doctor';
+import { AppointmentType } from './AppointmentType';
 
 export class Appointment {
     id : string="0";
@@ -10,4 +11,5 @@ export class Appointment {
     doctorUsername: string=""; 
     start: boolean = false;
     info: string = "";
+    type2: AppointmentType=new AppointmentType();
 }
