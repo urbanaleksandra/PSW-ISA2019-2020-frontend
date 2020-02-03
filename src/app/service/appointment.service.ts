@@ -18,6 +18,7 @@ export class AppointmentService {
     console.log(appointment.description)
     return this.http.post<any>('http://localhost:8080/scheduleApp', appointment)
   }
+  
 
 
 }
