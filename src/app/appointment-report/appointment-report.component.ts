@@ -4,6 +4,9 @@ import { Appointment } from '../model/Appointment';
 import { AppointmentReportService } from '../service/appointment-report.service';
 import { Diagnosis } from '../model/Diagnosis';
 import { Drug } from '../model/Drug';
+import { Recipe } from '../model/Recipe';
+import { ReportAppointment } from '../model/ReportAppointment';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-appointment-report',
@@ -14,15 +17,22 @@ export class AppointmentReportComponent implements OnInit {
 
   form = new FormGroup({
     description: new FormControl('', Validators.required),
-    info: new FormControl('', Validators.required)
+    info: new FormControl('', Validators.required),
+    diagnosis: new FormControl('', Validators.required)
   })
   form2: FormGroup;
   appointment: Appointment = new Appointment();
   diagnoses: Diagnosis[] = [];
-  selDiagnosis:String = "";
+  selDiagnosisID:String = "";
+  selDiagnosis: Diagnosis = new Diagnosis();
   drugs: Drug[] = [];
+  recipe: Recipe = new Recipe();
+  reportAppointment: ReportAppointment = new ReportAppointment();
+  formVisible: boolean = true;
+  scheduleVisible: boolean = false;
+
   constructor(private service: AppointmentReportService,
-    private fb: FormBuilder) {
+    private fb: FormBuilder, private route: ActivatedRoute, private router: Router) {
       this.form2 = this.fb.group({
         checkArray: this.fb.array([], [Validators.required])
       })
@@ -50,14 +60,33 @@ export class AppointmentReportComponent implements OnInit {
   }
 
   onSubmit(){
-    
+    this.formVisible = false;
+    this.scheduleVisible = true;
     let drugs = this.form2.get('checkArray').value;
+    this.recipe.drugs = drugs;
+    console.log(this.recipe);
     console.log(drugs);
+    console.log(this.selDiagnosis);
+    this.appointment.id = this.route.snapshot.paramMap.get('id');
+    console.log(this.appointment);
+    this.reportAppointment.appointment = this.appointment;
+    this.reportAppointment.diagnosis = this.selDiagnosis;
+    this.reportAppointment.recipe = this.recipe;
+    this.service.setReport(this.reportAppointment).subscribe(
+      (result) =>{
+        alert('success');
+      }
+    );
   }
 
   selectChangeHandler (event: any) {
+    this.selDiagnosisID = event.target.value;
+    console.log(this.selDiagnosisID);
+    for(let d of this.diagnoses){
+      if(d.id == this.selDiagnosisID)
+        this.selDiagnosis = d;
 
-    this.selDiagnosis = event.target.value;
+    }
   }
 
   getDiagnosis(){

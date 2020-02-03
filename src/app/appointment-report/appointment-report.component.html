@@ -15,7 +15,7 @@
   </nav>
   <div class="container">
     <h4 class="text-center" style="margin:20px;">Report</h4>
-    <form [formGroup]="form" (ngSubmit)="onSubmit() && form.valid" novalidate>
+    <form *ngIf="this.formVisible" [formGroup]="form" (ngSubmit)="onSubmit() && form.valid" novalidate>
         
        
         <div class="form-group">
@@ -28,8 +28,8 @@
         <div class="form-group">
             <label for="diagnosis">Diagnosis:</label>
 
-            <select class="custom-select" (change)="selectChangeHandler($event)">
-                <option *ngFor="let diagnosis of diagnoses" value="diagnosis.id" >{{diagnosis.name}} | {{diagnosis.description}}</option>
+            <select formControlName="diagnosis" [ngClass]="{'is-invalid': form.get('diagnosis').touched && form.get('diagnosis').invalid}" class="custom-select" (change)="selectChangeHandler($event)">
+                <option *ngFor="let diagnosis of diagnoses" value="{{diagnosis.id}}" >{{diagnosis.name}} | {{diagnosis.description}}</option>
             </select>
         </div>
 
@@ -47,7 +47,7 @@
           
           <div class="form-group">
             <label for="description">Description:</label>
-            <textarea formControlName="description" name="description" id="description"  [ngClass]="{'is-invalid': form.get('description').touched && form.get('description').invalid}" class="form-control" rows="5" placeholder="Description" [(ngModel)]="appointment.description"
+            <textarea formControlName="description" name="description" id="description"  [ngClass]="{'is-invalid': form.get('description').touched && form.get('description').invalid}" class="form-control" rows="5" placeholder="Description" [(ngModel)]="recipe.description"
                 name="clinicDescription" id="description"></textarea>
                 <div class="alert" *ngIf="form.get('description').touched && form.get('description').invalid" style="color:red;"><i>Description is required.</i></div>
           </div>
@@ -56,7 +56,37 @@
         <button class="btn btn-success" [disabled]="(!form.valid) || (!form2.valid)" type="submit">Report</button>
     </form>
 
-
+    <div *ngIf= "this.scheduleVisible">
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Schedule appointment</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <a href="#" class="btn btn-primary" [routerLink]="['/newAppointment']">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Schedule surgery</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <a href="#"  class="btn btn-primary" [routerLink]="['/new-surgery']">Add</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Edit medical record</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <a href="#" class="btn btn-primary" >Add</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
   </div>

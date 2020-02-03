@@ -48,8 +48,8 @@
             </form>
         </div>
         <div class="form-group">
-            <select formControlName="patient" [ngClass]="{'is-invalid': form.get('patient').touched && form.get('patient').invalid}" class="custom-select" (change)="selectChangeHandler($event)">
-                <option *ngFor="let patient of patients">{{patient.username}}</option>
+            <select  class="custom-select">
+                <option >{{patient}}</option>
             </select>
         </div>
         <div class="form-group">

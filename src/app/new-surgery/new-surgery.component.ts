@@ -34,11 +34,10 @@ export class NewSurgeryComponent implements OnInit {
       name: ['']
     })
     patientSel: string = '';
-
+    patient: string = "";
     form = new FormGroup({
       date: new FormControl('', Validators.required),
-      description: new FormControl('', Validators.required),
-      patient: new FormControl('', Validators.required)
+      description: new FormControl('', Validators.required)
     })
     valueTime: any = [
         '10-12h',
@@ -54,11 +53,12 @@ export class NewSurgeryComponent implements OnInit {
     this.month =  Number(this.ymd[1]);
     this.day =  Number(this.ymd[0]);
     this.getPatients();
+    this.patient = sessionStorage.getItem('clickedPatient');
   }
 
   onSubmit(){
     console.log(this.date1);
-    this.surgery.patient= this.patientSel;
+    this.surgery.patient= this.patient;
     this.surgery.doctorSurgery = sessionStorage.getItem('authenticatedUser');
     console.log(this.selectedTime)
     if(this.selectedTime == '10-12h')

@@ -14,6 +14,10 @@ export class MedicalRecordService {
    
         return this.http.get<any>('http://localhost:8080/getAppointments/' + username);
     }
+    getAllAppointments(username){
+   
+        return this.http.get<any>('http://localhost:8080/api/all-patient-appointment/' + username);
+    }
 
     getAppointmentPatient(username : String, doctor:String){
         return this.http.get<any>('http://localhost:8080/get-patient-appointments/' + username + '/' + doctor);
