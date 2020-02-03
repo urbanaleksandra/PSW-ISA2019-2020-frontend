@@ -40,6 +40,7 @@ export class AppointmentReportComponent implements OnInit {
   ngOnInit() {
     this.getDiagnosis();
     this.getDrugs();
+    this.formVisible = true;
   }
 
   onCheckboxChange(e) {
