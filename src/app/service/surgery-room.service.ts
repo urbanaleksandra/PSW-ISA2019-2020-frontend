@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Surgery } from '../model/Surgery';
 import { ObjectUnsubscribedError } from 'rxjs';
+import { AvailableRoom } from '../model/AvailableRoom';
 
 @Injectable({
   providedIn: 'root'
@@ -38,7 +39,7 @@ export class SurgeryRoomService {
   getAvailableRoomForOtherDate(surgery: Object){
     console.log('usao u getAvailableRoomForOtherDate');
     console.log(surgery);
-    return this.http.post('http://localhost:8080/api/add-room-to-surgery', surgery);
+    return this.http.post<AvailableRoom>('http://localhost:8080/api/available-room-other-date', surgery);
   }
   
 }

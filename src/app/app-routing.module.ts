@@ -31,10 +31,15 @@ import { AddDoctorComponent } from './add-doctor/add-doctor.component';
 import { ClinicAdminProfileComponent } from './clinic-admin-profile/clinic-admin-profile.component';
 import { PatientCreateAppointmentComponent } from './patient-create-appointment/patient-create-appointment.component';
 import { NewSurgeryComponent } from './new-surgery/new-surgery.component';
+import { AppointmentReportComponent } from './appointment-report/appointment-report.component';
 import { ClinicProfileComponent } from './clinic-profile/clinic-profile.component';
 import { HolidayRequest } from './model/HolidayRequest';
 import { HolidayRequestsComponent } from './holiday-requests/holiday-requests.component';
+
 import { AlreadyCreatedAppointmentsComponent } from './already-created-appointments/already-created-appointments.component';
+
+import { EditMedicalRecordComponent } from './edit-medical-record/edit-medical-record.component';
+
 
 
 
@@ -71,9 +76,13 @@ const routes: Routes = [
       {path: 'add-doc',component: AddDoctorComponent},
       {path: 'cadmin-profile',component: ClinicAdminProfileComponent},
       {path: 'new-surgery',component: NewSurgeryComponent},
+      {path: 'appointment-report/:id',component: AppointmentReportComponent},
       {path: 'clinic-profile',component: ClinicProfileComponent},
       {path: 'holidays',component: HolidayRequestsComponent},
-      {path: 'alreadyCreatedApp',component: AlreadyCreatedAppointmentsComponent}
+      {path: 'alreadyCreatedApp',component: AlreadyCreatedAppointmentsComponent},
+      {path: 'edit-medical-record',component: EditMedicalRecordComponent}
+
+
 ];
 
 @NgModule({

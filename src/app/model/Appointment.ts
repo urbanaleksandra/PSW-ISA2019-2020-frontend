@@ -3,7 +3,7 @@ import { HospitalRoom } from './HospitalRoom';
 import { MedicalRecord } from './MedicalRecord';
 
 export class Appointment {
-    id : string="0";
+    id : string="";
     date : string="";
     description : string ="";
     duration: number = 0;
@@ -13,4 +13,7 @@ export class Appointment {
     doctor: Doctor;
     hospitalRoom: HospitalRoom;
     medicalRecord: MedicalRecord;
+    start: boolean = false;
+    info: string = "";
+
 }

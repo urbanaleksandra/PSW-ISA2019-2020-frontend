@@ -50,10 +50,16 @@ import { PatientCreateAppointmentComponent } from './patient-create-appointment/
 import { SurgeryRoomService } from './service/surgery-room.service';
 import { PopUpDoctorsComponent } from './pop-up-doctors/pop-up-doctors.component';
 import { NewSurgeryComponent } from './new-surgery/new-surgery.component';
+import { AppointmentReportComponent } from './appointment-report/appointment-report.component';
 import { DialogPriceComponent } from './dialog-price/dialog-price.component';
 import { ClinicProfileComponent } from './clinic-profile/clinic-profile.component';
 import { HolidayRequestsComponent } from './holiday-requests/holiday-requests.component';
+
 import { AlreadyCreatedAppointmentsComponent } from './already-created-appointments/already-created-appointments.component';
+
+import { EditMedicalRecordComponent } from './edit-medical-record/edit-medical-record.component';
+
+
 
 
 
@@ -95,10 +101,13 @@ import { AlreadyCreatedAppointmentsComponent } from './already-created-appointme
     PatientCreateAppointmentComponent,
     PopUpDoctorsComponent,
     NewSurgeryComponent,
+    AppointmentReportComponent,
     ClinicProfileComponent,
     DialogPriceComponent,
     HolidayRequestsComponent,
-    AlreadyCreatedAppointmentsComponent
+    AlreadyCreatedAppointmentsComponent,
+    EditMedicalRecordComponent
+
 
 
 

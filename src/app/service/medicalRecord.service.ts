@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { PatientRatedDoctor } from '../model/PatientRatedDoctor';
 import { PatientRatedClinic } from '../model/PatientRatedClinic';
+import { MedicalRecordEdit } from '../model/MedicalRecordEdit';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,14 @@ export class MedicalRecordService {
     getAppointments(username : String){
    
         return this.http.get<any>('http://localhost:8080/getAppointments/' + username);
+    }
+    getAllAppointments(username){
+   
+        return this.http.get<any>('http://localhost:8080/api/all-patient-appointment/' + username);
+    }
+
+    getAppointmentPatient(username : String, doctor:String){
+        return this.http.get<any>('http://localhost:8080/get-patient-appointments/' + username + '/' + doctor);
     }
   
     getAppointmentsMR(username : String){
@@ -43,6 +52,13 @@ export class MedicalRecordService {
 
     rateChange1(prclinic: PatientRatedClinic){ //ocenjivanje klinika
     return this.http.post('http://localhost:8080/rateChangeClinic', prclinic);
+    }
+
+    getMedicalRecordInfo(patient){
+        return this.http.get<MedicalRecordEdit>('http://localhost:8080/api/get-medical-record-info/'+patient);
+    }
+    setMedicalRecordInfo(medicalRecord){
+        return this.http.post<MedicalRecordEdit>('http://localhost:8080/api/set-medical-record-info', medicalRecord);
     }
 
 }

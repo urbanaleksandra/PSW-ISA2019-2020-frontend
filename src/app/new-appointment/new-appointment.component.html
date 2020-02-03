@@ -27,29 +27,42 @@
 
     <h4>Schedule new appointment:</h4>
     <form class="needs-validation" novalidate (ngSubmit)="onSubmit()">
+        
+
+
         <div class="form-group">
-            <mat-form-field>
-                <input matInput type="datetime-local"  [(ngModel)]="appointment.date"  name="dateAppointment" placeholder="start date">
-            </mat-form-field>
+            
+            <input formControlName="date" (click)="d.toggle()" type="text" class="form-control" style="width: 18rem;" ngbDatepicker #d="ngbDatepicker" [minDate]="{year: this.year, month: this.month, day: this.day}" [(ngModel)]="this.date1" name="dateStart"
+            [ngClass]="{'is-invalid': form.get('date').touched && form.get('date').invalid}"/>             
+            <div class="invalid-feedback">Date is required</div>
         </div>
+
+        
+        <div class="form-group">
+            <label for="time">Choose time:</label>
+            <form>
+                <div class="form-check" *ngFor="let time of valueTime">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id=" {{time}}" (change)="inputChangeHandler($event)" value="{{time}}" checked>
+                    <label class="form-check-label" for=" {{time}}">
+                      {{time}}
+                    </label>
+                  </div>
+            </form>
+        </div>
+
+
 
         <div class="form-group">
             <label for="patient">Patient:</label>
             <form [formGroup]="patientsForm" (ngSubmit)="onSubmit()">
 
-                <select formControlName="name" (change)="selectChangeHandler($event)">
-                    <option disabled>Select your patient here</option>
-                    <option *ngFor="let patient of patients">{{patient.username}}</option>
+                <select class="custom-select"  disabled>
+                    <option>{{patientSel}}</option>
                 </select>
 
             </form>
         </div>
 
-        <div class="form-group">
-            <label for="duration">Duration (hours):</label>
-            <textarea class="form-control" rows="1" placeholder="1" [(ngModel)]="appointment.duration"
-                name="clinicDescription" id="description"></textarea>
-        </div>
         <div class="form-group">
             <label for="description">Description:</label>
             <textarea class="form-control" rows="5" placeholder="Description" [(ngModel)]="appointment.description"
