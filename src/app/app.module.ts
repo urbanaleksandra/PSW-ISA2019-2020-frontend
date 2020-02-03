@@ -54,8 +54,12 @@ import { AppointmentReportComponent } from './appointment-report/appointment-rep
 import { DialogPriceComponent } from './dialog-price/dialog-price.component';
 import { ClinicProfileComponent } from './clinic-profile/clinic-profile.component';
 import { HolidayRequestsComponent } from './holiday-requests/holiday-requests.component';
+
+import { AlreadyCreatedAppointmentsComponent } from './already-created-appointments/already-created-appointments.component';
+
 import { EditMedicalRecordComponent } from './edit-medical-record/edit-medical-record.component';
 import { EditOldAppointmentReportComponent } from './edit-old-appointment-report/edit-old-appointment-report.component';
+
 
 
 
@@ -104,8 +108,8 @@ import { EditOldAppointmentReportComponent } from './edit-old-appointment-report
     HolidayRequestsComponent,
     EditMedicalRecordComponent,
     EditOldAppointmentReportComponent
-
-
+    AlreadyCreatedAppointmentsComponent,
+    EditMedicalRecordComponent
 
   ],
   imports: [
