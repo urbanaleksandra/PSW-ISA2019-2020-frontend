@@ -32,109 +32,109 @@
 
     </div>
     <div class="container" >
-        <form id="newform" (ngSubmit)="clickedNewAdmin()" style="width: 20rem;" *ngIf="this.clicked" >
+        <form [formGroup]="form3" (ngSubmit)="clickedNewAdmin() && form3.valid" id="newform" style="width: 20rem;" *ngIf="this.clicked" >
             <h6>Add new admin</h6>
             <div class="form-row">
               <div  class="col-md-12">
                 <label for="usernameCA">Username:</label>
-                <input type="text" class="form-control" id="usernameCA" name="username" placeholder="Username"  [(ngModel)]="ccadmin.username" required>
+                <input formControlName="Username" [ngClass]="{'is-invalid': form3.get('Username').touched && form3.get('Username').invalid}" type="text" class="form-control" id="usernameCA" name="username" placeholder="Username"  [(ngModel)]="ccadmin.username" required>
               </div>
               
             </div>
             <div class="form-row">
               <div class="col-md-12">
                 <label for="passwordCA">Password:</label>
-                <input type="password" class="form-control" id="passwordCA" placeholder="Password" [(ngModel)]="ccadmin.password" name="passwordCA"  required>
+                <input formControlName="Password" [ngClass]="{'is-invalid': form3.get('Password').touched && form3.get('Password').invalid}" type="password" class="form-control" id="passwordCA" placeholder="Password" [(ngModel)]="ccadmin.password" name="passwordCA"  required>
               </div>
             </div>
             <div class="form-row">
                 <div class="col-md-6">
                   <label for="firstNameCCA">First Name:</label>
-                  <input type="text" class="form-control" id="firstNameCCA" placeholder="First Name" [(ngModel)]="ccadmin.firstName" name="firstNameCCA"  required>
+                  <input formControlName="firstNameCA" [ngClass]="{'is-invalid': form3.get('firstNameCA').touched && form3.get('firstNameCA').invalid}" type="text" class="form-control" id="firstNameCCA" placeholder="First Name" [(ngModel)]="ccadmin.firstName" name="firstNameCCA"  required>
                 </div>
                 <div class="col-md-6">
                   <label for="lastNameCCA">Last Name:</label>
-                  <input type="text" class="form-control" id="lastNameCCA" placeholder="Last Name" [(ngModel)]="ccadmin.lastName" name="lastNameCCA"  required>
+                  <input type="text" formControlName="lastNameCA" [ngClass]="{'is-invalid': form3.get('lastNameCA').touched && form3.get('lastNameCA').invalid}" class="form-control" id="lastNameCCA" placeholder="Last Name" [(ngModel)]="ccadmin.lastName" name="lastNameCCA"  required>
                 </div>
               </div>
               <div class="form-row">
                 <div class="col-md-6">
                   <label for="emailCCA">Email:</label>
-                  <input type="text" class="form-control" id="emailCCA" placeholder="Email" [(ngModel)]="ccadmin.email" name="emailCCA"  required>
+                  <input type="text" formControlName="emailCA" [ngClass]="{'is-invalid': form3.get('emailCA').touched && form3.get('emailCA').invalid}" class="form-control" id="emailCCA" placeholder="Email" [(ngModel)]="ccadmin.email" name="emailCCA"  required>
                 </div>
                 <div class="col-md-6">
                   <label for="addressCCA">Address:</label>
-                  <input type="text" class="form-control" id="addressCCA" placeholder="Address" [(ngModel)]="ccadmin.address" name="addressCCA"  required>
+                  <input type="text" formControlName="addressCA" [ngClass]="{'is-invalid': form3.get('addressCA').touched && form3.get('addressCA').invalid}" class="form-control" id="addressCCA" placeholder="Address" [(ngModel)]="ccadmin.address" name="addressCCA"  required>
                 </div>
               </div>
               <div class="form-row">
                 <div class="col-md-6">
                   <label for="cityCCA">City:</label>
-                  <input type="text" class="form-control" id="cityCCA" placeholder="City" [(ngModel)]="ccadmin.city" name="cityCCA"  required>
+                  <input formControlName="cityCA" [ngClass]="{'is-invalid': form3.get('cityCA').touched && form3.get('cityCA').invalid}" type="text" class="form-control" id="cityCCA" placeholder="City" [(ngModel)]="ccadmin.city" name="cityCCA"  required>
                 </div>
                 <div class="col-md-6">
                   <label for="countryCCA">Country:</label>
-                  <input type="text" class="form-control" id="countryCCA" placeholder="Country" [(ngModel)]="ccadmin.country" name="countryCCA"  required>
+                  <input formControlName="countryCA" [ngClass]="{'is-invalid': form3.get('countryCA').touched && form3.get('countryCA').invalid}" type="text" class="form-control" id="countryCCA" placeholder="Country" [(ngModel)]="ccadmin.country" name="countryCCA"  required>
                 </div>
               </div>
               <div class="form-row">
                 <div class="col-md-6">
                   <label for="mobileNumberCCA">Mobile Number:</label>
-                  <input type="number" class="form-control" id="mobileNumberCCA" placeholder="MobileNumber" [(ngModel)]="ccadmin.mobileNumber" name="mobileNumberCCA"  required>
+                  <input formControlName="mobileNumberCA" [ngClass]="{'is-invalid': form3.get('mobileNumberCA').touched && form3.get('mobileNumberCA').invalid}" type="number" class="form-control" id="mobileNumberCCA" placeholder="MobileNumber" [(ngModel)]="ccadmin.mobileNumber" name="mobileNumberCCA"  required>
                 </div>
                 <div class="col-md-6">
                   <label for="jmbgCCA">Jmbg:</label>
-                  <input type="number" class="form-control" id="jmbgCCA" placeholder="jmbg" [(ngModel)]="ccadmin.jmbg" name="jmbgCCA"  required>
+                  <input type="number" formControlName="jmbgCA" [ngClass]="{'is-invalid': form3.get('jmbgCA').touched && form3.get('jmbgCA').invalid}" class="form-control" type="number" class="form-control" id="jmbgCA" placeholder="jmbg"  placeholder="jmbg" [(ngModel)]="ccadmin.jmbg"  required>
                 </div>
               </div>
-            <button class="btn btn-success" type="submit" >Add admin</button>
+            <button class="btn btn-success" [disabled]="!form3.valid" type="submit" >Add admin</button>
           </form>
 
     </div>
 
     <div class="container" >
-      <form id="newform" (ngSubmit)="newDiagnosis()" style="width: 20rem;"  *ngIf="this.clickedDiagnoisis">
+      <form id="newform" [formGroup]="form2" (ngSubmit)="newDiagnosis() && form2.valid" id="newform" style="width: 20rem;"  *ngIf="this.clickedDiagnoisis">
           <h6>Add new diagnosis</h6>
           <div class="form-row">
             <div  class="col-md-12">
               <label for="diagnosisName">Name:</label>
-              <input type="text" class="form-control" id="diagnosisName" name="diagnosisName" placeholder="Name of diagnosis"  [(ngModel)]="diagnosis.name" required>
+              <input formControlName="diagnosisName" [ngClass]="{'is-invalid': form2.get('diagnosisName').touched && form2.get('diagnosisName').invalid}" type="text" class="form-control" id="diagnosisName" name="diagnosisName" placeholder="Name of diagnosis"  [(ngModel)]="diagnosis.name" required>
             </div>
             
           </div>
           <div class="form-row">
             <div class="col-md-12">
               <label for="description">Description:</label>
-              <textarea rows="3" class="form-control" id="description" placeholder="Description" [(ngModel)]="diagnosis.description" name="description"  required></textarea>
+              <textarea formControlName="description" [ngClass]="{'is-invalid': form2.get('description').touched && form2.get('description').invalid}" rows="3" class="form-control" id="description" placeholder="Description" [(ngModel)]="diagnosis.description" name="description"  required></textarea>
             </div>
           </div>
-          <button class="btn btn-success" type="submit" >Add diagnosis</button>
+          <button class="btn btn-success" [disabled]="!form2.valid" type="submit" >Add diagnosis</button>
         </form>
 
   </div>
   <div class="container" >
-    <form id="newform" (ngSubmit)="newDrug()" style="width: 20rem;"  *ngIf="this.clickedDrugs">
+    <form [formGroup]="form1" (ngSubmit)="newDrug() && form1.valid" id="newform" style="width: 20rem;"  *ngIf="this.clickedDrugs">
         <h6>Add new drug</h6>
         <div class="form-row">
           <div  class="col-md-12">
             <label for="drugName">Name:</label>
-            <input type="text" class="form-control" id="drugName" name="drugName" placeholder="Name of drug"  [(ngModel)]="drug.name" required>
+            <input formControlName="drugName" [ngClass]="{'is-invalid': form1.get('drugName').touched && form1.get('drugName').invalid}" type="text" class="form-control" id="drugName" name="drugName" placeholder="Name of drug"  [(ngModel)]="drug.name" required>
           </div>
           
         </div>
         <div class="form-row">
           <div class="col-md-12">
             <label for="quantity">Quantity:</label>
-            <input type="number" class="form-control" id="quantity" placeholder="Quantity" [(ngModel)]="drug.quantity" name="quantity"  required>
+            <input formControlName="quantity" [ngClass]="{'is-invalid': form1.get('quantity').touched && form1.get('quantity').invalid}" type="number" class="form-control" id="quantity" placeholder="Quantity" [(ngModel)]="drug.quantity" name="quantity"  required>
           </div>
         </div>
         <div class="form-row">
           <div class="col-md-12">
             <label for="price">Price: ($)</label>
-            <input type="number" class="form-control" id="price" placeholder="Price" [(ngModel)]="drug.price" name="price"  required>
+            <input formControlName="price" [ngClass]="{'is-invalid': form1.get('price').touched && form1.get('price').invalid}" type="number" class="form-control" id="price" placeholder="Price" [(ngModel)]="drug.price" name="price"  required>
           </div>
         </div>
-        <button class="btn btn-success" type="submit" >Add drug</button>
+        <button class="btn btn-success" [disabled]="!form1.valid" type="submit" >Add drug</button>
       </form>
 
 </div>
@@ -142,13 +142,13 @@
   <form id="passwordForm" style="width: 20rem;" [formGroup]="form" (ngSubmit)="onSubmit() && form.valid">
     <h4>Change password</h4>
     <div class="form-group">
-      <small>old password</small>
+      <small>new password</small>
       <div class="input-group">
         <input formControlName="newPassword" type="password" class="form-control" [(ngModel)]="this.newPassword"
         [ngClass]="{'is-invalid': form.get('newPassword').touched && form.get('newPassword').invalid}" placeholder="New Password">
        </div>
     </div>
-    <button class="btn btn-success" type="submit" >Change</button>
+    <button class="btn btn-success" [disabled]="!form.valid" type="submit" >Change</button>
   </form>
 </div>
 
