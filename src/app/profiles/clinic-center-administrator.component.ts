@@ -29,6 +29,29 @@ export class ClinicCenterAdministratorComponent implements OnInit{
         newPassword: new FormControl('', Validators.required)
         
       })
+    form1 = new FormGroup({
+        drugName: new FormControl('', Validators.required),
+        quantity: new FormControl('', Validators.required),
+        price: new FormControl('', Validators.required),
+    
+    })
+    form2 = new FormGroup({
+        diagnosisName: new FormControl('', Validators.required),
+        description: new FormControl('', Validators.required)
+    
+    })
+    form3 = new FormGroup({
+        Username: new FormControl('', Validators.required),
+        Password: new FormControl('', Validators.required),
+        firstNameCA: new FormControl('', Validators.required),
+        lastNameCA: new FormControl('', Validators.required),
+        emailCA: new FormControl('', Validators.required),
+        addressCA: new FormControl('', Validators.required),
+        cityCA: new FormControl('', Validators.required),
+        countryCA: new FormControl('', Validators.required),
+        mobileNumberCA: new FormControl('', Validators.required),
+        jmbgCA: new FormControl('', Validators.required),
+      })
     constructor(private service: ClinicCenterAdministratorService,
                 private router: Router) { }
 
@@ -41,6 +64,8 @@ export class ClinicCenterAdministratorComponent implements OnInit{
     }
     clickedNewAdmin(){
         this.clicked = false;
+        this.clickedDiagnoisis = false;
+        this.clickedDiagnoisis = false;
         console.log(this.ccadmin);
 
         this.service.newAdmin(this.ccadmin).subscribe((result)=>{
@@ -50,18 +75,26 @@ export class ClinicCenterAdministratorComponent implements OnInit{
     }
     clickednewDrug(){
         this.clickedDrugs = true;
+        this.clickedDiagnoisis = false;
+        this.clicked = false;
     }
     clickednewDiagnosis(){
         this.clickedDiagnoisis = true;
+        this.clickedDrugs = false;
+        this.clicked = false;
     }
     newDrug(){
         this.clickedDrugs = false;
+        this.clickedDiagnoisis = false;
+        this.clicked = false;
         this.service.newDrug(this.drug).subscribe((result)=>{ alert("Successfully added!");});
         this.drug = new Drug();
     }
 
     newDiagnosis(){
         this.clickedDiagnoisis = false;
+        this.clickedDiagnoisis = false;
+        this.clicked = false;
         this.service.newDiagnosis(this.diagnosis).subscribe((result)=>{ alert("Successfully added!");});
         this.diagnosis = new Diagnosis();
     }
