@@ -59,6 +59,7 @@ import { AlreadyCreatedAppointmentsComponent } from './already-created-appointme
 
 import { EditMedicalRecordComponent } from './edit-medical-record/edit-medical-record.component';
 import { EditOldAppointmentReportComponent } from './edit-old-appointment-report/edit-old-appointment-report.component';
+import { ConfirmAccountComponent } from './confirm-account/confirm-account.component';
 
 
 
@@ -109,7 +110,8 @@ import { EditOldAppointmentReportComponent } from './edit-old-appointment-report
     EditMedicalRecordComponent,
     EditOldAppointmentReportComponent,
     AlreadyCreatedAppointmentsComponent,
-    EditMedicalRecordComponent
+    EditMedicalRecordComponent,
+    ConfirmAccountComponent
 
   ],
   imports: [

@@ -40,6 +40,7 @@ import { AlreadyCreatedAppointmentsComponent } from './already-created-appointme
 
 import { EditMedicalRecordComponent } from './edit-medical-record/edit-medical-record.component';
 import { EditOldAppointmentReportComponent } from './edit-old-appointment-report/edit-old-appointment-report.component';
+import { ConfirmAccountComponent } from './confirm-account/confirm-account.component';
 
 
 
@@ -83,7 +84,8 @@ const routes: Routes = [
       {path: 'edit-medical-record',component: EditMedicalRecordComponent},
       {path: 'edit-old-appointment-report',component: EditOldAppointmentReportComponent},
       {path: 'alreadyCreatedApp',component: AlreadyCreatedAppointmentsComponent},
-      {path: 'edit-medical-record',component: EditMedicalRecordComponent}
+      {path: 'edit-medical-record',component: EditMedicalRecordComponent},
+      {path: 'confirm-account',component: ConfirmAccountComponent}
 
 ];
 
