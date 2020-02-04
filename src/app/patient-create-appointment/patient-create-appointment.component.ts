@@ -18,12 +18,14 @@ export class PatientCreateAppointmentComponent implements OnInit {
   doctor: Doctor;
   appointment: Appointment = new Appointment();
   usernameUlogovanog: string;
+  tipPregleda:string;
 
   constructor(private clinicService: ClinicService, private rAservice: RequestAppointmentService, private router: Router) { }
 
   ngOnInit() {
     this.usernameUlogovanog = sessionStorage.getItem("authenticatedUser");
     this.imeKlinike = this.clinicService.imeKlinike1;
+    this.tipPregleda = this.clinicService.tipPregleda;
     this.datumZakazivanja = this.clinicService.datumZakazivanja1;
     this.vremeZakazivanja = this.clinicService.vremeZakazivanja;
     this.doctor = this.clinicService.doctor;
@@ -31,7 +33,7 @@ export class PatientCreateAppointmentComponent implements OnInit {
     this.appointment.doctorUsername = this.doctor.username; //napraviti u appointDTO string doctor i ovako prosledim username doktora, i ovde u apointment modelu stavim string doctor username kao patient
     this.appointment.date = this.datumZakazivanja + "T" + this.vremeZakazivanja;
     this.appointment.patient = this.usernameUlogovanog;
-    this.appointment.type = "bla";
+    this.appointment.type = this.tipPregleda;
     console.log(this.appointment.doctorUsername);
     
     console.log(this.appointment.patient);

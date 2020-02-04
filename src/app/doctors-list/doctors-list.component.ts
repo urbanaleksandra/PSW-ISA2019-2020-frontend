@@ -24,6 +24,7 @@ export class DoctorsListComponent implements OnInit {
   searchText;
   imeKlinike: string;
   datumZakazivanja: string;
+  tipPregleda:string;
   doctors: Doctor[] = [];
   selectTimeClicked: boolean;
   selectedDoctor: Doctor;
@@ -38,6 +39,7 @@ export class DoctorsListComponent implements OnInit {
   ngOnInit() {
     this.imeKlinike = this.clinicService.imeKlinike1;
     this.datumZakazivanja = this.clinicService.datumZakazivanja1;
+    this.tipPregleda = this.clinicService.tipPregleda;
     console.log(this.imeKlinike);
     console.log(this.datumZakazivanja);
     this.getSearchDoctors();
@@ -49,7 +51,7 @@ export class DoctorsListComponent implements OnInit {
 
 
   getSearchDoctors(){
-    this.clinicService.getSearchDoctors(this.datumZakazivanja, this.imeKlinike).subscribe(
+    this.clinicService.getSearchDoctors(this.datumZakazivanja, this.imeKlinike, this.tipPregleda).subscribe(
         data =>{
             this.doctors=data;
         },
@@ -77,6 +79,7 @@ export class DoctorsListComponent implements OnInit {
     this.clinicService.datumZakazivanja1 = this.datumZakazivanja;
     this.clinicService.vremeZakazivanja = this.now;
     this.clinicService.doctor = this.selectedDoctor;
+    this.clinicService.tipPregleda = this.tipPregleda;
     
     if(+this.clinicService.vremeZakazivanja.split(":")[0] >= +this.minVreme.split(":")[0] && +this.clinicService.vremeZakazivanja.split(":")[0] < +this.maxVreme.split(":")[0]){
       this.router.navigateByUrl("/patient-create-appointment");

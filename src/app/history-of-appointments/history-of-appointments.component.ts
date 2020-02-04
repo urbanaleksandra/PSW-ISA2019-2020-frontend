@@ -31,6 +31,7 @@ export class HistoryOfAppointmentsComponent implements OnInit {
   constructor(private router: Router, private service: MedicalRecordService) { }
 
   ngOnInit() {
+    this.usernameUlogovanog = sessionStorage.getItem("authenticatedUser");
     this.getAppointments();
     this.getSurgeries();
     //this.getDoctorsForRate();
@@ -41,8 +42,8 @@ export class HistoryOfAppointmentsComponent implements OnInit {
   rateChange(prd:PatientRatedDoctor){ //ocenjivanje doktora
     console.log(prd.ocena);
     console.log(prd.doctor.firstName);
-    console.log(prd.patient.firstName);
-    prd.patientUsername = prd.patient.username;
+    //console.log(prd.patient.username);
+    prd.patientUsername = this.usernameUlogovanog;
     prd.doctorUsername = prd.doctor.username;
     console.log(prd.doctorUsername);
     
@@ -56,10 +57,10 @@ export class HistoryOfAppointmentsComponent implements OnInit {
 
   rateChange1(prclinic : PatientRatedClinic){ // ocenjivanje klinika
     console.log(prclinic.ocena);
-    console.log(prclinic.patient.firstName);
+    //console.log(prclinic.patient.firstName);
     console.log(prclinic.clinic.name);
 
-    prclinic.patientUsername = prclinic.patient.username;
+    prclinic.patientUsername = this.usernameUlogovanog;
     prclinic.clinicName = prclinic.clinic.name;
 
     this.service.rateChange1(prclinic).subscribe((result)=> {
