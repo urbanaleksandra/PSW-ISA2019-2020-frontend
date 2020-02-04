@@ -37,6 +37,7 @@ import { HolidayRequest } from './model/HolidayRequest';
 import { HolidayRequestsComponent } from './holiday-requests/holiday-requests.component';
 import { Component } from '@fullcalendar/core';
 import { AdminReportsComponent } from './admin-reports/admin-reports.component';
+import { AppRequestsListComponent } from './app-requests-list/app-requests-list.component';
 
 
 
@@ -77,7 +78,8 @@ const routes: Routes = [
       {path: 'appointment-report',component: AppointmentReportComponent},
       {path: 'clinic-profile',component: ClinicProfileComponent},
       {path: 'holidays',component: HolidayRequestsComponent},
-      {path: 'reports-admin', component : AdminReportsComponent}
+      {path: 'reports-admin', component : AdminReportsComponent},
+      {path: 'appRequests', component : AppRequestsListComponent},
 
 ];
 

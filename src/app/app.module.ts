@@ -56,6 +56,7 @@ import { ClinicProfileComponent } from './clinic-profile/clinic-profile.componen
 import { HolidayRequestsComponent } from './holiday-requests/holiday-requests.component';
 import { AdminReportsComponent } from './admin-reports/admin-reports.component';
 import { ChartsModule } from 'ng2-charts';
+import { AppRequestsListComponent } from './app-requests-list/app-requests-list.component';
 
 
 
@@ -102,6 +103,7 @@ import { ChartsModule } from 'ng2-charts';
     DialogPriceComponent,
     HolidayRequestsComponent,
     AdminReportsComponent,
+    AppRequestsListComponent,
     
 
 
