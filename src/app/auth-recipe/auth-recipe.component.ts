@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Recipe } from '../model/Recipe';
 import { AuthRecipeService } from '../service/auth-recipe.service';
 import { Drug } from '../model/Drug';
+import { AppointmentReportService } from '../service/appointment-report.service';
 
 @Component({
   selector: 'app-auth-recipe',
@@ -11,10 +12,11 @@ import { Drug } from '../model/Drug';
 export class AuthRecipeComponent implements OnInit {
   recipes: Recipe[] = [];
   drug: Drug = new Drug();
+  drugs: Drug[] = [];
   constructor(private service: AuthRecipeService) { }
 
   ngOnInit() {
-    this.getRecipes();
+    this.getRecipesDTO();
     
   }
 
@@ -27,19 +29,17 @@ export class AuthRecipeComponent implements OnInit {
     
   }
 
-  getDrug(recipe){
-    this.service.getDrug(recipe).subscribe(
+  getRecipesDTO(){
+    this.service.getRecipeDTO().subscribe(
       data=>{
-        this.drug = data;
+        this.recipes = data;
         console.log(this.recipes);
       },
       error => {
         console.log(error);
         }
     )
-    return this.drug.name;
   }
-
   getRecipes(){
     this.service.getRecipes().subscribe(
       data=>{
