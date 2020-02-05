@@ -19,6 +19,5 @@ export class Appointment {
     info: string = "";
     type2: AppointmentType=new AppointmentType();
     roomID: number = 0;
-    doctor: Doctor=new Doctor();
     clinic: Clinic=new Clinic();
 }
