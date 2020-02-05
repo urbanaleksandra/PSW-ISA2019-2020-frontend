@@ -36,4 +36,8 @@ export class PatientService {
     return this.http.post<Doctor>('http://localhost:8080/osobljePromjena', doctor)
   }
 
+  confirmAccount(token:String){
+    return this.http.get<Patient>('http://localhost:8080/confirmAccount/'+token)
+  }
+
 }

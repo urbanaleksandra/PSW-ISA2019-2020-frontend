@@ -5,6 +5,7 @@ import { Clinic } from '../model/clinic';
 import { Sort } from '@angular/material/sort';
 import { Appointment } from '../model/Appointment';
 import { DatePipe } from '@angular/common';
+import { AppointmentType } from '../model/AppointmentType';
 
 @Component({
   selector: 'app-clinics-list',
@@ -25,12 +26,15 @@ export class ClinicsListComponent implements OnInit {
   now: string;
   kliknutaKlinika: string;
   usernameUlogovanog: string;
+  appointmentTypes : AppointmentType[] = [];
+  selektovanTip: string = "";
 
   constructor(private clinicService: ClinicService,
     private router: Router,private datePipe: DatePipe) { }
 
   ngOnInit() {
     this.getClinics();
+    this.getAppTypes();
     this.flagForSearch = false;
     this.flagForSearchTable = false;
     console.log(this.myDate.split("T")[0]);
@@ -39,13 +43,15 @@ export class ClinicsListComponent implements OnInit {
     //console.log(this.myDate.split(":")[0] + ":" + this.myDate.split(":")[1]);
     this.usernameUlogovanog = sessionStorage.getItem("authenticatedUser");
     console.log(this.usernameUlogovanog);
+    this.appointment.type = "-1";
   }
 
-  klinika(clinic : Clinic){ //prenosim ime klinike i datum zakazivanja u drugu komponentu
+  klinika(clinic : Clinic){ //prenosim ime klinike, tip pregleda i datum zakazivanja u drugu komponentu
     //this.kliknutaKlinika = ime;
     this.clinicService.clinic = clinic;
     this.clinicService.imeKlinike1 = clinic.name;
     this.clinicService.datumZakazivanja1 = this.appointment.date;
+    this.clinicService.tipPregleda = this.appointment.type;
     //console.log(ime + this.appointment.date);
   }
   onSubmit(){
@@ -59,11 +65,27 @@ export class ClinicsListComponent implements OnInit {
       this.flagForSearch = false;
       this.flagForSearchTable = true;
       this.getSearchClinics();
-      console.log(this.appointment.date);
+      //console.log(this.appointment.date);
+      //console.log(this.appointment.type);
     }
+  }
+
+
+  ChangeValue(event: any){
+    this.appointment.type = event.target.value;
     //console.log(this.appointment.type);
   }
 
+  getAppTypes(){
+    this.clinicService.getAppTypes().subscribe(
+      data =>{
+          this.appointmentTypes=data;
+      },
+      error => {
+      console.log(error);
+      }
+     )
+  }
 
   getClinics(){
     this.clinicService.getClinics().subscribe(
@@ -77,7 +99,8 @@ export class ClinicsListComponent implements OnInit {
   }
 
   getSearchClinics(){
-    this.clinicService.getSearchClinics(this.appointment.date).subscribe(
+    console.log(this.appointment.type);
+    this.clinicService.getSearchClinics(this.appointment.date, this.appointment.type).subscribe(
         data =>{
             this.clinics1=data;
         },
@@ -85,6 +108,8 @@ export class ClinicsListComponent implements OnInit {
         console.log(error);
         }
        )
+
+       
   }
 
   sortData(sort: Sort) {
