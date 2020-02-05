@@ -17,4 +17,6 @@ export class Appointment {
     start: boolean = false;
     info: string = "";
     type2: AppointmentType=new AppointmentType();
+    roomID: number = 0;
+    doctor: Doctor=new Doctor();
 }
