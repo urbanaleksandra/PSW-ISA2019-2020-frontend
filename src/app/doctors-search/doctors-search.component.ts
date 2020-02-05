@@ -19,7 +19,7 @@ import { MatTableDataSource } from '@angular/material';
 export class DoctorsSearchComponent implements OnInit {
   searchText;
   doctors: Doctor[] = [];
-  isButtonVisible=false
+  isButtonVisible=false;
   constructor(private service: DoctorService) { }
   dataSource = new MatTableDataSource(this.doctors);
   ngOnInit() : void {
@@ -47,6 +47,10 @@ export class DoctorsSearchComponent implements OnInit {
         console.log(error);
       }
     )
+    }
+
+    applyFilter(filterValue: string) {
+      this.dataSource.filter = filterValue.trim().toLowerCase();
     }
     columnsToDisplay = ['username', 'firstName','lastName','city','country','email','mobileNumber','jmbg'];
 }

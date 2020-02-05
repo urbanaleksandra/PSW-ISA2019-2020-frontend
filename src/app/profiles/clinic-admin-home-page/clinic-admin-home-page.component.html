@@ -21,18 +21,6 @@
 
         <app-logout></app-logout>
     </div>
-
-   <!--  <mat-sidenav-container>
-        <mat-sidenav #appDrawer mode="over" opened="false">
-          <mat-nav-list>
-            <app-menu-list-item *ngFor="let item of navItems" [item]="item"></app-menu-list-item>
-          </mat-nav-list>
-        </mat-sidenav>
-        <app-top-nav fxHide.xs></app-top-nav>
-        <router-outlet></router-outlet>
-        <div fxFlex></div>
-        <span class="version-info">Current build: {{version.full ? version.full : version}}</span>
-      </mat-sidenav-container> -->
 </nav>
 <div class="container" style="margin-top: 20px;">
     <div class="row">
@@ -69,10 +57,8 @@
 
             <div class="card-body">
                 <h5 class="card-title">Business report</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's
-                    content.</p>
-                <a href="#" class="stretched-link"> See business reports</a>
+                <p class="card-text">Here you can see current rating of your clinic and your clinic's doctors. You can, also, see clinic incomes and graph of appointments held in some period of time.</p>
+                <a href="/reports-admin" class="stretched-link"> See business reports</a>
             </div>
         </div>
         <div class="col" style="width: 18rem; margin: 10px;" id="adminLinks">

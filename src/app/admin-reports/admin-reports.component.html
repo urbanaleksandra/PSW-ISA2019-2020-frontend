@@ -1,0 +1,104 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"><img src='https://powernetco.com/files/2018-04/icon-healthcare.png'
+            style="width:50px;height:50px;"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#" routerLinkActive='active' [routerLink]="['/doctorHomePage']">Home <span
+                        class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" routerLinkActive='active' [routerLink]="['/doctorHomePage']">Profile<span
+                        class="sr-only">(current)</span></a>
+            </li>
+
+        </ul>
+
+        <app-logout></app-logout>
+    </div>
+</nav>
+
+<div class="container" style="margin: 10px;">
+    <div class="row">
+        <div style="margin: 10px;width: 450px;">
+            <h5>Doctor's ratings on {{today | date :'fullDate'}}
+
+            </h5>
+            <mat-form-field style="margin: 10px;">
+                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+            </mat-form-field>
+
+            <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8">
+                <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
+                    <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+                    <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+                </ng-container>
+
+                <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+                <ng-container matColumnDef="expandedDetail">
+                    <td colspan="2" mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
+                        <div class="example-element-detail"
+                            [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+
+                            <div class="example-element-description">
+
+                            </div>
+
+                        </div>
+
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+                <tr mat-row *matRowDef="let element; columns: columnsToDisplay;" class="example-element-row"
+                    [class.example-expanded-row]="expandedElement === element"
+                    (click)="expandedElement = expandedElement === element ? null : element">
+                </tr>
+                <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+            </table>
+
+        </div>
+
+        
+
+        <div class="chart-wrapper" style="width: 600px; height: 600px;margin: 10px;">
+            <h5>Appointments held today, on {{today | date :'fullDate'}} </h5>
+            <canvas style="margin-top: 100px;" baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+                [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType">
+            </canvas>
+        </div>
+    </div>
+    <div class="row">
+        <div class="chart-wrapper" style="width: 500px; height: 300px;margin: 10px;">
+            <h4>Appointments held this month, {{today | date :'fullDate'}} </h4>
+            <canvas style="margin: 10px;" baseChart [datasets]="barChartData2" [labels]="barChartLabels" [options]="barChartOptions"
+            [colors]="ChartColors2" [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType">
+            </canvas>
+        </div>
+
+        <div class="chart-wrapper" style="width: 500px; height: 300px;margin: 10px;">
+            <h4>Appointments held this year, {{today | date :'fullDate'}} </h4>
+            <canvas style="margin: 10px;" baseChart [datasets]="barChartData3" [labels]="barChartLabels" [options]="barChartOptions"
+            [colors]="ChartColors"  [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType">
+            </canvas>
+        </div>
+    </div>
+    <div class="row" style="margin: 10px;">
+        <h5> Rating of your clinic on {{today | date :'fullDate'}} is  {{clinic.rating}} stars. </h5>
+    </div>
+</div>
+<footer class="page-footer font-small special-color-dark pt-4">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2019 Copyright:
+        <b>Tim 52</b>
+    </div>
+    <!-- Copyright -->
+
+</footer>
+<!-- Footer -->

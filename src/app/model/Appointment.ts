@@ -1,4 +1,5 @@
 import { Doctor } from './Doctor';
+import { AppointmentType } from './AppointmentType';
 import { HospitalRoom } from './HospitalRoom';
 import { MedicalRecord } from './MedicalRecord';
 
@@ -15,5 +16,5 @@ export class Appointment {
     medicalRecord: MedicalRecord;
     start: boolean = false;
     info: string = "";
-
+    type2: AppointmentType=new AppointmentType();
 }

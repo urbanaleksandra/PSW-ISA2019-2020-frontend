@@ -54,14 +54,12 @@ import { AppointmentReportComponent } from './appointment-report/appointment-rep
 import { DialogPriceComponent } from './dialog-price/dialog-price.component';
 import { ClinicProfileComponent } from './clinic-profile/clinic-profile.component';
 import { HolidayRequestsComponent } from './holiday-requests/holiday-requests.component';
-
+import { AdminReportsComponent } from './admin-reports/admin-reports.component';
+import { ChartsModule } from 'ng2-charts';
 import { AlreadyCreatedAppointmentsComponent } from './already-created-appointments/already-created-appointments.component';
-
 import { EditMedicalRecordComponent } from './edit-medical-record/edit-medical-record.component';
 import { EditOldAppointmentReportComponent } from './edit-old-appointment-report/edit-old-appointment-report.component';
 import { ConfirmAccountComponent } from './confirm-account/confirm-account.component';
-
-
 
 
 
@@ -107,6 +105,7 @@ import { ConfirmAccountComponent } from './confirm-account/confirm-account.compo
     ClinicProfileComponent,
     DialogPriceComponent,
     HolidayRequestsComponent,
+    AdminReportsComponent,
     EditMedicalRecordComponent,
     EditOldAppointmentReportComponent,
     AlreadyCreatedAppointmentsComponent,
@@ -126,7 +125,8 @@ import { ConfirmAccountComponent } from './confirm-account/confirm-account.compo
     NgbModule,
     ReactiveFormsModule,
     FullCalendarModule,
-    CdkTableModule
+    CdkTableModule,
+    ChartsModule
   ],
   providers: [
     {
