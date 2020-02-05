@@ -1,5 +1,5 @@
 export class Diagnosis {
-    id: number = 0;
+    id: string = "";
     name: string = "";
     description: string = "";
 }

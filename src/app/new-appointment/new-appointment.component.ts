@@ -36,15 +36,13 @@ export class NewAppointmentComponent implements OnInit {
   month: number;
   day: number;
   isVisible = true;
+  patient: string = "";
 
   form = new FormGroup({
     date: new FormControl('', Validators.required),
-    description: new FormControl('', Validators.required),
-    patient: new FormControl('', Validators.required)
+    description: new FormControl('', Validators.required)
   })
-  patientsForm = this.fb.group({
-    name: ['']
-  })
+  
   patientSel: string = '';
 
   //event handler for the select element's change event
@@ -82,6 +80,8 @@ export class NewAppointmentComponent implements OnInit {
     this.month =  Number(this.ymd[1]);
     this.day =  Number(this.ymd[0]);
     this.getPatients();
+    this.patientSel = sessionStorage.getItem('clickedPatient');
+    console.log(this.patientSel);
   }
     getPatients(){
       this.service.getAllPatients().subscribe(

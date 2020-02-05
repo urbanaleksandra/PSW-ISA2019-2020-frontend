@@ -1,19 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormArray, FormBuilder } from '@angular/forms';
-import { Appointment } from '../model/Appointment';
 import { AppointmentReportService } from '../service/appointment-report.service';
 import { Diagnosis } from '../model/Diagnosis';
 import { Drug } from '../model/Drug';
+import { Appointment } from '../model/Appointment';
 import { Recipe } from '../model/Recipe';
 import { ReportAppointment } from '../model/ReportAppointment';
-import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-appointment-report',
-  templateUrl: './appointment-report.component.html',
-  styleUrls: ['./appointment-report.component.css']
+  selector: 'app-edit-old-appointment-report',
+  templateUrl: './edit-old-appointment-report.component.html',
+  styleUrls: ['./edit-old-appointment-report.component.css']
 })
-export class AppointmentReportComponent implements OnInit {
+export class EditOldAppointmentReportComponent implements OnInit {
 
   form = new FormGroup({
     description: new FormControl('', Validators.required),
@@ -28,11 +27,11 @@ export class AppointmentReportComponent implements OnInit {
   drugs: Drug[] = [];
   recipe: Recipe = new Recipe();
   reportAppointment: ReportAppointment = new ReportAppointment();
-  formVisible: boolean = true;
-  scheduleVisible: boolean = false;
-
+  formVisible: boolean = false;
+  finishedAppointment: Appointment[] = [];
+  checkedDrug: number[] = [];
   constructor(private service: AppointmentReportService,
-    private fb: FormBuilder, private route: ActivatedRoute, private router: Router) {
+    private fb: FormBuilder) {
       this.form2 = this.fb.group({
         checkArray: this.fb.array([], [Validators.required])
       })
@@ -40,7 +39,7 @@ export class AppointmentReportComponent implements OnInit {
   ngOnInit() {
     this.getDiagnosis();
     this.getDrugs();
-    this.formVisible = true;
+    this.getOldAppointment();
   }
 
   onCheckboxChange(e) {
@@ -61,14 +60,12 @@ export class AppointmentReportComponent implements OnInit {
   }
 
   onSubmit(){
-    this.formVisible = false;
-    this.scheduleVisible = true;
+    this.formVisible = true;
     let drugs = this.form2.get('checkArray').value;
     this.recipe.drugs = drugs;
     console.log(this.recipe);
     console.log(drugs);
     console.log(this.selDiagnosis);
-    this.appointment.id = this.route.snapshot.paramMap.get('id');
     console.log(this.appointment);
     this.reportAppointment.appointment = this.appointment;
     this.reportAppointment.diagnosis = this.selDiagnosis;
@@ -105,4 +102,38 @@ export class AppointmentReportComponent implements OnInit {
       }
     );
   }
+
+  getOldAppointment(){
+    this.service.getOldAppointmentReport(sessionStorage.getItem("authenticatedUser")).subscribe(
+      data =>{
+        this.finishedAppointment = data;
+        console.log(this.finishedAppointment);
+      }
+    );
+  }
+
+  editApp(id){
+    this.formVisible = true;
+    this.service.getAppReportInfo(id).subscribe(
+      data =>{
+        this.reportAppointment = data;
+        console.log(this.reportAppointment);
+        this.appointment = this.reportAppointment.appointment;
+        this.recipe = this.reportAppointment.recipe;
+        this.selDiagnosisID = this.reportAppointment.diagnosis.id;
+        this.checkedDrug = this.reportAppointment.recipe.drugs;
+        this.checkedList();
+      });
+  }
+
+  checkedList(){
+    for(let d of this.drugs){
+      for(let s of this.checkedDrug)
+      {
+        if(d.id == s)
+          d.selected = true;
+      }
+    }
+  }
+
 }

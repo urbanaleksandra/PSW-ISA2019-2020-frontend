@@ -15,6 +15,7 @@ export class ClinicService {
   imeKlinike1: string;
   datumZakazivanja1: string;
   vremeZakazivanja: string;
+  tipPregleda : string;
   doctor: Doctor;
   clinic: Clinic;
 
@@ -33,13 +34,13 @@ export class ClinicService {
     return this.http.get<Clinic[]>('http://localhost:8080/api/get-clinics');
   }
 
-  getSearchClinics(searchDate: String){
+  getSearchClinics(searchDate: String, searchType: String){
     console.log("USAO U getSearchClinics " + searchDate);
-    return this.http.get<Clinic[]>('http://localhost:8080/api/get-search-clinics/'+searchDate);
+    return this.http.get<Clinic[]>('http://localhost:8080/api/get-search-clinics/'+searchDate + "/" + searchType);
   }
 
-  getSearchDoctors(searchDate: string, imeKlinike: string){
-    return this.http.get<Doctor[]>('http://localhost:8080/api/get-search-doctors/'+searchDate+"/"+imeKlinike);
+  getSearchDoctors(searchDate: string, imeKlinike: string, tipPregleda:String){
+    return this.http.get<Doctor[]>('http://localhost:8080/api/get-search-doctors/'+searchDate+"/"+imeKlinike+"/"+tipPregleda);
   }
 
   setMinTime(username : String){
@@ -52,6 +53,10 @@ export class ClinicService {
 
   changeClinicData(clinic:Clinic, name: String) {
     return this.http.post('http://localhost:8080/clinicChangeInfo/'+name ,clinic);
+  }
+
+  getAppTypes(){
+    return this.http.get<any>('http://localhost:8080/getAppointmentTypes');
   }
 
 }

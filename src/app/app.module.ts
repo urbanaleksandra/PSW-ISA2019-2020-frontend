@@ -59,6 +59,10 @@ import { ChartsModule } from 'ng2-charts';
 import { AppRequestsListComponent } from './app-requests-list/app-requests-list.component';
 import { FastAppointmentsComponent } from './fast-appointments/fast-appointments.component';
 import { PopUpDoctorsAppointmentComponent } from './pop-up-doctors-appointment/pop-up-doctors-appointment.component';
+import { AlreadyCreatedAppointmentsComponent } from './already-created-appointments/already-created-appointments.component';
+import { EditMedicalRecordComponent } from './edit-medical-record/edit-medical-record.component';
+import { EditOldAppointmentReportComponent } from './edit-old-appointment-report/edit-old-appointment-report.component';
+import { ConfirmAccountComponent } from './confirm-account/confirm-account.component';
 
 
 @NgModule({
@@ -107,7 +111,11 @@ import { PopUpDoctorsAppointmentComponent } from './pop-up-doctors-appointment/p
     AppRequestsListComponent,
     FastAppointmentsComponent,
     PopUpDoctorsAppointmentComponent,
- 
+    EditMedicalRecordComponent,
+    EditOldAppointmentReportComponent,
+    AlreadyCreatedAppointmentsComponent,
+    EditMedicalRecordComponent,
+    ConfirmAccountComponent
   ],
   imports: [
     BrowserModule,
