@@ -24,7 +24,7 @@ export class AuthRecipeComponent implements OnInit {
     this.service.authRecipeService(recipe).subscribe(
       (result)=>{
         alert("Successfully authed!");
-        this.getRecipes();
+        this.getRecipesDTO();
      })       
     
   }

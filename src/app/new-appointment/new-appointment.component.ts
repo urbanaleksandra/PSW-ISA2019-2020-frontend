@@ -62,7 +62,8 @@ export class NewAppointmentComponent implements OnInit {
   console.log(this.appointment);
     
   this.appointment.duration = 2;
-    this.appointment.patient=this.patientSel;
+  this.appointment.patient=this.patientSel;
+  this.appointment.doctorUsername =sessionStorage.getItem('authenticatedUser');
     this.rAservice.addrequestAppointment(this.appointment).subscribe(
       data=>{
         alert("Request for scheduling the appointment has been successfully sent to clinic administrator.");
