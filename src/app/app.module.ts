@@ -57,7 +57,8 @@ import { HolidayRequestsComponent } from './holiday-requests/holiday-requests.co
 import { AdminReportsComponent } from './admin-reports/admin-reports.component';
 import { ChartsModule } from 'ng2-charts';
 import { AppRequestsListComponent } from './app-requests-list/app-requests-list.component';
-
+import { FastAppointmentsComponent } from './fast-appointments/fast-appointments.component';
+import { PopUpDoctorsAppointmentComponent } from './pop-up-doctors-appointment/pop-up-doctors-appointment.component';
 
 
 @NgModule({
@@ -104,10 +105,9 @@ import { AppRequestsListComponent } from './app-requests-list/app-requests-list.
     HolidayRequestsComponent,
     AdminReportsComponent,
     AppRequestsListComponent,
-    
-
-
-
+    FastAppointmentsComponent,
+    PopUpDoctorsAppointmentComponent,
+ 
   ],
   imports: [
     BrowserModule,
@@ -122,7 +122,13 @@ import { AppRequestsListComponent } from './app-requests-list/app-requests-list.
     ReactiveFormsModule,
     FullCalendarModule,
     CdkTableModule,
-    ChartsModule
+    ChartsModule,
+    /* AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCDxEPX8dRElIezQBlZ2kl_1a4d2YTDKo8'
+    }) */
+    ReactiveFormsModule,
+    FormsModule
+
   ],
   providers: [
     {
@@ -133,7 +139,7 @@ import { AppRequestsListComponent } from './app-requests-list/app-requests-list.
     }
   ],
   bootstrap: [AppComponent],
-  entryComponents:[PopUpDoctorsComponent,DialogPriceComponent],
+  entryComponents:[PopUpDoctorsComponent,DialogPriceComponent,PopUpDoctorsAppointmentComponent],
 
 })
 export class AppModule { }

@@ -25,61 +25,71 @@
 <div class="container text-center">
     <h1>{{title}}</h1>
 </div>
+<div class="container">
+    <div class="row">
+        <div style="width:900px; margin:10px;">
+            <mat-tab-group dynamicHeight class="example-stretched-tabs mat-elevation-z4">
+                <mat-tab label="Clinic data ">
+                    <div class="example-large-box mat-elevation-z4">
 
-<div style="width:800px; margin:0 auto;">
-    <mat-tab-group dynamicHeight class="example-stretched-tabs mat-elevation-z4">
-        <mat-tab label="Clinic data ">
-            <div class="example-large-box mat-elevation-z4">
+                        <form class="example-form" style="margin: 10px;">
+                            Name:
+                            <mat-form-field class="example-full-width">
+                                <input matInput [(ngModel)]="clinic.name" name="naziv">
+                            </mat-form-field>
 
-                <form class="example-form" style="margin: 10px;">
-                    Name:
-                    <mat-form-field class="example-full-width">
-                        <input matInput [(ngModel)]="clinic.name" name="naziv">
-                    </mat-form-field>
+                            Address:
+                            <mat-form-field class="example-full-width">
+                                <input matInput [(ngModel)]="clinic.address" name="adresa">
+                            </mat-form-field>
 
-                    Address:
-                    <mat-form-field class="example-full-width">
-                        <input matInput [(ngModel)]="clinic.address" name="adresa">
-                    </mat-form-field>
 
-                    Description:
-                    <mat-form-field class="example-full-width">
-                        <input matInput [(ngModel)]="clinic.description" name="opis">
-                    </mat-form-field>
-                    <div style="text-align:center;">
-                        <button style="width: 150px;" class="button button2" (click)="modifyClinic()">Send
-                            changes</button>
+
+                            Description:
+                            <mat-form-field class="example-full-width">
+                                <input matInput [(ngModel)]="clinic.description" name="opis">
+                            </mat-form-field>
+                            <div style="text-align:center;">
+                                <button style="width: 150px;" class="button button2" (click)="modifyClinic()">Send
+                                    changes</button>
+                            </div>
+                        </form>
                     </div>
-                </form>
+                </mat-tab>
+                <mat-tab label="Free appointments">
+                    <div class="example-large-box mat-elevation-z4">
+                        Large content
+                    </div>
+                </mat-tab>
+                <mat-tab label="Price list">
+                    <div class="example-large-box mat-elevation-z4">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Price</th>
+                                    <th>Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let price of priceList">
+                                    <td>{{price.price}}</td>
+                                    <td>{{price.appointmentType.name}}</td>
+                                    <td><button class="btn btn-info" style="font-size: 13px; "
+                                            (click)="openDialog(price)">Modify</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
 
-            </div>
-        </mat-tab>
-        <mat-tab label="Free appointments">
-            <div class="example-large-box mat-elevation-z4">
-                Large content
-            </div>
-        </mat-tab>
-        <mat-tab label="Price list">
-            <div class="example-large-box mat-elevation-z4">
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                      <th>Price</th>
-                      <th>Name</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr *ngFor="let price of priceList">
-                      <td>{{price.price}}</td>
-                      <td>{{price.appointmentType.name}}</td>
-                      <td><button class="btn btn-info" style="font-size: 13px; "(click)="openDialog(price)">Modify</button></td>
-                    </tr>
-                    </tbody>
-                  </table>
-        
-            </div>
-        </mat-tab>
-    </mat-tab-group>
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
+
+
+        </div>
+    </div>
+    <div class="row">
+        <div id="map" class="map"></div>
+    </div>
 </div>
 <!-- Footer -->
 <footer class="page-footer font-small special-color-dark pt-4">

@@ -1,5 +1,6 @@
 import { Doctor } from './Doctor';
 import { AppointmentType } from './AppointmentType';
+import { Clinic } from './clinic';
 
 export class Appointment {
     id : string="0";
@@ -14,4 +15,5 @@ export class Appointment {
     type2: AppointmentType=new AppointmentType();
     roomID: number = 0;
     doctor: Doctor=new Doctor();
+    clinic: Clinic=new Clinic();
 }

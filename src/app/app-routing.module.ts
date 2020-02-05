@@ -38,6 +38,7 @@ import { HolidayRequestsComponent } from './holiday-requests/holiday-requests.co
 import { Component } from '@fullcalendar/core';
 import { AdminReportsComponent } from './admin-reports/admin-reports.component';
 import { AppRequestsListComponent } from './app-requests-list/app-requests-list.component';
+import { FastAppointmentsComponent } from './fast-appointments/fast-appointments.component';
 
 
 
@@ -80,7 +81,8 @@ const routes: Routes = [
       {path: 'holidays',component: HolidayRequestsComponent},
       {path: 'reports-admin', component : AdminReportsComponent},
       {path: 'appRequests', component : AppRequestsListComponent},
-
+      {path: 'fast-app', component : FastAppointmentsComponent}
+      
 ];
 
 @NgModule({
