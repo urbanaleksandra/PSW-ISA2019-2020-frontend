@@ -57,11 +57,12 @@ import { HolidayRequestsComponent } from './holiday-requests/holiday-requests.co
 import { AdminReportsComponent } from './admin-reports/admin-reports.component';
 import { ChartsModule } from 'ng2-charts';
 import { AppRequestsListComponent } from './app-requests-list/app-requests-list.component';
+import { FastAppointmentsComponent } from './fast-appointments/fast-appointments.component';
+import { PopUpDoctorsAppointmentComponent } from './pop-up-doctors-appointment/pop-up-doctors-appointment.component';
 import { AlreadyCreatedAppointmentsComponent } from './already-created-appointments/already-created-appointments.component';
 import { EditMedicalRecordComponent } from './edit-medical-record/edit-medical-record.component';
 import { EditOldAppointmentReportComponent } from './edit-old-appointment-report/edit-old-appointment-report.component';
 import { ConfirmAccountComponent } from './confirm-account/confirm-account.component';
-
 
 
 @NgModule({
@@ -108,12 +109,13 @@ import { ConfirmAccountComponent } from './confirm-account/confirm-account.compo
     HolidayRequestsComponent,
     AdminReportsComponent,
     AppRequestsListComponent,
+    FastAppointmentsComponent,
+    PopUpDoctorsAppointmentComponent,
     EditMedicalRecordComponent,
     EditOldAppointmentReportComponent,
     AlreadyCreatedAppointmentsComponent,
     EditMedicalRecordComponent,
     ConfirmAccountComponent
-
   ],
   imports: [
     BrowserModule,
@@ -128,7 +130,13 @@ import { ConfirmAccountComponent } from './confirm-account/confirm-account.compo
     ReactiveFormsModule,
     FullCalendarModule,
     CdkTableModule,
-    ChartsModule
+    ChartsModule,
+    /* AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCDxEPX8dRElIezQBlZ2kl_1a4d2YTDKo8'
+    }) */
+    ReactiveFormsModule,
+    FormsModule
+
   ],
   providers: [
     {
@@ -139,7 +147,7 @@ import { ConfirmAccountComponent } from './confirm-account/confirm-account.compo
     }
   ],
   bootstrap: [AppComponent],
-  entryComponents:[PopUpDoctorsComponent,DialogPriceComponent],
+  entryComponents:[PopUpDoctorsComponent,DialogPriceComponent,PopUpDoctorsAppointmentComponent],
 
 })
 export class AppModule { }

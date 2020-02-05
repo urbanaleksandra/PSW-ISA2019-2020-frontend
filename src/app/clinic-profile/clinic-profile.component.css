@@ -1,7 +1,7 @@
 
   .example-form {
     min-width: 550px;
-    max-width: 650px;
+    max-width: 950px;
     width: 100%;
   }
   
@@ -12,8 +12,8 @@
   
 
   .example-large-box {
-    height: 500px;
-    width: 800px;
+    height: 450px;
+    width: 1500px;
   }
 
   .button {
@@ -91,3 +91,9 @@
   .example-element-description-attribution {
     opacity: 0.5;
   }
+
+  .map {
+    height: 400px;
+    width: 400px;
+  }
+  

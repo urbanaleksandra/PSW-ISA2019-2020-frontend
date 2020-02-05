@@ -9,6 +9,39 @@ import { AvailableRoom } from '../model/AvailableRoom';
 import { SurgeryRoomService } from '../service/surgery-room.service';
 import { RequestAppointmentService } from '../service/requestAppointment.service';
 
+declare var ol: any;
+
+/*
+ol.Control.Click = ol.Class(ol.Control, {                
+  defaultHandlerOptions: {
+      'single': true,
+      'double': false,
+      'pixelTolerance': 0,
+      'stopSingle': false,
+      'stopDouble': false
+  },
+
+  initialize: function(options) {
+      this.handlerOptions = ol.Util.extend(
+          {}, this.defaultHandlerOptions
+      );
+      ol.Control.prototype.initialize.apply(
+          this, arguments
+      ); 
+      this.handler = new ol.Handler.Click(
+          this, {
+              'click': this.trigger
+          }, this.handlerOptions
+      );
+  }, 
+
+  trigger: function(e) {
+      var lonlat = map.getLonLatFromViewPortPx(e.xy);
+      alert("You clicked near " + lonlat.lat + " N, " +
+                                + lonlat.lon + " E");
+  }
+
+});*/
 @Component({
   selector: 'app-app-requests-list',
   templateUrl: './app-requests-list.component.html',
@@ -22,7 +55,6 @@ import { RequestAppointmentService } from '../service/requestAppointment.service
   ],
 })
 export class AppRequestsListComponent implements OnInit {
-
   user : User= new User();
   reqs: Appointment[] = [];
   dataSource = new MatTableDataSource(this.reqs);
@@ -34,10 +66,31 @@ export class AppRequestsListComponent implements OnInit {
   showMessage: boolean = false;
   availableRoom: AvailableRoom = new AvailableRoom();
 
+  latitude: number =18.11041262280196;
+  longitude: number = 43.259405942773384;
+   map: any;
+  
   constructor(private requestsService: RequestService,private service: RequestAppointmentService) { }
 
   ngOnInit() {
     this.getReqs();
+    this.map = new ol.Map({ 
+      target: 'map',
+      layers: [
+        new ol.layer.Tile({
+          source: new ol.source.OSM()
+        })
+      ],
+      view: new ol.View({
+        center: ol.proj.fromLonLat([this.latitude, this.longitude]),
+        zoom: 8
+      })
+    });
+    this.map.on('click', function(evt){
+      console.log(ol.proj.transform(evt.coordinate, 'EPSG:3857', 'EPSG:4326'));
+      
+  });
+  this.reverseGeocode([this.latitude,this.longitude]);
   }
 
   getReqs() {
@@ -98,5 +151,15 @@ export class AppRequestsListComponent implements OnInit {
             }
           )
       }
-
+      
+      reverseGeocode(coords) {
+        fetch('http://nominatim.openstreetmap.org/reverse?format=json&lon=' + coords[0] + '&lat=' + coords[1])
+          .then(function(response) {
+                 return response.json();
+             }).then(function(json) {
+               
+                 console.log(json);
+             });
+     }
+      
 }

@@ -38,6 +38,7 @@ import { HolidayRequestsComponent } from './holiday-requests/holiday-requests.co
 import { Component } from '@fullcalendar/core';
 import { AdminReportsComponent } from './admin-reports/admin-reports.component';
 import { AppRequestsListComponent } from './app-requests-list/app-requests-list.component';
+import { FastAppointmentsComponent } from './fast-appointments/fast-appointments.component';
 
 import { AlreadyCreatedAppointmentsComponent } from './already-created-appointments/already-created-appointments.component';
 
@@ -86,13 +87,12 @@ const routes: Routes = [
       {path: 'holidays',component: HolidayRequestsComponent},
       {path: 'reports-admin', component : AdminReportsComponent},
       {path: 'appRequests', component : AppRequestsListComponent},
+      {path: 'fast-app', component : FastAppointmentsComponent},
       {path: 'edit-medical-record',component: EditMedicalRecordComponent},
       {path: 'edit-old-appointment-report',component: EditOldAppointmentReportComponent},
       {path: 'alreadyCreatedApp',component: AlreadyCreatedAppointmentsComponent},
       {path: 'edit-medical-record',component: EditMedicalRecordComponent},
       {path: 'confirm-account',component: ConfirmAccountComponent}
-
-
 ];
 
 @NgModule({

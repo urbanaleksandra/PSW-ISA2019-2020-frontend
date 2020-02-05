@@ -9,6 +9,9 @@ import { MatTableDataSource, MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@a
 import { DialogPriceComponent } from '../dialog-price/dialog-price.component';
 import { AppointmentType } from '../model/AppointmentType';
 
+declare var ol: any;
+
+    
 export interface DialogData {
   price: number;
   appointmentType: AppointmentType;
@@ -24,18 +27,24 @@ export interface DialogData {
 export class ClinicProfileComponent implements OnInit {
 
   animal: string;
-
-
   user: User = new User();
   clinic: Clinic = new Clinic();
   priceList: PriceList[] = [];
   name: String = "";
+  latitude: number =18.11041262280196;
+  longitude: number = 43.259405942773384;
+   map: any;
   constructor(private service: ClinicAdministratorService,private clinicService: ClinicService,public dialog: MatDialog) { }
   dataSource = new MatTableDataSource(this.priceList);
+
 
   ngOnInit() {
     this.getMyClinic();
     this.getPrices();
+    
+    console.log(this.longitude);
+    console.log(this.latitude);
+    
   }
 
   getMyClinic() {
@@ -44,12 +53,58 @@ export class ClinicProfileComponent implements OnInit {
       data => {
         this.clinic = data;
         this.name = this.clinic.name;
+        console.log(this.clinic.lat)
+        this.longitude=this.clinic.longitude;
+        this.latitude=this.clinic.lat;
+        console.log(this.longitude)
+        console.log(this.latitude)
+        this.map = new ol.Map({ 
+          target: 'map',
+          layers: [
+            new ol.layer.Tile({
+              source: new ol.source.OSM()
+            })
+          ],
+          view: new ol.View({
+           
+            center: ol.proj.fromLonLat([this.latitude, this.longitude]),
+            zoom: 17
+          })
+        });
+        this.map.on('click', function(evt){
+          console.log(ol.proj.transform(evt.coordinate, 'EPSG:3857', 'EPSG:4326'));
+          var lat1=ol.proj.transform(evt.coordinate, 'EPSG:3857', 'EPSG:4326')[0];
+          var long1=ol.proj.transform(evt.coordinate, 'EPSG:3857', 'EPSG:4326')[1];
+          fetch('http://nominatim.openstreetmap.org/reverse?format=json&lon=' + lat1 + '&lat=' + long1)
+          .then(function(response) {
+                 return response.json();
+             }).then(function(json) {
+                 console.log(json);
+             });
+        });
+        
+        var layer = new ol.layer.Vector({
+          
+          source: new ol.source.Vector({
+              features: [
+                  new ol.Feature({
+                      geometry: new ol.geom.Point(ol.proj.fromLonLat([this.latitude,this.longitude]))
+                  }) 
+              ]
+          }) 
+      });
+      this.map.addLayer(layer);
+    this.reverseGeocode([this.latitude,this.longitude]);
       },
       error => {
         console.log(error);
       }
 
+      
+
     )
+
+
   }
 
   modifyClinic(){
@@ -89,6 +144,14 @@ export class ClinicProfileComponent implements OnInit {
     });
   }
   
+  reverseGeocode(coords) {
+    fetch('http://nominatim.openstreetmap.org/reverse?format=json&lon=' + coords[0] + '&lat=' + coords[1])
+      .then(function(response) {
+             return response.json();
+         }).then(function(json) {
+             console.log(json);
+         });
+ }
 
 }
 

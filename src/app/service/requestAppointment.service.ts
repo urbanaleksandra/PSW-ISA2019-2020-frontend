@@ -15,7 +15,11 @@ export class RequestAppointmentService {
 
   addrequestAppointment(appointment: Appointment) {
     console.log(appointment.description + appointment.date + appointment.duration + appointment.patient + appointment.type)
-    return this.http.post<Patient>('http://localhost:8080/api/add-requestApp', appointment)
+    return this.http.post<Appointment>('http://localhost:8080/api/add-requestApp', appointment)
+  }
+  addrequestAppointmentF(appointment: Appointment) {
+    console.log(appointment.clinic.id, appointment.description + appointment.date + appointment.duration + appointment.patient + appointment.type)
+    return this.http.post<Appointment>('http://localhost:8080/api/add-requestAppFAST/'+sessionStorage.getItem("authenticatedUser"), appointment)
   }
 
   getAvailableRoomForOtherDate(appointment: Object){
@@ -31,6 +35,12 @@ export class RequestAppointmentService {
 
   setRoom( appointment: Appointment){
     return this.http.post<any>('http://localhost:8080//api/add-room-app',appointment );
+  }
+
+  setRoomOfFastAppointment(resRoom: Object){
+    console.log("usao u setRoomOfSurgery");
+    console.log(resRoom);
+    return this.http.post('http://localhost:8080/api/add-room-to-appointmentF', resRoom);
   }
 
   addrequestAppointmentFromPatient(appointment: Appointment) {
