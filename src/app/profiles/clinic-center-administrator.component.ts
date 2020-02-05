@@ -25,6 +25,7 @@ export class ClinicCenterAdministratorComponent implements OnInit{
     paswordFormVisible :boolean = false;
     pageVisible : boolean = true;
     newPassword : String = "";
+    predefAdmin: boolean = false;
     form = new FormGroup({
         newPassword: new FormControl('', Validators.required)
         
@@ -57,6 +58,9 @@ export class ClinicCenterAdministratorComponent implements OnInit{
 
     ngOnInit(): void {
        this. getClinicCenterAdmin();
+       let user = sessionStorage.getItem('authenticatedUser');
+       if(user == 'ccadmin')
+            this.predefAdmin = true;
     }
 
     clickedNewAdminchange(){
