@@ -34,13 +34,13 @@ export class AuthService {
       'password' : password
     };
 
-    return this.apiService.post(this.url, body, loginHeaders)
+    return this.apiService.post(this.url, JSON.stringify(body), loginHeaders)
     .pipe(
       map((res) => {
       console.log('Login success');
       this.username = username;
       this.password = password;
-      //this.access_token = res.body;
+      this.access_token = res.access_token;
       console.log(res + 'ok');
       // console.log(res.accessToken); //ako je na serveru u beku dobro return-ovan token, onda je on ovde
       // console.log(this.access_token);

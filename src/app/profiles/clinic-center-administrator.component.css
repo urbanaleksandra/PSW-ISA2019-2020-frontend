@@ -16,7 +16,7 @@ footer{
     float: none; /* Added */
     margin-bottom: 10px; /* Added */
 }
-#newform, button {
+#newform, button, #passwordForm {
     margin: 0 auto; /* Added */
     margin-top: 30px;
     float: none; /* Added */

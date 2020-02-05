@@ -12,8 +12,11 @@ export class CalendarService {
   calendarEvents: any[] = [];
   constructor(private http:HttpClient) { }
 
-  getAppointments(){
-    return this.http.get<CalendarEvent[]>('http://localhost:8080/api/getAllAppointments');
+  getAppointments(doctor){
+    return this.http.get<CalendarEvent[]>('http://localhost:8080/api/getAllAppointments/' + doctor);
+  }
+  getAppointmentsNurse(nurse){
+    return this.http.get<CalendarEvent[]>('http://localhost:8080/api/getAllAppointments-nurse/' + nurse);
   }
 
  

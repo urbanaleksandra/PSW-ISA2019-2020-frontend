@@ -38,6 +38,12 @@ import { HolidayRequestsComponent } from './holiday-requests/holiday-requests.co
 import { Component } from '@fullcalendar/core';
 import { AdminReportsComponent } from './admin-reports/admin-reports.component';
 
+import { AlreadyCreatedAppointmentsComponent } from './already-created-appointments/already-created-appointments.component';
+
+import { EditMedicalRecordComponent } from './edit-medical-record/edit-medical-record.component';
+import { EditOldAppointmentReportComponent } from './edit-old-appointment-report/edit-old-appointment-report.component';
+import { ConfirmAccountComponent } from './confirm-account/confirm-account.component';
+
 
 
 
@@ -74,10 +80,15 @@ const routes: Routes = [
       {path: 'add-doc',component: AddDoctorComponent},
       {path: 'cadmin-profile',component: ClinicAdminProfileComponent},
       {path: 'new-surgery',component: NewSurgeryComponent},
-      {path: 'appointment-report',component: AppointmentReportComponent},
+      {path: 'appointment-report/:id',component: AppointmentReportComponent},
       {path: 'clinic-profile',component: ClinicProfileComponent},
       {path: 'holidays',component: HolidayRequestsComponent},
-      {path: 'reports-admin', component : AdminReportsComponent}
+      {path: 'reports-admin', component : AdminReportsComponent},
+      {path: 'edit-medical-record',component: EditMedicalRecordComponent},
+      {path: 'edit-old-appointment-report',component: EditOldAppointmentReportComponent},
+      {path: 'alreadyCreatedApp',component: AlreadyCreatedAppointmentsComponent},
+      {path: 'edit-medical-record',component: EditMedicalRecordComponent},
+      {path: 'confirm-account',component: ConfirmAccountComponent}
 
 ];
 

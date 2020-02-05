@@ -5,6 +5,7 @@ import { ClinicService } from '../service/clinic.service';
 import { ClinicAdministrator } from '../model/ClinicAdministrator';
 import { Clinic } from '../model/clinic';
 import { ClinicAdministratorService } from '../service/clinicAdministrator.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 
 @Component({
@@ -22,6 +23,23 @@ export class ClinicComponent implements OnInit{
     clinicToAddNewAdmin: Clinic = new Clinic();
     addAdminClicked = false;
 
+    form = new FormGroup({
+        Username: new FormControl('', Validators.required),
+        Password: new FormControl('', Validators.required),
+        firstNameCA: new FormControl('', Validators.required),
+        lastNameCA: new FormControl('', Validators.required),
+        emailCA: new FormControl('', Validators.required),
+        addressCA: new FormControl('', Validators.required),
+        cityCA: new FormControl('', Validators.required),
+        countryCA: new FormControl('', Validators.required),
+        mobileNumberCA: new FormControl('', Validators.required),
+        jmbgCA: new FormControl('', Validators.required),
+      })
+      form2 = new FormGroup({
+        name: new FormControl('', Validators.required),
+        address: new FormControl('', Validators.required),
+        description: new FormControl('', Validators.required),
+      })
     constructor(private clinicService: ClinicService,
                 private adminService: ClinicAdministratorService,
                 private router: Router) { }

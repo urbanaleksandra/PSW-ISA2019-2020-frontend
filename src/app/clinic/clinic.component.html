@@ -49,86 +49,86 @@
   </table>
   <div>
     
-    <form class="needs-validation" novalidate (ngSubmit)="onSubmitAdmin()" *ngIf="this.addAdminClicked">
+    <form [formGroup]="form" (ngSubmit)="onSubmitAdmin() && form.valid" novalidate *ngIf="this.addAdminClicked">
         <h4>Add new admin to clinic #{{ clinicToAddNewAdmin.id }}</h4>
         <div class="form-row">
           <div class="col-md-4">
-            <label for="usernameCA">Username:</label>
-            <input type="text" class="form-control" id="usernameCA" name="username" placeholder="Username"  [(ngModel)]="clinicAdministrator.username" required>
+            <label  for="usernameCA">Username:</label>
+            <input  formControlName="Username" [ngClass]="{'is-invalid': form.get('Username').touched && form.get('Username').invalid}" class="form-control" type="text" class="form-control" id="usernameCA" name="username" placeholder="Username"  [(ngModel)]="clinicAdministrator.username" required>
           </div>
           
           <div class="col-md-4">
             <label for="passwordCA">Password:</label>
-            <input type="password" class="form-control" id="passwordCA" placeholder="Password" [(ngModel)]="clinicAdministrator.password" name="passwordCA"  required>
+            <input formControlName="Password" [ngClass]="{'is-invalid': form.get('Password').touched && form.get('Password').invalid}" class="form-control" type="password" class="form-control" id="passwordCA" placeholder="Password" [(ngModel)]="clinicAdministrator.password" name="passwordCA"  required>
           </div>
         </div>
         <div class="form-row">
           <div class="col-md-4 mb-3">
             <label for="firstNameCA">First Name:</label>
-            <input type="text" class="form-control" id="firstNameCA" placeholder="First Name" [(ngModel)]="clinicAdministrator.firstName" name="firstNameCA"  required>
+            <input formControlName="firstNameCA" [ngClass]="{'is-invalid': form.get('firstNameCA').touched && form.get('firstNameCA').invalid}" class="form-control" type="text" class="form-control" id="firstNameCA" placeholder="First Name" [(ngModel)]="clinicAdministrator.firstName" name="firstNameCA"  required>
           </div>
           <div class="col-md-4 mb-3">
             <label for="lastNameCA">Last Name:</label>
-            <input type="text" class="form-control" id="lastNameCA" placeholder="Last Name" [(ngModel)]="clinicAdministrator.lastName" name="lastNameCA"  required>
+            <input formControlName="lastNameCA" [ngClass]="{'is-invalid': form.get('lastNameCA').touched && form.get('lastNameCA').invalid}" class="form-control" type="text" class="form-control" id="lastNameCA" placeholder="Last Name" [(ngModel)]="clinicAdministrator.lastName" name="lastNameCA"  required>
           </div>
         </div>
         <div class="form-row">
           <div class="col-md-4 mb-3">
             <label for="emailCA">Email:</label>
-            <input type="text" class="form-control" id="emailCA" placeholder="Email" [(ngModel)]="clinicAdministrator.email" name="emailCA"  required>
+            <input formControlName="emailCA" [ngClass]="{'is-invalid': form.get('emailCA').touched && form.get('emailCA').invalid}" class="form-control" type="text" class="form-control" id="emailCA" placeholder="Email" [(ngModel)]="clinicAdministrator.email" name="emailCA"  required>
           </div>
           <div class="col-md-4 mb-3">
             <label for="addressCA">Address:</label>
-            <input type="text" class="form-control" id="addressCA" placeholder="Address" [(ngModel)]="clinicAdministrator.address" name="addressCA"  required>
+            <input formControlName="addressCA" [ngClass]="{'is-invalid': form.get('addressCA').touched && form.get('addressCA').invalid}" class="form-control" type="text" class="form-control" id="addressCA" placeholder="Address" [(ngModel)]="clinicAdministrator.address" name="addressCA"  required>
           </div>
         </div>
         <div class="form-row">
           <div class="col-md-4 mb-3">
             <label for="cityCA">City:</label>
-            <input type="text" class="form-control" id="cityCA" placeholder="City" [(ngModel)]="clinicAdministrator.city" name="cityCA"  required>
+            <input formControlName="cityCA" [ngClass]="{'is-invalid': form.get('cityCA').touched && form.get('cityCA').invalid}" class="form-control" type="text" class="form-control" id="cityCA" placeholder="City" [(ngModel)]="clinicAdministrator.city" name="cityCA"  required>
           </div>
           <div class="col-md-4 mb-3">
             <label for="countryCA">Country:</label>
-            <input type="text" class="form-control" id="countryCA" placeholder="Country" [(ngModel)]="clinicAdministrator.country" name="countryCA"  required>
+            <input formControlName="countryCA" [ngClass]="{'is-invalid': form.get('countryCA').touched && form.get('countryCA').invalid}" class="form-control" type="text" class="form-control" id="countryCA" placeholder="Country" [(ngModel)]="clinicAdministrator.country" name="countryCA"  required>
           </div>
         </div>
         <div class="form-row">
           <div class="col-md-4 mb-3">
             <label for="mobileNumberCA">Mobile Number:</label>
-            <input type="number" class="form-control" id="mobileNumberCA" placeholder="MobileNumber" [(ngModel)]="clinicAdministrator.mobileNumber" name="mobileNumberCA"  required>
+            <input formControlName="mobileNumberCA" [ngClass]="{'is-invalid': form.get('mobileNumberCA').touched && form.get('mobileNumberCA').invalid}" class="form-control" type="number" class="form-control" id="mobileNumberCA" placeholder="MobileNumber" [(ngModel)]="clinicAdministrator.mobileNumber" name="mobileNumberCA"  required>
           </div>
           <div class="col-md-4 mb-3">
             <label for="jmbgCA">Jmbg:</label>
-            <input type="number" class="form-control" id="jmbgCA" placeholder="jmbg" [(ngModel)]="clinicAdministrator.jmbg" name="jmbgCA"  required>
+            <input formControlName="jmbgCA" [ngClass]="{'is-invalid': form.get('jmbgCA').touched && form.get('jmbgCA').invalid}" class="form-control" type="number" class="form-control" id="jmbgCA" placeholder="jmbg" [(ngModel)]="clinicAdministrator.jmbg" name="jmbgCA"  required>
           </div>
         </div>
-        <button class="btn btn-success" type="submit" >Add admin</button>
+        <button class="btn btn-success" [disabled]="!form.valid" type="submit" >Add admin</button>
       </form>
   </div>
 
 
 
   
-  <form class="needs-validation" novalidate (ngSubmit)="onSubmit()" *ngIf="!this.addAdminClicked">
+  <form  [formGroup]="form2" (ngSubmit)="onSubmit() && form.valid" novalidate *ngIf="!this.addAdminClicked">
       <h4>Add new clinic:</h4>
-      <div class="form-row">
+      <div class="form-group">
         <div class="col-md-4 mb-3">
-          <label for="validationCustom01">Clinic Name:</label>
-          <input type="text" class="form-control" id="validationCustom01" name="clinicName" placeholder="Clinic name"  [(ngModel)]="clinic.name" required>
+          <label for="name">Clinic Name:</label>
+          <input formControlName="name" [ngClass]="{'is-invalid': form2.get('name').touched && form2.get('name').invalid}" type="text" class="form-control" id="name" name="name" placeholder="Clinic name"  [(ngModel)]="clinic.name" required>
         </div>
         
       </div>
-      <div class="form-row">
+      <div class="form-group">
         <div class="col-md-6 mb-3">
-          <label for="validationCustom03">Address:</label>
-          <input type="text" class="form-control" id="validationCustom03" placeholder="Address" [(ngModel)]="clinic.address" name="clinicAddress"  required>
+          <label for="address">Address:</label>
+          <input formControlName="address" [ngClass]="{'is-invalid': form2.get('address').touched && form2.get('address').invalid}" type="text" class="form-control" id="address" placeholder="Address" [(ngModel)]="clinic.address" name="address"  required>
         </div>
       </div>
       <div class="form-group">
         <label for="description">Description:</label>
-        <textarea class="form-control" rows="5" placeholder="Description" [(ngModel)]="clinic.description" name="clinicDescription" id="description" required></textarea>
+        <textarea formControlName="description" [ngClass]="{'is-invalid': form2.get('description').touched && form2.get('description').invalid}" class="form-control" rows="5" placeholder="Description" [(ngModel)]="clinic.description" name="clinicDescription" id="description" required></textarea>
       </div>
-      <button class="btn btn-success" type="submit">Add clinic</button>
+      <button class="btn btn-success" [disabled]="!form2.valid" type="submit">Add clinic</button>
     </form>
 </div>
   <!-- Footer -->
