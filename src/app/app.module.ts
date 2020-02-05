@@ -57,6 +57,10 @@ import { HolidayRequestsComponent } from './holiday-requests/holiday-requests.co
 import { AdminReportsComponent } from './admin-reports/admin-reports.component';
 import { ChartsModule } from 'ng2-charts';
 import { AppRequestsListComponent } from './app-requests-list/app-requests-list.component';
+import { AlreadyCreatedAppointmentsComponent } from './already-created-appointments/already-created-appointments.component';
+import { EditMedicalRecordComponent } from './edit-medical-record/edit-medical-record.component';
+import { EditOldAppointmentReportComponent } from './edit-old-appointment-report/edit-old-appointment-report.component';
+import { ConfirmAccountComponent } from './confirm-account/confirm-account.component';
 
 
 
@@ -104,9 +108,11 @@ import { AppRequestsListComponent } from './app-requests-list/app-requests-list.
     HolidayRequestsComponent,
     AdminReportsComponent,
     AppRequestsListComponent,
-    
-
-
+    EditMedicalRecordComponent,
+    EditOldAppointmentReportComponent,
+    AlreadyCreatedAppointmentsComponent,
+    EditMedicalRecordComponent,
+    ConfirmAccountComponent
 
   ],
   imports: [
