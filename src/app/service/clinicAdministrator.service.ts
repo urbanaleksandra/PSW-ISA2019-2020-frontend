@@ -44,5 +44,10 @@ export class ClinicAdministratorService {
   getAppointments(){
     return this.http.get<any>('http://localhost:8080/appointments');
   }
+  
+  getAppointmentsAdmin(){
+    return this.http.get<any>('http://localhost:8080/getAppointmentsAdmin/'+ sessionStorage.getItem('authenticatedUser'));
+  }
+  
 
 }
