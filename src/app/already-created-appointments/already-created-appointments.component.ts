@@ -44,6 +44,8 @@ export class AlreadyCreatedAppointmentsComponent implements OnInit {
         this.router.navigateByUrl("/patient-home-page");
     }, error =>{
         console.log(error);
+        alert('Appointment already scheduled by someone else');
+        this.router.navigateByUrl("/patient-home-page");
     }
     );
 
