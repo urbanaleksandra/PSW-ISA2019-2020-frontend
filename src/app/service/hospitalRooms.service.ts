@@ -32,4 +32,8 @@ export class hospitalRoomsService{
     getAllRooms() {
         return this.http.get<any>('http://localhost:8080/sale');
       }
+
+      getAllRooms2() {
+        return this.http.get<any>('http://localhost:8080/sale/'+sessionStorage.getItem("authenticatedUser"));
+      }
 }
