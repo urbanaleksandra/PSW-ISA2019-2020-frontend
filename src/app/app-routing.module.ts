@@ -56,7 +56,7 @@ const routes: Routes = [
       { path: 'requests', component:  RequestComponent},
       { path: 'new-clinic', component:  ClinicComponent},
       { path: 'registration', component:  RegistrationComponent},
-      { path: 'login', component:  LoginComponent},
+      { path: 'auth/login', component:  LoginComponent},
       { path: 'doctor', component:  DoctorComponent},
       { path: 'doctorHomePage', component:  DoktorHomePageComponent},
       { path: 'patients', component:  PatientsListComponent},

@@ -20,7 +20,7 @@ export class AuthService {
   private access_token = null;
 
   constructor(private http: HttpClient, private router : Router, private apiService: ApiService) {
-    this.url = `http://localhost:8080/findByUsernameAndPassword`;
+    this.url = `http://localhost:8080/auth/login`;
   }
 
   authenticationService(username: String, password: String) {
