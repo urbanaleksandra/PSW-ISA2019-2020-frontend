@@ -82,14 +82,30 @@ export class ClinicProfileComponent implements OnInit {
                  console.log(json);
              });
         });
-        
+         const marker = new ol.Feature({
+          geometry: new ol.geom.Point(
+            ol.proj.fromLonLat([this.latitude,this.longitude])
+          ), name: 'My Clinic'
+        });
+        const style = new ol.style.Style({
+          stroke: new ol.style.Stroke({ color: '#F5F113' }),
+          
+          text: new ol.style.Text({
+              text: marker.get('name'),
+              font: '12px Calibri,sans-serif',
+              fill: new ol.style.Fill({ color: '#F5F113' }),
+              stroke: new ol.style.Stroke({
+                  color: '#F5F113', width: 2
+              })
+          })
+      });
+      marker.setStyle(style);
         var layer = new ol.layer.Vector({
           
           source: new ol.source.Vector({
               features: [
-                  new ol.Feature({
-                      geometry: new ol.geom.Point(ol.proj.fromLonLat([this.latitude,this.longitude]))
-                  }) 
+                 marker 
+                  
               ]
           }) 
       });
