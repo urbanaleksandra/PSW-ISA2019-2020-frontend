@@ -32,4 +32,8 @@ export class DoctorService{
     getAllDoctors() {
         return this.http.get<any>('http://localhost:8080/doctors');
       }
+
+      getAllDoctors2() {
+        return this.http.get<any>('http://localhost:8080/doctors/'+sessionStorage.getItem("authenticatedUser"));
+      }
 }

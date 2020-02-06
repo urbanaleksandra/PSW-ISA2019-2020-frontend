@@ -33,7 +33,7 @@ export class Doctor{
 
             krajRadnogVremena:String="";
 
-            clinic: Clinic;
+            clinic: Clinic= new Clinic();
 
 
 }

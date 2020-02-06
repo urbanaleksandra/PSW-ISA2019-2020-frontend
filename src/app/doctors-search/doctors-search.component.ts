@@ -39,9 +39,10 @@ export class DoctorsSearchComponent implements OnInit {
 
 
   getDoctors() {
-    this.service.getAllDoctors().subscribe(
+    this.service.getAllDoctors2().subscribe(
       data => {
         this.doctors = data;
+        console.log(data[0])
         this.dataSource = new MatTableDataSource(this.doctors);
       }, error => {
         console.log(error);
