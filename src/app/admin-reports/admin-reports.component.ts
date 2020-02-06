@@ -87,7 +87,7 @@ export class AdminReportsComponent implements OnInit {
   }
 
   getDoctors() {
-    this.doctorService.getAllDoctors().subscribe(
+    this.doctorService.getAllDoctors2().subscribe(
       data => {
         this.doctors = data;
         this.dataSource = new MatTableDataSource(this.doctors);
@@ -114,7 +114,7 @@ export class AdminReportsComponent implements OnInit {
   }
 
   getAppointments() {
-    this.adminService.getAppointments().subscribe(
+    this.adminService.getAppointmentsAdmin().subscribe(
       data => {
         this.appointments = data;
         for (let i = 0; i < this.appointments.length; i++) {
