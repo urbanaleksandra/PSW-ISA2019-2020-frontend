@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppointmentService } from '../service/appointment.service';
 import { Appointment } from '../model/Appointment';
+import { Observable, timer, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-already-created-appointments',
@@ -12,11 +13,17 @@ export class AlreadyCreatedAppointmentsComponent implements OnInit {
 
   appointments: Appointment[] = [];
   usernameUlogovanog: string;
+  
+  everySecond: Observable<number> = timer(0, 1000);
+  private subscription: Subscription;
 
   constructor(private router: Router, private appService: AppointmentService) { }
 
   ngOnInit() {
-    this.getAlreadyCreatedAppointments();
+    this.subscription = this.everySecond.subscribe((seconds) => {
+      this.getAlreadyCreatedAppointments();
+    })
+    
 
   }
 
