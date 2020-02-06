@@ -30,7 +30,7 @@ export class HospitalRoomSearchComponent implements OnInit {
   }
 
   getRooms() {
-    this.service.getAllRooms().subscribe(
+    this.service.getAllRooms2().subscribe(
       data => {
         this.rooms = data;
         this.dataSource = new MatTableDataSource(this.rooms);
