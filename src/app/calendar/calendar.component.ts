@@ -64,6 +64,7 @@ export class CalendarComponent implements OnInit {
       var splitted = startString.split("T"); 
       if(splitted[0] == this.todayString && splittedTitle[1]=="appointment" && splittedTitle[4]=="AVAILABLE"){
         alert('pregled moze da pocne');
+        sessionStorage.setItem('clickedPatient', splittedTitle[5]);
         window.location.href = 'http://localhost:4200/appointment-report/' + splittedTitle[0];
       }
       else if(splittedTitle[4]=="FINISHED")
