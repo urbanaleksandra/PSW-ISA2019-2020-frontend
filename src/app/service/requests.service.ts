@@ -20,6 +20,11 @@ export class RequestService{
     getRequestA(){
         return this.http.get<Appointment[]>('http://localhost:8080/getAppointmentRequests');
     }
+
+    getRequestA2(){
+        return this.http.get<Appointment[]>('http://localhost:8080/api/all-requestAppointments/'+sessionStorage.getItem("authenticatedUser"));
+    }
+
     deleteRequest(patient: Patient){
         return this.http.post('http://localhost:8080/api/deny-request', patient);
 

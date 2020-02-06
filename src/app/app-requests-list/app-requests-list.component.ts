@@ -95,7 +95,7 @@ export class AppRequestsListComponent implements OnInit {
 
   getReqs() {
     this.user.username = sessionStorage.getItem("authenticatedUser");
-    this.requestsService.getRequestA().subscribe(
+    this.requestsService.getRequestA2().subscribe(
       data => {
         this.reqs = data;
         console.log(this.reqs[0].doctorUsername)
