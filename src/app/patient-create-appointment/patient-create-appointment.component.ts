@@ -46,6 +46,8 @@ export class PatientCreateAppointmentComponent implements OnInit {
         alert("Request for creating the appointment has been successfully sent to clinic administrator.");
         this.router.navigateByUrl("/patient-home-page");
     }, error =>{
+        alert("Someone has already scheduled an appointment with this doctor at this time. Pick another date or another doctor.");
+        this.router.navigateByUrl("/clinics");
         console.log(error);
     }
     );
