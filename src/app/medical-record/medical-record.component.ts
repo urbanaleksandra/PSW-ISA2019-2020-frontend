@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Appointment } from '../model/Appointment';
 import { MedicalRecordService } from '../service/medicalRecord.service';
 import { Surgery } from '../model/Surgery';
+import { MedicalRecordEdit } from '../model/MedicalRecordEdit';
 
 @Component({
   selector: 'app-medical-record',
@@ -20,12 +21,26 @@ export class MedicalRecordComponent implements OnInit {
   surgeries : Surgery[] = [];
   surgeries1 : Surgery[] = [];
   surgery : Surgery;
+  medicalRecordEdit : MedicalRecordEdit;
 
   constructor(private router: Router, private service: MedicalRecordService) { }
 
   ngOnInit() {
     this.getAppointments();
     this.getSurgeries();
+    this.getMedRec();
+    
+  }
+
+  getMedRec(){
+    this.usernameUlogovanog = sessionStorage.getItem("authenticatedUser");
+    this.service.getMedicalRecordInfo(this.usernameUlogovanog).subscribe(
+      data=>{
+        this.medicalRecordEdit = data;
+      }, error =>{
+        console.log(error);
+      }
+    );
   }
 
   getAppointments(){

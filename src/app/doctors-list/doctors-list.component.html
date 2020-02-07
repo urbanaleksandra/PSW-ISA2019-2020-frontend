@@ -25,7 +25,7 @@
       </h3>
       <div class="search-hero">
         <input class="form-control " type="search"  name="search" [(ngModel)]="searchText" 
-          placeholder="Search doctors by name, last name or rating" style="width: 450px; margin: 10px;">
+          placeholder="Search doctors" style="width: 450px; margin: 10px;">
       </div>
       <table class="table table-striped">
         <thead>
@@ -33,6 +33,9 @@
             <th>Name</th>
             <th>Last name</th>
             <th>Rating</th>
+            <th>City</th>
+            <th>Country</th>
+            <th>Email</th>
             <th style="width: 174px;">Select a time</th>
           </tr>
         </thead>
@@ -41,6 +44,9 @@
             <td>{{doctor.firstName}}</td>
             <td>{{doctor.lastName}}</td>
             <td>{{doctor.review}}</td>
+            <td>{{doctor.city}}</td>
+            <td>{{doctor.country}}</td>
+            <td>{{doctor.email}}</td>
             <td><a class="btn btn-outline-success" (click)="addTimeForm(doctor)" style="font-size: 14px; ">select</a></td>
           </tr>
         </tbody>

@@ -19,8 +19,8 @@
 
 <div class= "container"  >
 
-  <h4>Appointments:</h4>
-  <table class="table table-hover" >
+  <h4 style="margin-top: 2em;">Appointments:</h4>
+  <table class="table table-hover"  >
       <thead class="thead-light">
           <tr>
             <th>Date</th>
@@ -29,8 +29,7 @@
             <th>Duration</th>
             <th>Type</th>
             <!-- <th>Doctor</th>
-            <th>Hospital room</th>
-            <th>Recipe</th> -->
+            <th>Hospital room</th> -->
           </tr>
         </thead>
         <tbody>
@@ -40,9 +39,8 @@
               <td>{{ appointment?.description }}</td>
               <td>{{ appointment?.duration }}</td>
               <td>{{ appointment?.type }}</td>
-              <!-- <td>{{ appointment.doctor }}</td>
-              <td>{{ appointment.hospitalRoom }}</td>
-              <td>{{ appointment.recipe }}</td> -->
+              <!-- <td>{{ appointment.doctor.firstName }}</td>
+              <td>{{ appointment.hospitalRoom.name }}</td> -->
             </tr>
           </tbody>
   </table>
@@ -58,8 +56,6 @@
               <th>Date</th>
               <th>Time</th>
               <th>Description</th>
-              <!-- <th>Doctor</th>
-              <th>Hospital room</th> -->
             </tr>
           </thead>
           <tbody>
@@ -72,7 +68,23 @@
     </table>
    
     
+</div>
+
+<div class= "container">
+  <div class="col-12 col-md-6 col-lg-4">
+    <div class="opening-hours">
+        <h2 class="d-flex align-items-center">About you: </h2>
+
+        <ul class="p-0 m-0">
+            <li>Blood type: <span> {{medicalRecordEdit?.bloodType}}</span></li>
+            <li>Diopter: <span>{{medicalRecordEdit?.diopter}}</span></li>
+            <li>Height: <span>{{medicalRecordEdit?.height}} cm</span></li>
+            <li>Weight: <span>{{medicalRecordEdit?.weight}} kg</span></li>
+        </ul>
+    </div>
   </div>
+</div>
+
   <!-- Footer -->
   <footer class="page-footer font-small special-color-dark pt-4">
 

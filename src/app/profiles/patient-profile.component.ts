@@ -33,6 +33,7 @@ export class PatientProfleComponent implements OnInit {
         data =>{
           this.patient=data;
           console.log(this.patient);
+          console.log(this.patient.firstName);
       },
       error => {
       console.log(error);
@@ -71,9 +72,10 @@ export class PatientProfleComponent implements OnInit {
     this.newPatient.email = this.patient.email;
     this.newPatient.jmbg = this.patient.jmbg;
 
-    location.reload();
+    this.getPatient();
+    this.patientService.changePatientInfo(this.newPatient).subscribe();
 
-    this.patientService.changePatientInfo(this.newPatient).subscribe()
+    this.getPatient();
   }
 
 }
