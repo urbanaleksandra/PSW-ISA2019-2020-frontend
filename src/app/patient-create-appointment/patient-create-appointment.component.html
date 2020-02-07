@@ -9,8 +9,8 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <!-- <a class="nav-link" href="#" routerLinkActive='active' [routerLink]="['/clinics']">Cancel 
-                    <span class="sr-only">(current)</span></a> -->
+                <a class="nav-link" href="#" routerLinkActive='active' [routerLink]="['/clinics']">Cancel 
+                    <span class="sr-only">(current)</span></a>
 
             </li>
 
@@ -28,7 +28,6 @@
         <p>Doctor: {{this.doctor.firstName}}</p>
         <p>Date: {{this.datumZakazivanja}}</p>
         <p>Time: {{this.vremeZakazivanja}}</p>
-        <p>Type: {{this.tipPregleda}}</p>
         <div class="form-group">
             <label for="duration">Duration (hours):</label>
             <textarea class="form-control" rows="1" placeholder="1" [(ngModel)]="this.appointment.duration"

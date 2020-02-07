@@ -21,7 +21,7 @@ export class PatientService {
   }
 
   getPatient(username : string){
-    return this.http.get<Patient>('http://localhost:8080/pacijent/'+username);
+    return this.http.get<any>('http://localhost:8080/pacijent/'+username);
   }
 
   changePatientInfo(patient : Patient){
