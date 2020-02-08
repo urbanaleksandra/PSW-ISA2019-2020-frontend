@@ -162,6 +162,8 @@ export class ClinicProfileComponent implements OnInit {
       },
       error => {
         console.log(error);
+        alert("Clinic is currently being changed by another admin.");
+        location.reload();
       }
 
     )
