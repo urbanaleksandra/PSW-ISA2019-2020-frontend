@@ -5,9 +5,12 @@ import { Clinic } from '../model/clinic';
 import { ClinicAdministratorService } from '../service/clinicAdministrator.service';
 import { ClinicService } from '../service/clinic.service';
 import { PriceList } from '../model/PriceList';
-import { MatTableDataSource, MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { MatTableDataSource, MatDialog, MAT_DIALOG_DATA, MatDialogRef, MatDialogConfig } from '@angular/material';
 import { DialogPriceComponent } from '../dialog-price/dialog-price.component';
 import { AppointmentType } from '../model/AppointmentType';
+import { PopUpDoctorsAppointmentComponent } from '../pop-up-doctors-appointment/pop-up-doctors-appointment.component';
+import { PopUpMapComponent } from '../pop-up-map/pop-up-map.component';
+import { MapData } from '../model/MapData';
 
 declare var ol: any;
 
@@ -40,6 +43,7 @@ export class ClinicProfileComponent implements OnInit {
 
 
   ngOnInit() {
+    
     this.getMyClinic();
     this.getPrices();
 
@@ -78,13 +82,14 @@ export class ClinicProfileComponent implements OnInit {
             zoom: 17
           })
         });
+        var self = this;
         this.map.on('click', function (evt) {
           
           console.log(ol.proj.transform(evt.coordinate, 'EPSG:3857', 'EPSG:4326'));
           var lat1 = ol.proj.transform(evt.coordinate, 'EPSG:3857', 'EPSG:4326')[0];
           var long1 = ol.proj.transform(evt.coordinate, 'EPSG:3857', 'EPSG:4326')[1];
           this.longii = long1;
-          console.log(this.longitude);
+          console.log(self.longitude);
 
           fetch('http://nominatim.openstreetmap.org/reverse?format=json&lon=' + lat1 + '&lat=' + long1)
             .then(function (response) {
@@ -92,9 +97,23 @@ export class ClinicProfileComponent implements OnInit {
             }).then(function (json) {
               console.log(json);
               const myObjStr = JSON.stringify(json);
-              const str=myObjStr.split(":")
+              var str=myObjStr.split(":")
               console.log(str[8]);
-              alert("If you want to change your clinics adress please copy these values in correspodenting fields: Latitude:"+lat1+" Longitude:"+long1+" Adress:"+str[8])
+              const dialogConfig = new MatDialogConfig();
+              dialogConfig.disableClose = true;
+              dialogConfig.autoFocus = true;
+              dialogConfig.width = "60%";
+              var mapData= new MapData();
+              mapData.longitude=long1;
+              mapData.latitude=lat1;
+              mapData.address=str[8];
+              dialogConfig.data = mapData;
+              
+              self.dialog.open(PopUpMapComponent, dialogConfig );
+
+
+
+             // alert("If you want to change your clinics adress please copy these values in correspodenting fields: Latitude:"+lat1+" Longitude:"+long1+" Adress:"+str[8])
             });
 
         });
