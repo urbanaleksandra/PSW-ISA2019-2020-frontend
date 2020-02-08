@@ -3,6 +3,7 @@ import { Recipe } from '../model/Recipe';
 import { AuthRecipeService } from '../service/auth-recipe.service';
 import { Drug } from '../model/Drug';
 import { AppointmentReportService } from '../service/appointment-report.service';
+import { Observable, Subscription, timer } from 'rxjs';
 
 @Component({
   selector: 'app-auth-recipe',
@@ -13,11 +14,14 @@ export class AuthRecipeComponent implements OnInit {
   recipes: Recipe[] = [];
   drug: Drug = new Drug();
   drugs: Drug[] = [];
+  everySecond: Observable<number> = timer(0, 1000);
+  private subscription: Subscription;
   constructor(private service: AuthRecipeService) { }
 
   ngOnInit() {
-    this.getRecipesDTO();
-    
+    this.subscription = this.everySecond.subscribe((seconds) => {
+      this.getRecipesDTO();
+    })
   }
 
   authRecipe(recipe){
@@ -25,6 +29,9 @@ export class AuthRecipeComponent implements OnInit {
       (result)=>{
         alert("Successfully authed!");
         this.getRecipesDTO();
+     },
+     error => {
+       alert("This recipe is authed right now by other nurse.");
      })       
     
   }
