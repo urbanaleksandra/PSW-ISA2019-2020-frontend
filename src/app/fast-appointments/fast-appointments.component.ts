@@ -111,7 +111,7 @@ addRoom(appointment){
   this.showMessage = false;
   this.addRoomClicked = true;
   this.clickedAppointment = appointment;
-
+console.log(this.clickedAppointment);
       this.Rservice.getAvailableRooms(this.clickedAppointment).subscribe(
         data => {
           this.rooms = data;
