@@ -45,6 +45,7 @@ export class LoginComponent implements OnInit {
     this.authenticationService.loginDone(this.user).subscribe(
 
       (data : User) => {
+        this.successMessage = 'Login Successful.';
         this.user = data;
         console.log(this.user.username);
         console.log(this.user);
@@ -65,6 +66,7 @@ export class LoginComponent implements OnInit {
         }else{
           this.invalidLogin = true;
         }
+        
       
       },
       error => {

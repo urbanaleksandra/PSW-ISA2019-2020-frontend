@@ -5,20 +5,20 @@
                 <h2 class="form-title p-b-26">
                     Welcome
                 </h2>
-                <div class="alert alert-warning" *ngIf='invalidLogin'>{{errorMessage}}</div>
-                <div class="alert alert-success" *ngIf='loginSuccess'>{{successMessage}}</div>
+                <div id="errorMessage" class="alert alert-warning" *ngIf='invalidLogin'>{{errorMessage}}</div>
+                <div id="successMessage" class="alert alert-success" *ngIf='loginSuccess'>{{successMessage}}</div>
                 <div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
-                    <input class="input100" type="text" name="email" placeholder="Username" [(ngModel)]="user.username">
+                    <input id="email" class="input100" type="text" name="email" placeholder="Username" [(ngModel)]="user.username">
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate="Enter password">
                     <span class="btn-show-pass">
                         <i class="zmdi zmdi-eye"></i>
                     </span>
-                    <input class="input100" type="password" name="pass" placeholder="Password" [(ngModel)]="user.password">
+                    <input id="password" class="input100" type="password" name="pass" placeholder="Password" [(ngModel)]="user.password">
                 </div>
 
-                <input type="submit" name="submit" id="submit" class="form-submit" value="Login" (click)="login()"/>
+                <button id="loginButton" type="submit" name="submit" class="form-submit" value="Login" (click)="login()"></button>
 
                 <div class="text-center p-t-115 dhaa">
                     <span class="form-title">
