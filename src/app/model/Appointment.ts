@@ -20,4 +20,5 @@ export class Appointment {
     type2: AppointmentType=new AppointmentType();
     roomID: number = 0;
     clinic: Clinic=new Clinic();
+    price: number=0;
 }
