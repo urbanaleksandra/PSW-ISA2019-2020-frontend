@@ -45,7 +45,7 @@
 
   <div style="background-color: rgb(217, 236, 236, 0.7); padding: 1em; border-radius: 10px;">
     <h5>
-      Choose one of many already scheduled appointments <a href="#" routerLinkActive='active' [routerLink]="['/alreadyCreatedApp']">here</a>
+      Choose one of many already scheduled appointments <a href="#" id="here" routerLinkActive='active' [routerLink]="['/alreadyCreatedApp']">here</a>
     </h5>
   </div>
  
@@ -72,11 +72,11 @@
               name="typeAppointment" id="typeAppointment"> -->
         </div>
 
-        <button class="btn btn-success" type="submit" >Search</button>
+        <button id="search123" class="btn btn-success" type="submit" >Search</button>
     </div>
 </form>
 
-<table *ngIf='flagForSearchTable' class="table table-hover" matSort (matSortChange)="sortData1($event)">
+<table id="tableSearch" *ngIf='flagForSearchTable' class="table table-hover" matSort (matSortChange)="sortData1($event)">
   <thead class="thead-light">
       <tr>
         <th>#</th>

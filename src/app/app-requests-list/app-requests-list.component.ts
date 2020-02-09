@@ -126,9 +126,11 @@ export class AppRequestsListComponent implements OnInit {
       
         this.service.getAvailableRooms(appointment).subscribe(
           data => {
+            console.log("usao!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             this.rooms = data;
             console.log(data);
             if(this.rooms.length == 0){
+              console.log("usao+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=");
               this.showMessage = true;
               this.service.getAvailableRoomForOtherDate(appointment).subscribe(
                 data =>{
