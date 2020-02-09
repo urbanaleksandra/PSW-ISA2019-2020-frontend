@@ -40,11 +40,16 @@
 
                             Address:
                             <mat-form-field class="example-full-width">
-                                <input matInput [(ngModel)]="clinic.address" name="adresa">
+                                <input matInput [(ngModel)]="clinic.address" name="adresa" disabled="true">
                             </mat-form-field>
 
 
-
+                            <mat-form-field class="example-full-width">
+                                <input matInput [(ngModel)]="clinic.lat" disabled="true" name="lat">
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <input matInput [(ngModel)]="clinic.longitude" disabled="true" name="long">
+                            </mat-form-field>
                             Description:
                             <mat-form-field class="example-full-width">
                                 <input matInput [(ngModel)]="clinic.description" name="opis">
