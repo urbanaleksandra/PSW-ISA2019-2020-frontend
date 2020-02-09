@@ -53,6 +53,10 @@ export class HospitalRoomSearchComponent implements OnInit {
     modifyRoom(room: HospitalRoom){
     console.log(room.name);
     console.log(this.newRoom.name,this.newRoom.room_number)
+    if(this.newRoom.name === ""){
+      this.newRoom.name =room.name;
+    }
+
     this.service.modifyRoom(this.newRoom,room.name).subscribe(
       data => {
         location.reload();

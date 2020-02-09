@@ -64,6 +64,7 @@ export class FastAppointmentsComponent implements OnInit {
 
 
   onSubmit() {
+    if(this.appointment.description!="") {
     if(this.selectedTime == '10-12h')
     this.appointment.date = this.parserFormatter.format(this.date1) + 'T10:00';
   else  if(this.selectedTime == '12-14h')
@@ -75,7 +76,7 @@ export class FastAppointmentsComponent implements OnInit {
   console.log(this.appointment);
     
   this.appointment.duration = 2;
-
+if(this.appointment.date!=""){
       this.clickedAppointment=this.appointment;
       this.user.username = sessionStorage.getItem("authenticatedUser");
       this.adminService.getMyClinic(this.user.username).subscribe(
@@ -96,7 +97,13 @@ export class FastAppointmentsComponent implements OnInit {
         }, error =>{
           console.log(error);
       }
-      );
+      ); }
+    else {
+      alert("Some fields are empty");
+    }}
+      else {
+        alert("Some fields are empty");
+      }
   }
   ngOnInit() {
     this.jstoday = formatDate(this.today, 'dd-MM-yyyy', 'en-US', '+0530');
