@@ -8,6 +8,7 @@ import { HospitalRoom } from '../model/HospitalRoom';
 import { AvailableRoom } from '../model/AvailableRoom';
 import { SurgeryRoomService } from '../service/surgery-room.service';
 import { RequestAppointmentService } from '../service/requestAppointment.service';
+import { Router } from '@angular/router';
 
 declare var ol: any;
 
@@ -65,12 +66,13 @@ export class AppRequestsListComponent implements OnInit {
   clickedAppointment: Appointment;
   showMessage: boolean = false;
   availableRoom: AvailableRoom = new AvailableRoom();
+  
 
   latitude: number =18.11041262280196;
   longitude: number = 43.259405942773384;
    map: any;
   
-  constructor(private requestsService: RequestService,private service: RequestAppointmentService) { }
+  constructor(private router: Router,private requestsService: RequestService,private service: RequestAppointmentService) { }
 
   ngOnInit() {
     this.getReqs();
@@ -136,6 +138,7 @@ export class AppRequestsListComponent implements OnInit {
             }
           },error => {
             console.log(error);
+          
           }
         )
       }
@@ -148,6 +151,8 @@ export class AppRequestsListComponent implements OnInit {
               location.reload();
             }, error => {
               console.log(error);
+              alert('Please wait,data is currently being used by another administrator.');
+              location.reload(); 
             }
           )
       }

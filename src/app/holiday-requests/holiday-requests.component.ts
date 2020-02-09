@@ -5,6 +5,7 @@ import { HolidayRequest } from '../model/HolidayRequest';
 import { HolidayRequestString } from '../model/HolidayRequestString';
 import { MatTableDataSource } from '@angular/material';
 import { User } from '../model/User';
+import { timer, Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-holiday-requests',
@@ -20,6 +21,10 @@ import { User } from '../model/User';
 })
 export class HolidayRequestsComponent implements OnInit {
   user : User= new User();
+
+  everySecond: Observable<number> = timer(0, 5000);
+  private subscription: Subscription;
+
   reqs: HolidayRequest[] = [];
   newReq: HolidayRequest = new HolidayRequest();
   isButtonVisible=false;
@@ -27,16 +32,21 @@ export class HolidayRequestsComponent implements OnInit {
   constructor(private service : HolidayRequestService) { }
   dataSource = new MatTableDataSource(this.reqs);
   ngOnInit(): void  {
-  this.getReqs();
+
+    
+    this.getReqs();
+    
+  
   }
 
   confirm(req: HolidayRequest){
    req.confirmed=true;
-   this.service.change(req,"").subscribe(
+   this.service.change(req,"prihvaceno").subscribe(
     data => {
       this.getReqs();
     location.reload();
     }, error => {
+      alert('Someone already update this request.');
       console.log(error);
     }
    );
@@ -64,6 +74,7 @@ export class HolidayRequestsComponent implements OnInit {
      location.reload();
      }, error => {
        console.log(error);
+       alert('Someone already update this request.');
      }
     );
    }
@@ -80,5 +91,5 @@ export class HolidayRequestsComponent implements OnInit {
       }
     )
     }
-    columnsToDisplay = ['dateEnd', 'dateStart','username','confirmed'];
+    columnsToDisplay = ['dateEnd', 'dateStart','username'];
 }

@@ -64,6 +64,11 @@ import { EditMedicalRecordComponent } from './edit-medical-record/edit-medical-r
 import { EditOldAppointmentReportComponent } from './edit-old-appointment-report/edit-old-appointment-report.component';
 import { ConfirmAccountComponent } from './confirm-account/confirm-account.component';
 
+import { TokenInterceptor } from './login/TokenInterceptor';
+
+import { PopUpMapComponent } from './pop-up-map/pop-up-map.component';
+
+
 
 @NgModule({
   declarations: [
@@ -115,7 +120,8 @@ import { ConfirmAccountComponent } from './confirm-account/confirm-account.compo
     EditOldAppointmentReportComponent,
     AlreadyCreatedAppointmentsComponent,
     EditMedicalRecordComponent,
-    ConfirmAccountComponent
+    ConfirmAccountComponent,
+    PopUpMapComponent
   ],
   imports: [
     BrowserModule,
@@ -139,15 +145,10 @@ import { ConfirmAccountComponent } from './confirm-account/confirm-account.compo
 
   ],
   providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: HttpInterceptorService,
-      multi: true
-
-    }
+    { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }
   ],
   bootstrap: [AppComponent],
-  entryComponents:[PopUpDoctorsComponent,DialogPriceComponent,PopUpDoctorsAppointmentComponent],
+  entryComponents:[PopUpDoctorsComponent,DialogPriceComponent,PopUpDoctorsAppointmentComponent,PopUpMapComponent],
 
 })
 export class AppModule { }
