@@ -140,12 +140,7 @@ import { TokenInterceptor } from './login/TokenInterceptor';
 
   ],
   providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptor,
-      multi: true
-
-    }
+    { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }
   ],
   bootstrap: [AppComponent],
   entryComponents:[PopUpDoctorsComponent,DialogPriceComponent,PopUpDoctorsAppointmentComponent],

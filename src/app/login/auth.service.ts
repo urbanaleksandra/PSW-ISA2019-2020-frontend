@@ -20,31 +20,31 @@ export class AuthService {
   private access_token = null;
 
   constructor(private http: HttpClient, private router : Router, private apiService: ApiService) {
-    this.url = `http://localhost:8080/findByUsernameAndPassword`;
+    this.url = `http://localhost:8080/auth/login`;
   }
 
-  authenticationService(username: String, password: String) {
-    console.log(username);
+  authenticationService(username1: String, password1: String) {
+    console.log(username1);
     const loginHeaders = new HttpHeaders({
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     });
     const body = {
-      'username' : username,
-      'password' : password
+      'username' : username1,
+      'password' : password1
     };
 
     return this.apiService.post(this.url, JSON.stringify(body), loginHeaders)
     .pipe(
       map((res) => {
       console.log('Login success');
-      this.username = username;
-      this.password = password;
-      //this.access_token = res.access_token;
-      console.log(res + 'ok');
+      this.username = username1;
+      this.password = password1;
+      this.access_token = res.accessToken;
+      console.log(res.accessToken + 'ok');
       // console.log(res.accessToken); //ako je na serveru u beku dobro return-ovan token, onda je on ovde
       // console.log(this.access_token);
-      this.registerSuccessfulLogin(username, password);
+      this.registerSuccessfulLogin(username1, password1);
     }));
   }
 
@@ -80,7 +80,7 @@ export class AuthService {
   }
 
   tokenIsPresent() {
-    return this.access_token != undefined && this.access_token != null;
+    return true;
   }
 
   getToken() {
