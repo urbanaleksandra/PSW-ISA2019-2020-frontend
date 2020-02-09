@@ -150,6 +150,7 @@ export class AppRequestsListComponent implements OnInit {
           this.service.setRoom(this.clickedAppointment).subscribe(
             data => {
               console.log("added");
+              alert("success");
               location.reload();
             }, error => {
               console.log(error);
