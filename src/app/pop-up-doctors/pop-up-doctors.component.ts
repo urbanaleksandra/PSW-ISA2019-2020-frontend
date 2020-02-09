@@ -73,6 +73,11 @@ export class PopUpDoctorsComponent implements OnInit {
       (result)=>{ 
         alert("success!!");
         window.location.href = 'http://localhost:4200/surgery-hospital-room';
+    },
+    error => {
+      console.log(error);
+      alert("this hospital room is already sheduled!");
+      window.location.href = 'http://localhost:4200/surgery-hospital-room';
     });
     this.onClose();
   }
