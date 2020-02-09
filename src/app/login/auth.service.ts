@@ -40,7 +40,7 @@ export class AuthService {
       console.log('Login success');
       this.username = username;
       this.password = password;
-      this.access_token = res.access_token;
+      //this.access_token = res.access_token;
       console.log(res + 'ok');
       // console.log(res.accessToken); //ako je na serveru u beku dobro return-ovan token, onda je on ovde
       // console.log(this.access_token);

@@ -35,10 +35,11 @@ export class LoginComponent implements OnInit {
       this.invalidLogin = false;
       this.loginSuccess = true;
       this.isVisible = false;
-      console.log(result);
+      console.log(result+ "bla");
       this.successMessage = 'Login Successful.';
-      this.router.navigate(['/profileClinicCenterAdmin']);
-    });      
+    });
+    
+    this.login();
   }
 
   login(){
@@ -47,8 +48,8 @@ export class LoginComponent implements OnInit {
       (data : User) => {
         this.successMessage = 'Login Successful.';
         this.user = data;
-        console.log(this.user.username);
-        console.log(this.user);
+        //console.log(this.user.username);
+        //console.log(this.user);
         sessionStorage.setItem("authenticatedUser", this.user.username)
         sessionStorage.setItem("authenticatedUserRole", this.user.role)
         if(this.user.role === "CCA"){
