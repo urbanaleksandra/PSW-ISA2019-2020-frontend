@@ -1,9 +1,9 @@
 # MyApp
 
-Authors:
-Aleksandra Urban,
-Željana Šipovac and
-Tamara Jovičić
+Authors
+- Tamara Jovicic - tacajovicic@gmial.com
+- Aleksandra Urban - urb.saska@gmail.com
+- Zeljana Sipovac - zeki.sipovac@gmail.com
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.18.
 
