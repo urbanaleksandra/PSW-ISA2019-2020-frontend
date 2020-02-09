@@ -11,6 +11,7 @@ import { AppointmentType } from '../model/AppointmentType';
 import { PopUpDoctorsAppointmentComponent } from '../pop-up-doctors-appointment/pop-up-doctors-appointment.component';
 import { PopUpMapComponent } from '../pop-up-map/pop-up-map.component';
 import { MapData } from '../model/MapData';
+import { IfStmt } from '@angular/compiler';
 
 declare var ol: any;
 
@@ -34,8 +35,8 @@ export class ClinicProfileComponent implements OnInit {
   clinic: Clinic = new Clinic();
   priceList: PriceList[] = [];
   name: String = "";
-  latitude: number = 18.11041262280196;
-  longitude: number = 43.259405942773384;
+  longitude: number = 18.11041262280196;
+  latitude: number = 43.259405942773384;
   map: any;
   static clinicService: any;
   constructor(private service: ClinicAdministratorService, private clinicService: ClinicService, public dialog: MatDialog) { }
@@ -156,17 +157,20 @@ export class ClinicProfileComponent implements OnInit {
   }
 
   modifyClinic() {
-    this.clinicService.changeClinicData(this.clinic, this.name).subscribe(
-      data => {
-        location.reload();
-      },
-      error => {
-        console.log(error);
-        alert("Clinic is currently being changed by another admin.");
-        location.reload();
-      }
+    if(this.clinic.name != "" && this.clinic.description != ""){
+      this.clinicService.changeClinicData(this.clinic, this.name).subscribe(
+        data => {
+          location.reload();
+        },
+        error => {
+          console.log(error);
+          alert("Clinic is currently being changed by another admin.");
+          location.reload();
+        });
 
-    )
+    }else{
+      alert("Polja ne smeju biti prazna");
+    }
   }
 
   

@@ -81,7 +81,7 @@ export class PopUpDoctorsAppointmentComponent implements OnInit {
     if (!this.form.valid) {
       return false;
     } else {
-      alert(JSON.stringify(this.form.value))
+     
       const doc= JSON.stringify(this.form.value).split(':');
       const d=doc[2];
       this.resRoom.doctor = d[0];
@@ -90,6 +90,7 @@ export class PopUpDoctorsAppointmentComponent implements OnInit {
       this.appService.setRoomOfFastAppointment(this.resRoom).subscribe(
         (result)=>{ 
           alert("success!!");
+          location.reload();
          // window.location.href = 'http://localhost:4200/surgery-hospital-room';
       });
       this.onClose();

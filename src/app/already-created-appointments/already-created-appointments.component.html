@@ -38,7 +38,7 @@
                 <td>{{ app.hospitalRoom.name }}</td> 
                 <td>{{ app.doctor.firstName }}</td>
                 <td>{{ app.type }}</td>
-                <td><a class="btn btn-outline-success" (click)="scheduleApp(app)" style="font-size: 14px; ">reserve</a></td>
+                <td><a  name={{app.type}} class="btn btn-outline-success" (click)="scheduleApp(app)" style="font-size: 14px; ">reserve</a></td>
               </tr>
             </tbody>
     </table>

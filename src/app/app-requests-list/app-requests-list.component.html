@@ -9,13 +9,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#" routerLinkActive='active' [routerLink]="['/doctorHomePage']">Home <span
+                <a class="nav-link" href="#" routerLinkActive='active' [routerLink]="['/cadmin-home-page']">Home <span
                         class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#" routerLinkActive='active' [routerLink]="['/doctorHomePage']">Profile<span
-                        class="sr-only">(current)</span></a>
-            </li>
+       
 
         </ul>
 
@@ -42,7 +39,7 @@
                     <div class="container">
                         <div class="row">
 
-                            <button mat-stroked-button style="margin: 10px; width: 300px;" (click)="addRoom(element)"
+                            <button id="buttonFindRoom" mat-stroked-button style="margin: 10px; width: 300px;" (click)="addRoom(element)"
                                 color="primary">Find hospital room for this appointment</button>
 
                         </div>
@@ -54,7 +51,7 @@
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
-    <tr mat-row *matRowDef="let element; columns: columnsToDisplay;" class="example-element-row"
+    <tr id={{element.id}} mat-row *matRowDef="let element; columns: columnsToDisplay;" class="example-element-row"
         [class.example-expanded-row]="expandedElement === element"
         (click)="expandedElement = expandedElement === element ? null : element">
     </tr>
@@ -109,7 +106,7 @@
                             name="dateAppointment">
                     </mat-form-field>
                 </p>
-                <button class="btn btn-outline-success" (click)="chooseDoctor2(availableRoom.id)">Choose this
+                <button id="aaa"  class="btn btn-outline-success" (click)="chooseDoctor2(availableRoom.id)">Choose this
                     room</button>
             </div>
         </div>
